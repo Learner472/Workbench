@@ -7,7 +7,7 @@ module.exports = async (req, res) => {
     const c = await collection();
     if (req.method === "GET") {
       const d = await c.findOne({ _id: "main" });
-      return d ? res.status(200).json(d.data) : res.status(404).json({ message: "No data yet" });
+      return res.status(200).json(d ? d.data : null); // first run: no data yet (null, not an error)
     }
     if (req.method === "PUT") {
       const body = req.body;
