@@ -2070,7 +2070,7 @@ async function wsLoad() {
   if (WS_API) {
     const r = await fetch(WS_API + "/state", { cache: "no-store", headers: wsHdr() });
     if (r.status === 401) throw new Error("LOCKED");
-    if (r.status === 404) return null;
+    if (r.status === 404) { let m = ""; try { m = (await r.json()).message; } catch (e) {} if (m === "No data yet") return null; throw new Error("API not found (404) — the api folder did not deploy. Check that api/state.js is in your repository"); }
     if (!r.ok) { let m = ""; try { m = (await r.json()).message; } catch (e) {} throw new Error(m || "API " + r.status); }
     return r.json();
   }
