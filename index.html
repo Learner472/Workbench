@@ -1,0 +1,2503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Workbench — Projects, Charge Lab &amp; Personal</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Ccircle cx='12' cy='12' r='10' fill='none' stroke='%230f9f9a' stroke-width='2'/%3E%3Cpath d='M12 12l4-4' fill='none' stroke='%230f9f9a' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700&family=Lora:wght@400;500;600&display=swap">
+<style>
+*,:after,:before{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgba(59,130,246,.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgba(59,130,246,.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }/*! tailwindcss v3.4.19 | MIT License | https://tailwindcss.com*/*,:after,:before{box-sizing:border-box;border:0 solid #e5e7eb}:after,:before{--tw-content:""}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;-o-tab-size:4;tab-size:4;font-family:ui-sans-serif,system-ui,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,Liberation Mono,Courier New,monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0}fieldset,legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::-moz-placeholder,textarea::-moz-placeholder{opacity:1;color:#9ca3af}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]:where(:not([hidden=until-found])){display:none}.absolute{position:absolute}.relative{position:relative}.left-0{left:0}.top-0{top:0}.mx-auto{margin-left:auto;margin-right:auto}.mb-2{margin-bottom:.5rem}.mb-3{margin-bottom:.75rem}.ml-8{margin-left:2rem}.ml-auto{margin-left:auto}.mr-2{margin-right:.5rem}.mt-0\.5{margin-top:.125rem}.mt-2{margin-top:.5rem}.mt-3{margin-top:.75rem}.flex{display:flex}.inline-flex{display:inline-flex}.grid{display:grid}.h-\[2px\]{height:2px}.max-h-56{max-height:14rem}.min-h-screen{min-height:100vh}.w-24{width:6rem}.w-28{width:7rem}.w-32{width:8rem}.w-40{width:10rem}.w-5{width:1.25rem}.w-64{width:16rem}.w-full{width:100%}.max-w-7xl{max-width:80rem}.shrink-0{flex-shrink:0}.transform{transform:translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}@keyframes spin{to{transform:rotate(1turn)}}.animate-spin{animation:spin 1s linear infinite}.grid-cols-1{grid-template-columns:repeat(1,minmax(0,1fr))}.grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}.flex-col{flex-direction:column}.flex-wrap{flex-wrap:wrap}.items-end{align-items:flex-end}.items-center{align-items:center}.justify-center{justify-content:center}.justify-between{justify-content:space-between}.gap-1{gap:.25rem}.gap-1\.5{gap:.375rem}.gap-2{gap:.5rem}.gap-3{gap:.75rem}.gap-4{gap:1rem}.gap-5{gap:1.25rem}.space-y-1>:not([hidden])~:not([hidden]){--tw-space-y-reverse:0;margin-top:calc(.25rem*(1 - var(--tw-space-y-reverse)));margin-bottom:calc(.25rem*var(--tw-space-y-reverse))}.space-y-2>:not([hidden])~:not([hidden]){--tw-space-y-reverse:0;margin-top:calc(.5rem*(1 - var(--tw-space-y-reverse)));margin-bottom:calc(.5rem*var(--tw-space-y-reverse))}.space-y-3>:not([hidden])~:not([hidden]){--tw-space-y-reverse:0;margin-top:calc(.75rem*(1 - var(--tw-space-y-reverse)));margin-bottom:calc(.75rem*var(--tw-space-y-reverse))}.space-y-4>:not([hidden])~:not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1rem*(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1rem*var(--tw-space-y-reverse))}.space-y-5>:not([hidden])~:not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1.25rem*(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1.25rem*var(--tw-space-y-reverse))}.space-y-6>:not([hidden])~:not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1.5rem*(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1.5rem*var(--tw-space-y-reverse))}.overflow-auto{overflow:auto}.overflow-hidden{overflow:hidden}.rounded-md{border-radius:.375rem}.rounded-sm{border-radius:.125rem}.border{border-width:1px}.border-b{border-bottom-width:1px}.border-t{border-top-width:1px}.border-dashed{border-style:dashed}.border-amber-700{--tw-border-opacity:1;border-color:rgb(180 83 9/var(--tw-border-opacity,1))}.border-amber-800{--tw-border-opacity:1;border-color:rgb(146 64 14/var(--tw-border-opacity,1))}.border-emerald-700{--tw-border-opacity:1;border-color:rgb(4 120 87/var(--tw-border-opacity,1))}.border-orange-700{--tw-border-opacity:1;border-color:rgb(194 65 12/var(--tw-border-opacity,1))}.border-rose-700{--tw-border-opacity:1;border-color:rgb(190 18 60/var(--tw-border-opacity,1))}.border-rose-800{--tw-border-opacity:1;border-color:rgb(159 18 57/var(--tw-border-opacity,1))}.border-sky-700{--tw-border-opacity:1;border-color:rgb(3 105 161/var(--tw-border-opacity,1))}.border-sky-900{--tw-border-opacity:1;border-color:rgb(12 74 110/var(--tw-border-opacity,1))}.border-slate-600{--tw-border-opacity:1;border-color:rgb(71 85 105/var(--tw-border-opacity,1))}.border-slate-700{--tw-border-opacity:1;border-color:rgb(51 65 85/var(--tw-border-opacity,1))}.border-slate-800{--tw-border-opacity:1;border-color:rgb(30 41 59/var(--tw-border-opacity,1))}.bg-amber-950\/20{background-color:rgba(69,26,3,.2)}.bg-amber-950\/40{background-color:rgba(69,26,3,.4)}.bg-emerald-950\/40{background-color:rgba(2,44,34,.4)}.bg-orange-950\/40{background-color:rgba(67,20,7,.4)}.bg-rose-900\/40{background-color:rgba(136,19,55,.4)}.bg-rose-950\/40{background-color:rgba(76,5,25,.4)}.bg-sky-950\/30{background-color:rgba(8,47,73,.3)}.bg-sky-950\/40{background-color:rgba(8,47,73,.4)}.bg-slate-800{--tw-bg-opacity:1;background-color:rgb(30 41 59/var(--tw-bg-opacity,1))}.bg-slate-900{--tw-bg-opacity:1;background-color:rgb(15 23 42/var(--tw-bg-opacity,1))}.bg-slate-950{--tw-bg-opacity:1;background-color:rgb(2 6 23/var(--tw-bg-opacity,1))}.bg-slate-950\/50{background-color:rgba(2,6,23,.5)}.bg-teal-600{--tw-bg-opacity:1;background-color:rgb(13 148 136/var(--tw-bg-opacity,1))}.bg-transparent{background-color:transparent}.bg-gradient-to-r{background-image:linear-gradient(to right,var(--tw-gradient-stops))}.from-teal-500\/0{--tw-gradient-from:rgba(20,184,166,0) var(--tw-gradient-from-position);--tw-gradient-to:rgba(20,184,166,0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from),var(--tw-gradient-to)}.via-teal-500\/70{--tw-gradient-to:rgba(20,184,166,0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from),rgba(20,184,166,.7) var(--tw-gradient-via-position),var(--tw-gradient-to)}.to-teal-500\/0{--tw-gradient-to:rgba(20,184,166,0) var(--tw-gradient-to-position)}.stroke-emerald-400{stroke:#34d399}.stroke-rose-400{stroke:#fb7185}.stroke-slate-600{stroke:#475569}.stroke-slate-800{stroke:#1e293b}.p-1{padding:.25rem}.p-3{padding:.75rem}.p-4{padding:1rem}.p-5{padding:1.25rem}.p-6{padding:1.5rem}.px-2{padding-left:.5rem;padding-right:.5rem}.px-2\.5{padding-left:.625rem;padding-right:.625rem}.px-3{padding-left:.75rem;padding-right:.75rem}.px-4{padding-left:1rem;padding-right:1rem}.px-5{padding-left:1.25rem;padding-right:1.25rem}.py-0\.5{padding-top:.125rem;padding-bottom:.125rem}.py-1{padding-top:.25rem;padding-bottom:.25rem}.py-1\.5{padding-top:.375rem;padding-bottom:.375rem}.py-2{padding-top:.5rem;padding-bottom:.5rem}.py-3{padding-top:.75rem;padding-bottom:.75rem}.py-4{padding-top:1rem;padding-bottom:1rem}.pb-2{padding-bottom:.5rem}.pt-2{padding-top:.5rem}.pt-3{padding-top:.75rem}.text-left{text-align:left}.text-center{text-align:center}.font-mono{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,Liberation Mono,Courier New,monospace}.text-3xl{font-size:1.875rem;line-height:2.25rem}.text-\[11px\]{font-size:11px}.text-sm{font-size:.875rem;line-height:1.25rem}.text-xl{font-size:1.25rem;line-height:1.75rem}.text-xs{font-size:.75rem;line-height:1rem}.font-medium{font-weight:500}.font-semibold{font-weight:600}.uppercase{text-transform:uppercase}.italic{font-style:italic}.tracking-\[0\.18em\]{letter-spacing:.18em}.tracking-wide{letter-spacing:.025em}.tracking-wider{letter-spacing:.05em}.text-amber-200{--tw-text-opacity:1;color:rgb(253 230 138/var(--tw-text-opacity,1))}.text-amber-300{--tw-text-opacity:1;color:rgb(252 211 77/var(--tw-text-opacity,1))}.text-amber-400{--tw-text-opacity:1;color:rgb(251 191 36/var(--tw-text-opacity,1))}.text-emerald-300{--tw-text-opacity:1;color:rgb(110 231 183/var(--tw-text-opacity,1))}.text-emerald-400{--tw-text-opacity:1;color:rgb(52 211 153/var(--tw-text-opacity,1))}.text-orange-300{--tw-text-opacity:1;color:rgb(253 186 116/var(--tw-text-opacity,1))}.text-rose-300{--tw-text-opacity:1;color:rgb(253 164 175/var(--tw-text-opacity,1))}.text-rose-400{--tw-text-opacity:1;color:rgb(251 113 133/var(--tw-text-opacity,1))}.text-sky-300{--tw-text-opacity:1;color:rgb(125 211 252/var(--tw-text-opacity,1))}.text-sky-400{--tw-text-opacity:1;color:rgb(56 189 248/var(--tw-text-opacity,1))}.text-slate-100{--tw-text-opacity:1;color:rgb(241 245 249/var(--tw-text-opacity,1))}.text-slate-200{--tw-text-opacity:1;color:rgb(226 232 240/var(--tw-text-opacity,1))}.text-slate-300{--tw-text-opacity:1;color:rgb(203 213 225/var(--tw-text-opacity,1))}.text-slate-400{--tw-text-opacity:1;color:rgb(148 163 184/var(--tw-text-opacity,1))}.text-slate-50{--tw-text-opacity:1;color:rgb(248 250 252/var(--tw-text-opacity,1))}.text-slate-500{--tw-text-opacity:1;color:rgb(100 116 139/var(--tw-text-opacity,1))}.text-slate-600{--tw-text-opacity:1;color:rgb(71 85 105/var(--tw-text-opacity,1))}.text-teal-300{--tw-text-opacity:1;color:rgb(94 234 212/var(--tw-text-opacity,1))}.text-teal-400{--tw-text-opacity:1;color:rgb(45 212 191/var(--tw-text-opacity,1))}.text-white{--tw-text-opacity:1;color:rgb(255 255 255/var(--tw-text-opacity,1))}.placeholder-slate-600::-moz-placeholder{--tw-placeholder-opacity:1;color:rgb(71 85 105/var(--tw-placeholder-opacity,1))}.placeholder-slate-600::placeholder{--tw-placeholder-opacity:1;color:rgb(71 85 105/var(--tw-placeholder-opacity,1))}.ring{--tw-ring-offset-shadow:var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);--tw-ring-shadow:var(--tw-ring-inset) 0 0 0 calc(3px + var(--tw-ring-offset-width)) var(--tw-ring-color);box-shadow:var(--tw-ring-offset-shadow),var(--tw-ring-shadow),var(--tw-shadow,0 0 #0000)}.filter{filter:var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow)}.transition-colors{transition-property:color,background-color,border-color,text-decoration-color,fill,stroke;transition-timing-function:cubic-bezier(.4,0,.2,1);transition-duration:.15s}.last\:border-0:last-child{border-width:0}.hover\:bg-rose-900\/70:hover{background-color:rgba(136,19,55,.7)}.hover\:bg-slate-700:hover{--tw-bg-opacity:1;background-color:rgb(51 65 85/var(--tw-bg-opacity,1))}.hover\:bg-slate-800:hover{--tw-bg-opacity:1;background-color:rgb(30 41 59/var(--tw-bg-opacity,1))}.hover\:bg-teal-500:hover{--tw-bg-opacity:1;background-color:rgb(20 184 166/var(--tw-bg-opacity,1))}.hover\:text-slate-200:hover{--tw-text-opacity:1;color:rgb(226 232 240/var(--tw-text-opacity,1))}.focus\:border-teal-500:focus{--tw-border-opacity:1;border-color:rgb(20 184 166/var(--tw-border-opacity,1))}.focus\:outline-none:focus{outline:2px solid transparent;outline-offset:2px}.focus\:ring-1:focus{--tw-ring-offset-shadow:var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);--tw-ring-shadow:var(--tw-ring-inset) 0 0 0 calc(1px + var(--tw-ring-offset-width)) var(--tw-ring-color);box-shadow:var(--tw-ring-offset-shadow),var(--tw-ring-shadow),var(--tw-shadow,0 0 #0000)}.focus\:ring-teal-500:focus{--tw-ring-opacity:1;--tw-ring-color:rgb(20 184 166/var(--tw-ring-opacity,1))}.disabled\:cursor-not-allowed:disabled{cursor:not-allowed}.disabled\:opacity-40:disabled{opacity:.4}@media (min-width:768px){.md\:grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}.md\:grid-cols-3{grid-template-columns:repeat(3,minmax(0,1fr))}.md\:p-8{padding:2rem}}@media (min-width:1024px){.lg\:grid-cols-3{grid-template-columns:repeat(3,minmax(0,1fr))}.lg\:grid-cols-6{grid-template-columns:repeat(6,minmax(0,1fr))}}
+
+<style>
+  .test-panel{background:linear-gradient(180deg,rgba(15,23,42,.98),rgba(2,6,23,.96));border:1px solid #1e293b;border-radius:6px;overflow:hidden;}
+  .test-panel__header{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;padding:14px 15px;border-bottom:1px solid #1e293b;background:rgba(15,23,42,.8);}
+  .test-panel__title{display:flex;align-items:center;gap:9px;font-size:13px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:#e2e8f0;}
+  .test-panel__subtitle{font-size:10px;color:#64748b;margin-top:3px;}
+  .test-panel__body{padding:14px;}
+  .test-history{margin-bottom:14px;}
+  .test-history__label{display:flex;align-items:center;justify-content:space-between;margin-bottom:7px;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:#64748b;}
+  .test-history__empty{padding:9px 10px;border:1px dashed #334155;border-radius:4px;color:#64748b;font-size:11px;background:rgba(2,6,23,.35);}
+  .log-row{display:block;padding:9px 10px;border:1px solid #1e293b;border-radius:4px;background:#0b1220;margin-bottom:6px;}
+  .log-row:last-child{margin-bottom:0;}
+  .log-row__top{display:flex;align-items:flex-start;gap:9px;}
+  .log-row__number{flex:0 0 25px;color:#64748b;font:11px 'IBM Plex Mono',monospace;padding-top:1px;}
+  .log-row__main{min-width:0;flex:1;}
+  .log-row__value{font:11px/1.55 'IBM Plex Mono',monospace;color:#e2e8f0;word-break:break-word;}
+  .log-row__meta{margin-top:4px;display:flex;flex-wrap:wrap;gap:8px;font-size:10px;color:#64748b;}
+  .log-row__note{margin-top:7px;padding:6px 8px;border-left:2px solid #334155;background:rgba(15,23,42,.7);font-size:10px;line-height:1.45;color:#94a3b8;}
+  .measurement-block{border:1px solid #1e293b;border-radius:5px;background:rgba(15,23,42,.48);padding:11px;margin-bottom:10px;}
+  .measurement-block__title{display:flex;align-items:center;gap:7px;font-size:11px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:#7dd3fc;margin-bottom:9px;}
+  .measurement-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px;}
+  .position-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px;}
+  .position-card{border:1px solid #1e293b;border-radius:5px;background:#0b1220;padding:10px;}
+  .position-card__title{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#5eead4;}
+  .position-card__target{font-size:9px;color:#64748b;font-weight:500;letter-spacing:0;text-transform:none;}
+  .position-grid__fields{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;}
+  .log-footer{display:grid;grid-template-columns:1fr 1fr 1.5fr auto;gap:9px;align-items:end;margin-top:10px;padding-top:11px;border-top:1px solid #1e293b;}
+  .required-field input{border-color:#7f1d1d;}
+  .required-field input:focus{border-color:#ef4444;box-shadow:0 0 0 1px rgba(239,68,68,.25);}
+  .required-mark{color:#fb7185;font-weight:700;}
+  .required-hint{font-size:9px;color:#64748b;margin-top:5px;}
+  .gas-field{background:rgba(120,53,15,.14);border:1px solid #713f12;border-radius:5px;padding:7px;}
+  .gas-field input{background:#020617;border-color:#92400e;}
+  .gas-field label span{color:#fbbf24;}
+  .thermo-reference{font-size:10px;color:#64748b;padding:7px 9px;border:1px solid #1e293b;border-radius:4px;background:#0b1220;margin-bottom:10px;}
+  .test-action-row{display:flex;align-items:flex-end;justify-content:space-between;gap:10px;margin-top:10px;padding-top:11px;border-top:1px solid #1e293b;}
+  .test-action-row__fields{display:grid;grid-template-columns:minmax(140px,180px) minmax(140px,1fr);gap:9px;flex:1;}
+  @media(max-width:900px){.measurement-grid,.log-footer{grid-template-columns:1fr 1fr;}.log-footer .log-action{grid-column:1/-1;}.test-action-row{flex-direction:column;align-items:stretch}.test-action-row__fields{grid-template-columns:1fr 1fr}.position-grid{grid-template-columns:1fr;}}
+  @media(max-width:560px){.measurement-grid,.position-grid,.position-grid__fields,.log-footer,.test-action-row__fields{grid-template-columns:1fr;}.test-panel__header{flex-direction:column}.test-action-row{align-items:stretch}}
+
+.testing-toolbar{background:#0f172a;border:1px solid #1e293b;border-radius:4px;padding:14px}
+.testing-toolbar__top{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap}
+.testing-controls{display:grid;grid-template-columns:minmax(260px,1fr) 190px auto;align-items:end;gap:10px;margin-top:13px;padding-top:12px;border-top:1px solid #1e293b}
+.search-box{height:38px;display:flex;align-items:center;gap:8px;padding:0 10px;background:#020617;border:1px solid #334155;border-radius:3px}
+.search-box:focus-within{border-color:#14b8a6;box-shadow:0 0 0 1px rgba(20,184,166,.25)}
+.search-box input{width:100%;background:transparent;border:0;outline:0;color:#e2e8f0;font-size:12px}
+.search-box input::placeholder{color:#475569}
+.search-clear{color:#64748b;font-size:18px;line-height:1;padding:0 2px;background:transparent;border:0}
+.search-clear:hover{color:#e2e8f0}
+.results-count{height:38px;display:flex;align-items:center;justify-content:flex-end;color:#64748b;font-size:11px;white-space:nowrap}
+.results-count b{color:#cbd5e1;margin-right:3px}
+.modal-backdrop{position:fixed;inset:0;z-index:100;display:flex;align-items:center;justify-content:center;padding:20px;background:rgba(2,6,23,.78);backdrop-filter:blur(3px)}
+.add-pair-modal{width:min(680px,100%);background:#0f172a;border:1px solid #334155;border-radius:6px;box-shadow:0 25px 70px rgba(0,0,0,.55);overflow:hidden}
+.add-pair-modal__header{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;padding:18px 20px;border-bottom:1px solid #1e293b;background:linear-gradient(90deg,#101c2f,#0f172a)}
+.modal-close{width:30px;height:30px;display:grid;place-items:center;border:1px solid #334155;border-radius:3px;color:#94a3b8;background:#020617;font-size:20px;line-height:1}
+.modal-close:hover{color:#f8fafc;border-color:#475569}
+.add-pair-modal__body{padding:20px}
+.add-pair-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.add-pair-preview{margin-top:16px;padding:12px;border:1px solid #1e293b;border-radius:4px;background:#020617;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.add-pair-preview .text-\[10px\]{flex-basis:100%}
+.add-pair-modal__footer{display:flex;justify-content:flex-end;gap:8px;padding:14px 20px;border-top:1px solid #1e293b;background:#0b1220}
+@media(max-width:760px){.testing-controls{grid-template-columns:1fr}.results-count{justify-content:flex-start}.add-pair-grid{grid-template-columns:1fr}}
+
+/* Testing Planning */
+.planning-board{display:grid;grid-template-columns:repeat(4,minmax(220px,1fr));gap:14px;overflow-x:auto}
+.planning-column{background:#f8fafc;border:1px solid #e2e8f0;border-radius:18px;padding:14px;min-height:300px}
+.planning-column h3{font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:#475467;margin:0 0 12px}
+.planning-card{background:#fff;border:1px solid #e4e7ec;border-radius:14px;padding:13px;margin-bottom:10px;box-shadow:0 3px 10px rgba(16,24,40,.05)}
+.planning-card.overdue{border-color:#f2b8c2;background:#fff8f9}.planning-card.today{border-color:#f5cf85;background:#fffaf0}
+.planning-card .planning-id{font-weight:800;color:#101828;font-size:13px}.planning-meta{font-size:11px;color:#667085;margin-top:4px;line-height:1.45}.planning-note{margin-top:8px;padding:7px 8px;background:#f8fafc;border-radius:9px;color:#475467;font-size:10px;line-height:1.45}
+.planning-date{margin-top:9px;font-size:11px;font-weight:800;color:#2563eb}.planning-card.overdue .planning-date{color:#b42318}.planning-card.today .planning-date{color:#b54708}
+.planning-calendar{display:grid;grid-template-columns:repeat(7,minmax(120px,1fr));border:1px solid #e4e7ec;border-radius:16px;overflow:auto;background:#fff}.planning-day{min-height:125px;padding:9px;border-right:1px solid #eaecf0;border-bottom:1px solid #eaecf0}.planning-day:nth-child(7n){border-right:0}.planning-day-title{font-size:10px;font-weight:800;color:#667085;margin-bottom:7px}.planning-event{display:block;padding:6px 7px;border-radius:8px;background:#eff8ff;color:#175cd3;font-size:10px;font-weight:700;margin:4px 0;cursor:pointer}.planning-event.overdue{background:#fff1f3;color:#b42318}
+@media(max-width:900px){.planning-board{grid-template-columns:repeat(2,minmax(220px,1fr))}.planning-calendar{grid-template-columns:repeat(7,140px)}}
+
+.planning-status-badge{display:inline-flex;padding:4px 8px;border-radius:999px;font-size:10px;font-weight:800;background:#eff6ff;color:#1d4ed8}.planning-status-badge.progress{background:#fff7ed;color:#c2410c}.planning-status-badge.completed{background:#ecfdf5;color:#047857}.planning-overdue{display:inline-flex;padding:4px 8px;border-radius:999px;font-size:10px;font-weight:900;background:#fef2f2;color:#b91c1c}
+.planning-note-edit{margin-top:8px;padding:8px;background:#f8fafc;border:1px dashed #d0d5dd;border-radius:9px}
+.planning-note-edit label{display:block;font-size:9px;font-weight:800;color:#475467;margin-bottom:5px;text-transform:none;letter-spacing:0}
+.planning-note-edit textarea{width:100%;min-height:52px;border:1px solid #d0d5dd;border-radius:7px;padding:6px;font-size:10px;line-height:1.45;resize:vertical;background:#fff;color:#344054}
+.planning-note-edit textarea::placeholder{color:#98a2b3}
+.planning-event small{display:block;font-size:8px;line-height:1.3;margin-top:3px;opacity:.8;overflow:hidden;-webkit-line-clamp:2;-webkit-box-orient:vertical;display:-webkit-box}
+
+/* ================= MOBILE RESPONSIVE ================= */
+*{box-sizing:border-box}
+html,body{max-width:100%;overflow-x:hidden}
+img,svg,canvas{max-width:100%}
+button,input,select,textarea{max-width:100%;font:inherit}
+
+@media (max-width: 900px){
+  .plan-board{grid-template-columns:repeat(2,minmax(260px,1fr));overflow-x:auto}
+  .plan-grid{min-width:680px}
+}
+
+@media (max-width: 640px){
+  body{font-size:14px}
+  main,.main-content,.content,.page-content{width:100%!important;max-width:100%!important}
+
+  /* Common app spacing */
+  .p-5{padding:14px!important}
+  .p-4{padding:12px!important}
+  .px-5{padding-left:12px!important;padding-right:12px!important}
+
+  /* Headers */
+  h1{font-size:22px!important;line-height:1.2}
+  h2{font-size:19px!important;line-height:1.25}
+  h3{font-size:16px!important}
+
+  /* Dashboard cards */
+  .grid{grid-template-columns:1fr!important}
+  .grid-cols-2,.grid-cols-3,.grid-cols-4,.md\\:grid-cols-2{grid-template-columns:1fr!important}
+
+  /* Navigation */
+  nav{width:100%!important;overflow-x:auto!important;white-space:nowrap!important;
+      -webkit-overflow-scrolling:touch;scrollbar-width:none}
+  nav::-webkit-scrollbar{display:none}
+  nav button{flex:0 0 auto!important}
+
+  /* Forms / modals */
+  .modal,.modal-content,[role="dialog"]{width:calc(100vw - 24px)!important;max-width:calc(100vw - 24px)!important;
+      max-height:90vh!important;overflow-y:auto!important;margin:12px!important}
+  form{width:100%!important}
+  input,select,textarea{width:100%!important;min-width:0!important}
+  textarea{min-height:90px}
+
+  /* Buttons */
+  button{min-height:40px}
+  .flex{flex-wrap:wrap}
+  .gap-2{gap:7px!important}
+
+  /* Tables: horizontal scroll instead of crushing columns */
+  .table-container,.overflow-x-auto{max-width:100%;overflow-x:auto!important;-webkit-overflow-scrolling:touch}
+  table{min-width:620px}
+
+  /* Pair cards */
+  .card,.pair-card,.plan-card{width:100%!important;min-width:0!important}
+  .plan-card{padding:11px!important}
+
+  /* Planning */
+  .plan-toolbar{align-items:flex-start!important;flex-direction:column!important}
+  .plan-tabs{width:100%;display:flex}
+  .plan-tabs button{flex:1}
+  .plan-board{display:flex!important;flex-direction:column!important;overflow:visible!important}
+  .plan-column{width:100%!important;min-width:0!important;min-height:160px!important}
+  .plan-grid{display:grid!important;grid-template-columns:repeat(7,1fr)!important;
+      min-width:0!important;width:100%!important;font-size:10px}
+  .plan-day{min-height:90px!important;padding:5px!important;overflow:hidden}
+  .plan-day .daynum{font-size:9px!important;white-space:nowrap}
+  .plan-event{font-size:8px!important;padding:5px 4px!important;overflow:hidden;
+      text-overflow:ellipsis;white-space:nowrap}
+
+  /* Planning controls */
+  .plan-date-input,.planning-status-select{width:100%!important;min-width:0!important}
+
+  /* Status/stat chips */
+  .workflow-badge,.overdue-flag{font-size:9px!important;padding:4px 7px!important}
+
+  /* Search and filter bars */
+  .search,.search-input{width:100%!important}
+
+  /* Keep cards readable */
+  .flex.items-center,.flex.items-center.justify-between{
+    align-items:flex-start!important
+  }
+}
+
+@media (max-width: 400px){
+  .p-5{padding:10px!important}
+  h1{font-size:20px!important}
+  h2{font-size:18px!important}
+  .plan-day{min-height:75px!important;padding:3px!important}
+  .plan-event{font-size:7px!important;padding:4px 3px!important}
+  .plan-day .daynum{font-size:8px!important}
+}
+
+/* Safe mobile utility for elements that should scroll rather than overflow */
+.mobile-scroll{max-width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch}
+
+</style>
+<script crossorigin src="https://cdnjs.cloudflare.com/ajax/libs/react/18.3.1/umd/react.production.min.js"></script>
+<script crossorigin src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.3.1/umd/react-dom.production.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.26.4/babel.min.js"></script>
+<style>
+  body { background:#020617; margin:0; font-family:'Inter',sans-serif; }
+  ::-webkit-scrollbar { width:8px; height:8px; }
+  ::-webkit-scrollbar-thumb { background:#334155; border-radius:4px; }
+  .animate-spin { animation: spin 1s linear infinite; }
+  @keyframes spin { to { transform: rotate(360deg); } }
+</style>
+<style>
+/* --- Test-entry UI refinement --- */
+.test-panel__body{padding:16px;background:rgba(2,6,23,.34)}
+.test-history{margin-bottom:16px}
+.test-history__label{padding:0 2px 7px}
+.test-history__label span:first-child{color:#cbd5e1;font-weight:700}
+.log-row{padding:11px 12px;margin-bottom:7px;border-color:#243244;background:linear-gradient(90deg,#0b1220,#0a1120)}
+.log-row__top{gap:10px}
+.log-row__number{flex-basis:28px;padding-top:2px;color:#38bdf8;font-weight:600}
+.log-row__value{font-size:10.5px;line-height:1.65;color:#f1f5f9}
+.log-row__meta{margin-top:6px;gap:6px}
+.log-row__meta span{padding:2px 6px;border:1px solid #1e293b;border-radius:3px;background:#0f172a}
+.log-row__note{margin-top:8px;padding:7px 9px;border-left:2px solid #14b8a6;background:rgba(20,184,166,.06);color:#a7f3d0}
+.entry-requirements{display:flex;align-items:center;gap:8px;padding:9px 10px;margin-bottom:12px;border:1px solid #334155;border-radius:5px;background:#0b1220;color:#94a3b8;font-size:10px;line-height:1.4}
+.entry-requirements strong{color:#fbbf24}
+.entry-requirements .req-icon{width:18px;height:18px;display:grid;place-items:center;border-radius:50%;background:#78350f;color:#fbbf24;font-weight:700;flex:0 0 18px}
+.gas-charge-card{display:grid;grid-template-columns:minmax(150px,1fr) auto;gap:10px;align-items:end;padding:11px 12px;margin-bottom:12px;border:1px solid #92400e;border-radius:6px;background:linear-gradient(90deg,rgba(120,53,15,.22),rgba(69,26,3,.10))}
+.gas-charge-card .gas-copy{font-size:9px;color:#a16207;margin-top:4px}
+.gas-charge-card input{height:38px;font-size:13px;border-color:#b45309!important;background:#020617}
+.gas-charge-card input:focus{border-color:#f59e0b!important;box-shadow:0 0 0 1px rgba(245,158,11,.25)!important}
+.gas-charge-card .gas-unit{height:38px;display:flex;align-items:center;padding:0 10px;border:1px solid #713f12;border-radius:4px;background:#451a03;color:#fbbf24;font:600 11px 'IBM Plex Mono',monospace}
+.required-mark{font-size:13px}
+.measurement-block{padding:12px;margin-bottom:10px;background:linear-gradient(180deg,rgba(15,23,42,.65),rgba(2,6,23,.45));border-color:#263449}
+.measurement-block__title{padding-bottom:7px;border-bottom:1px solid #1e293b;margin-bottom:10px}
+.position-grid{gap:10px}
+.position-card{padding:11px;background:linear-gradient(180deg,#0d1626,#09101d);border-color:#263449}
+.position-card__title{margin-bottom:10px}
+.position-card__title span:first-child{display:inline-flex;align-items:center;gap:6px}
+.position-card__title span:first-child:before{content:'';width:6px;height:6px;border-radius:50%;background:#14b8a6;box-shadow:0 0 8px rgba(20,184,166,.5)}
+.position-card__target{padding:2px 5px;border:1px solid #1e293b;border-radius:3px}
+.test-action-row{margin-top:12px;padding:12px;border:1px solid #1e293b;border-radius:5px;background:#0b1220}
+.test-action-row__fields{grid-template-columns:minmax(120px,180px) minmax(180px,1fr)}
+.notes-block{margin-top:10px;padding:10px 11px;border:1px solid #1e293b;border-radius:5px;background:rgba(15,23,42,.45)}
+.test-id-card{margin-bottom:12px}
+.test-id-card .field-label,.test-id-card label{color:#344054!important}
+.notes-block textarea{min-height:52px}
+.notes-block .note-label{display:flex;align-items:center;justify-content:space-between;margin-bottom:5px}
+.notes-block .note-hint{font-size:9px;color:#64748b;text-transform:none;letter-spacing:0}
+.log-action .inline-disabled-note{font-size:9px;color:#fb7185;margin-top:5px;text-align:right}
+@media(max-width:900px){.gas-charge-card{grid-template-columns:1fr}.test-action-row__fields{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.gas-charge-card,.test-action-row__fields{grid-template-columns:1fr}.test-action-row{padding:10px}.log-action .inline-disabled-note{text-align:left}}
+</style>
+
+<style>
+/* ================================================================
+   2026 UI REDESIGN — clean laboratory / engineering workspace
+   ================================================================ */
+:root{
+  --bg:#f4f7fb;
+  --surface:#ffffff;
+  --surface-2:#f8fafc;
+  --surface-3:#eef3f8;
+  --line:#dbe3ec;
+  --line-strong:#c7d2df;
+  --text:#172033;
+  --muted:#667085;
+  --muted-2:#98a2b3;
+  --blue:#2563eb;
+  --blue-soft:#eff6ff;
+  --teal:#0f9f9a;
+  --teal-soft:#ecfdf9;
+  --amber:#c77912;
+  --amber-soft:#fff7e8;
+  --green:#16835b;
+  --green-soft:#ecfdf3;
+  --red:#c2415d;
+  --red-soft:#fff1f3;
+  --shadow:0 8px 30px rgba(15,23,42,.06);
+  --shadow-lg:0 18px 55px rgba(15,23,42,.12);
+}
+html,body{background:var(--bg)!important;color:var(--text)!important;font-family:'Inter',system-ui,sans-serif!important}
+body{min-height:100vh;background:
+  radial-gradient(circle at 10% 0%,rgba(37,99,235,.055),transparent 28%),
+  radial-gradient(circle at 95% 8%,rgba(15,159,154,.045),transparent 25%),
+  var(--bg)!important}
+button,input,select,textarea{font-family:'Inter',system-ui,sans-serif!important}
+
+/* App shell */
+.min-h-screen{background:transparent!important;color:var(--text)!important;padding:24px!important}
+.min-h-screen>.max-w-7xl{max-width:1440px!important}
+.min-h-screen>.max-w-7xl>p{color:#98a2b3!important}
+.min-h-screen>.max-w-7xl>div.bg-slate-950{
+  background:rgba(255,255,255,.96)!important;
+  border:1px solid var(--line)!important;
+  border-radius:18px!important;
+  box-shadow:var(--shadow-lg)!important;
+  overflow:visible!important;
+}
+.min-h-screen .bg-slate-900{background:var(--surface)!important}
+.min-h-screen .bg-slate-950{background:var(--surface)!important}
+
+/* Header */
+.min-h-screen .bg-slate-950>.bg-slate-900:first-child{
+  background:linear-gradient(180deg,#ffffff,#fbfcfe)!important;
+  border-bottom:1px solid var(--line)!important;
+  border-radius:18px 18px 0 0!important;
+  padding:20px 24px!important;
+}
+h1.text-xl{font-family:'Inter',sans-serif!important;font-size:20px!important;letter-spacing:.01em!important;color:#152238!important;font-weight:750!important}
+.min-h-screen h1+.text-xs{color:var(--muted)!important}
+.min-h-screen nav{background:#f3f6fa!important;border:1px solid var(--line)!important;border-radius:11px!important;padding:4px!important;box-shadow:inset 0 1px 0 rgba(255,255,255,.8)}
+.min-h-screen nav button{border-radius:8px!important;color:#667085!important;text-transform:none!important;letter-spacing:0!important;padding:8px 13px!important}
+.min-h-screen nav button:hover{background:#e9eef5!important;color:#344054!important}
+.min-h-screen nav button.bg-teal-600{background:#1d6fe8!important;color:#fff!important;box-shadow:0 3px 8px rgba(37,99,235,.2)!important}
+
+/* Hamburger navigation (mobile) */
+.app-nav-wrap{position:relative}
+.mobile-menu-btn{display:none;border:1px solid var(--line-strong);background:#fff;border-radius:9px;padding:8px;width:42px;height:42px;cursor:pointer}
+.mobile-menu-btn span{display:block;height:2px;background:#475467;margin:5px 0;border-radius:2px}
+
+/* Alerts */
+.min-h-screen .bg-sky-950\/30{background:#eff8ff!important;border-color:#cce6ff!important;color:#1769aa!important}
+.min-h-screen .bg-rose-950\/40{background:var(--red-soft)!important;border-color:#f3c4cd!important;color:#a52f4b!important}
+
+/* Main content */
+.min-h-screen>.max-w-7xl>div.bg-slate-950>.p-5{padding:24px!important}
+.text-slate-400{color:var(--muted)!important}
+.text-slate-500{color:#7b8798!important}
+.text-slate-600{color:#98a2b3!important}
+.text-slate-300{color:#475467!important}
+.text-slate-200{color:#344054!important}
+.text-slate-100,.text-slate-50{color:#172033!important}
+
+/* KPI cards */
+.grid-cols-2.md\\:grid-cols-3.lg\\:grid-cols-6>div,
+.min-h-screen .bg-slate-900.border.border-slate-800.rounded-sm.p-4{
+  background:#fff!important;border:1px solid var(--line)!important;border-radius:14px!important;box-shadow:var(--shadow)!important
+}
+.min-h-screen .grid-cols-2.md\\:grid-cols-3.lg\\:grid-cols-6>div{padding:17px!important}
+.min-h-screen .grid-cols-2.md\\:grid-cols-3.lg\\:grid-cols-6 .text-3xl{color:#152238!important;font-size:28px!important}
+
+
+
+/* Awaiting Quality notification */
+.awaiting-quality-banner{display:block!important;width:100%!important;box-sizing:border-box!important;border:1px solid #f3d28a!important;border-radius:24px!important;overflow:hidden!important;box-shadow:0 6px 20px rgba(180,120,0,.08)!important;background:#fffaf0!important}
+.awaiting-quality-banner .awaiting-unit-pill{border-radius:999px!important;padding:7px 12px!important;display:inline-flex!important;align-items:center!important;gap:5px!important;box-shadow:0 1px 3px rgba(120,80,0,.06)!important}
+.awaiting-unit-pill b{font-weight:800!important}
+.awaiting-pill-divider{color:#d6a43a!important}
+
+/* Colorful rounded dashboard KPI cards */
+.kpi-card{min-height:138px!important;border-radius:20px!important;position:relative!important;overflow:hidden!important;transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease!important}
+.kpi-card:hover{transform:translateY(-3px)!important}
+.kpi-card__glow{position:absolute!important;width:105px!important;height:105px!important;right:-25px!important;top:-30px!important;border-radius:50%!important;background:rgba(255,255,255,.22)!important}
+.kpi-card__top{display:flex!important;align-items:center!important;justify-content:space-between!important;gap:8px!important;position:relative!important;z-index:1!important}
+.kpi-card__label{font-size:11px!important;font-weight:800!important;text-transform:uppercase!important;letter-spacing:.07em!important}
+.kpi-card__arrow{width:27px!important;height:27px!important;border-radius:9px!important;display:flex!important;align-items:center!important;justify-content:center!important;background:rgba(255,255,255,.32)!important;font-size:15px!important}
+.kpi-card__value{position:relative!important;z-index:1!important;margin-top:12px!important;font-family:"IBM Plex Mono",monospace!important;font-size:30px!important;line-height:1!important;font-weight:700!important}
+.kpi-card__action{position:relative!important;z-index:1!important;margin-top:13px!important;font-size:11px!important;font-weight:700!important;opacity:.78!important}
+.kpi-card__action span{margin-left:3px!important}
+.kpi-blue{background:linear-gradient(135deg,#e8f2ff,#cfe4ff)!important;border-color:#a9cefa!important;color:#1559a6!important}.kpi-blue .kpi-card__value{color:#124d93!important}
+.kpi-teal{background:linear-gradient(135deg,#e2fbf7,#c7f0e9)!important;border-color:#9ddfd3!important;color:#08766d!important}.kpi-teal .kpi-card__value{color:#05685f!important}
+.kpi-violet{background:linear-gradient(135deg,#f0eaff,#ddd1ff)!important;border-color:#c9b7f5!important;color:#6241a8!important}.kpi-violet .kpi-card__value{color:#55379a!important}
+.kpi-amber{background:linear-gradient(135deg,#fff5d9,#ffe7a6)!important;border-color:#f4d27d!important;color:#9a6700!important}.kpi-amber .kpi-card__value{color:#8a5b00!important}
+.kpi-green{background:linear-gradient(135deg,#e5f8e9,#c9edcf)!important;border-color:#a7d9af!important;color:#23743a!important}.kpi-green .kpi-card__value{color:#1c6831!important}
+.kpi-red{background:linear-gradient(135deg,#ffebee,#ffd4da)!important;border-color:#f0b5bf!important;color:#a33b4b!important}.kpi-red .kpi-card__value{color:#923342!important}
+.min-h-screen .grid-cols-2.md\:grid-cols-3.lg\:grid-cols-6>button.kpi-card{border-radius:20px!important}
+/* Shared controls */
+input,select,textarea,.inputCls{background:#fff!important;color:#172033!important;border:1px solid var(--line-strong)!important;border-radius:9px!important;box-shadow:0 1px 2px rgba(16,24,40,.025)!important}
+input::placeholder,textarea::placeholder{color:#a0a9b7!important}
+input:focus,select:focus,textarea:focus{outline:none!important;border-color:#79a8f5!important;box-shadow:0 0 0 3px rgba(37,99,235,.09)!important}
+label>span.text-slate-400,.text-\[11px\].uppercase{color:#667085!important;font-weight:650!important;letter-spacing:.055em!important}
+
+/* Buttons */
+button.rounded-sm{border-radius:9px!important}
+.bg-teal-600{background:#159a96!important}
+.bg-teal-600:hover{background:#0f8784!important}
+.border-slate-700{border-color:var(--line-strong)!important}
+.border-slate-800{border-color:var(--line)!important}
+.hover\\:bg-slate-800:hover{background:#f1f4f8!important}
+
+/* Dashboard notices */
+.min-h-screen .bg-amber-950\/20{background:var(--amber-soft)!important;border-color:#f2d49d!important;color:#805414!important;border-radius:13px!important}
+.min-h-screen .bg-amber-950\/20 .text-amber-200{color:#805414!important}
+.min-h-screen .bg-slate-900.border.border-slate-800.rounded-sm.p-4{box-shadow:0 5px 20px rgba(15,23,42,.045)!important}
+
+/* Testing toolbar */
+.testing-toolbar{background:#fff!important;border:1px solid var(--line)!important;border-radius:14px!important;padding:18px!important;box-shadow:var(--shadow)!important}
+.testing-toolbar__top{padding-bottom:14px!important;border-bottom:1px solid #edf1f5!important}
+.testing-toolbar .text-slate-500{color:#7b8798!important}
+.testing-toolbar .search-box{height:44px!important;background:#f8fafc!important;border:1px solid var(--line-strong)!important;border-radius:10px!important}
+.testing-toolbar .search-box:focus-within{background:#fff!important;border-color:#8ab2ef!important;box-shadow:0 0 0 3px rgba(37,99,235,.08)!important}
+.testing-toolbar .search-box input{background:transparent!important;color:#172033!important}
+.testing-toolbar .results-count{color:#7b8798!important}
+.testing-toolbar .results-count b{color:#172033!important}
+
+/* Pair rows — less blocky, more like work cards */
+.min-h-screen .space-y-2>.bg-slate-900.border.border-slate-800.rounded-sm.overflow-hidden,
+.min-h-screen .space-y-3>.bg-slate-900.border.border-slate-800.rounded-sm.p-4{
+  background:#fff!important;border:1px solid var(--line)!important;border-radius:14px!important;box-shadow:0 4px 18px rgba(15,23,42,.045)!important;overflow:hidden!important
+}
+.min-h-screen .space-y-2>.bg-slate-900.border.border-slate-800.rounded-sm.overflow-hidden>button{background:#fff!important;color:var(--text)!important;padding:17px 18px!important}
+.min-h-screen .space-y-2>.bg-slate-900.border.border-slate-800.rounded-sm.overflow-hidden>button:hover{background:#f9fbfd!important}
+.min-h-screen .space-y-2>.bg-slate-900.border.border-slate-800.rounded-sm.overflow-hidden .font-mono{color:#1f3b68!important;font-size:12px!important;font-weight:700!important}
+.min-h-screen .space-y-2>.bg-slate-900.border.border-slate-800.rounded-sm.overflow-hidden .border-t{border-color:#edf1f5!important}
+.min-h-screen .space-y-2>.bg-slate-900.border.border-slate-800.rounded-sm.overflow-hidden>div.bg-slate-950\/50{background:#f8fafc!important;padding:18px!important}
+
+/* Status badges */
+.min-h-screen .text-emerald-300{color:#16835b!important}.min-h-screen .text-emerald-400{color:#16835b!important}
+.min-h-screen .text-sky-300,.min-h-screen .text-sky-400{color:#2469d8!important}
+.min-h-screen .text-teal-300,.min-h-screen .text-teal-400{color:#0b8580!important}
+.min-h-screen .text-amber-300,.min-h-screen .text-amber-400{color:#a9660d!important}
+.min-h-screen .text-rose-300,.min-h-screen .text-rose-400{color:#c2415d!important}
+.min-h-screen .bg-sky-950\/40{background:#eff6ff!important;border-color:#cfe0ff!important}
+.min-h-screen .bg-teal-950\/40{background:#ecfdf9!important}
+.min-h-screen .bg-amber-950\/40{background:#fff7e8!important;border-color:#f0d8aa!important}
+.min-h-screen .bg-emerald-950\/40{background:#ecfdf3!important;border-color:#c6ead8!important}
+.min-h-screen .bg-rose-950\/40{background:#fff1f3!important;border-color:#f3c4cd!important}
+.min-h-screen .bg-orange-950\/40{background:#fff5ed!important;border-color:#f2d0b5!important}
+
+/* Test panels */
+.test-panel{background:#fff!important;border:1px solid var(--line)!important;border-radius:14px!important;box-shadow:0 5px 18px rgba(15,23,42,.045)!important;overflow:hidden!important}
+.test-panel__header{background:linear-gradient(180deg,#ffffff,#f8fafc)!important;border-bottom:1px solid #e8edf3!important;padding:17px 18px!important}
+.test-panel__title{color:#172033!important;font-size:13px!important;letter-spacing:.045em!important}
+.test-panel__subtitle{color:#7b8798!important;font-size:11px!important}
+.test-panel__body{background:#fbfcfe!important;padding:17px!important}
+.test-history{background:#f8fafc;border:1px solid #e7ecf2;border-radius:11px;padding:10px!important}
+.test-history__label{color:#667085!important;padding:1px 2px 8px!important}
+.test-history__label span:first-child{color:#344054!important}
+.test-history__empty{padding:12px;color:#98a2b3!important;background:#fff;border:1px dashed #d9e1ea;border-radius:8px;text-align:center;font-size:11px}
+
+.entry-requirements{background:#fff9ed!important;border-color:#f1d9a7!important;color:#80601f!important;border-radius:9px!important}
+.entry-requirements strong{color:#9a640e!important}
+.entry-requirements .req-icon{background:#fff0c9!important;color:#a56b0d!important}
+.gas-charge-card{background:#fff!important;border:1px solid #e7c98e!important;border-radius:11px!important;box-shadow:0 2px 10px rgba(173,113,20,.04)!important}
+.gas-charge-card input{background:#fff!important;border-color:#d9b56f!important}
+.gas-charge-card .gas-unit{background:#fff7e8!important;border-color:#e8cf9d!important;color:#9a640e!important;border-radius:8px!important}
+.gas-charge-card .gas-copy{color:#9a7a43!important}
+.measurement-block{background:#fff!important;border:1px solid #e2e8f0!important;border-radius:11px!important;box-shadow:none!important}
+.measurement-block__title{color:#344054!important;border-bottom-color:#edf1f5!important;font-weight:700!important}
+.position-card{background:#fff!important;border:1px solid #e1e7ef!important;border-radius:11px!important;box-shadow:0 2px 9px rgba(15,23,42,.035)!important}
+.position-card__title{color:#344054!important}
+.position-card__target{background:#f3f6fa!important;border-color:#dce3eb!important;color:#7b8798!important}
+.position-card__title span:first-child:before{background:#159a96!important;box-shadow:none!important}
+.thermo-reference{background:#f3f7fb!important;border-color:#dfe6ee!important;color:#7b8798!important;border-radius:9px!important}
+.log-footer,.test-action-row{background:#f8fafc!important;border-color:#e6ebf1!important;border-radius:10px!important}
+.notes-block{background:#fff!important;border-color:#e1e7ef!important;border-radius:10px!important}
+.notes-block .note-hint{color:#98a2b3!important}
+.log-action .inline-disabled-note{color:#c2415d!important}
+.log-row{background:#fff!important;border:1px solid #e0e7ef!important;border-radius:9px!important;margin-bottom:7px!important;box-shadow:0 2px 7px rgba(15,23,42,.025)!important}
+.log-row__number{color:#2469d8!important}
+.log-row__value{color:#344054!important}
+.log-row__meta span{background:#f5f7fa!important;border-color:#e1e7ef!important;color:#667085!important}
+.log-row__note{background:#f1fbf8!important;border-left-color:#159a96!important;color:#477064!important;border-radius:0 6px 6px 0}
+
+/* Quality & Master Data */
+.min-h-screen .grid.lg\\:grid-cols-3>section{background:#fff!important;border:1px solid var(--line)!important;border-radius:14px!important;box-shadow:var(--shadow)!important}
+.min-h-screen .grid.lg\\:grid-cols-3>section .bg-slate-950{background:#f8fafc!important;border-color:#e4eaf1!important;border-radius:9px!important}
+.min-h-screen .grid.lg\\:grid-cols-3>section .text-slate-300{color:#344054!important}
+.min-h-screen .grid.lg\\:grid-cols-3>section .text-slate-500{color:#7b8798!important}
+
+/* Add Pair modal */
+.modal-backdrop{background:rgba(30,41,59,.38)!important;backdrop-filter:blur(6px)!important}
+.add-pair-modal{background:#fff!important;border:1px solid #d6dee8!important;border-radius:16px!important;box-shadow:var(--shadow-lg)!important}
+.add-pair-modal__header{background:linear-gradient(180deg,#fff,#f8fafc)!important;border-bottom-color:#e5eaf0!important}
+.add-pair-modal__body{background:#fff!important}
+.add-pair-preview{background:#f6f9fc!important;border-color:#dfe6ee!important;border-radius:11px!important}
+.add-pair-modal__footer{background:#f8fafc!important;border-top-color:#e5eaf0!important}
+.modal-close{color:#667085!important;border-radius:8px!important}.modal-close:hover{background:#eef2f6!important;color:#344054!important}
+
+/* Delete / secondary actions */
+.bg-rose-900\/40{background:#fff1f3!important;border-color:#efb8c4!important}
+.bg-rose-900\/40:hover{background:#ffe5e9!important}
+
+/* Home page planning widget (dashboard kanban + calendar) */
+.home-planning{background:#fff;border:1px solid var(--line);border-radius:16px;padding:18px;box-shadow:var(--shadow)}
+.home-planning-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:14px}
+.home-planning-link{border:0;background:transparent;color:var(--blue);font-size:11px;font-weight:800;cursor:pointer}
+.home-kanban{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.home-kanban-col{background:var(--surface-2);border:1px solid var(--line);border-radius:13px;padding:11px;min-height:140px}
+.home-kanban-title{display:flex;justify-content:space-between;text-transform:uppercase;letter-spacing:.06em;font-size:10px;font-weight:900;color:var(--muted);margin-bottom:8px}
+.home-kanban-title span{background:#e2e8f0;border-radius:999px;padding:2px 7px}
+.home-plan-card{background:#fff;border:1px solid var(--line);border-radius:11px;padding:10px;margin:7px 0;box-shadow:0 2px 8px rgba(15,23,42,.03)}
+.home-plan-card>div:first-child{cursor:pointer}
+.home-plan-card:hover{border-color:#93c5fd}
+.home-plan-id{font-size:11px;font-weight:900;color:#0f172a}
+.home-plan-meta{font-size:9.5px;color:var(--muted);margin-top:2px}
+.home-plan-date{font-size:9.5px;font-weight:800;color:var(--blue);margin-top:5px}
+.home-plan-note-input{width:100%;min-height:44px;margin-top:7px;border:1px dashed var(--line-strong);border-radius:8px;padding:6px 7px;font-size:9.5px;line-height:1.4;resize:vertical;background:var(--surface-2);color:#344054}
+.home-plan-note-input::placeholder{color:var(--muted-2)}
+.home-plan-empty,.home-day-empty{font-size:10px;color:var(--muted-2);text-align:center;padding:18px 4px}
+.home-calendar-wrap{margin-top:16px}
+.home-calendar-head{display:flex;justify-content:space-between;align-items:center;font-size:11px;font-weight:900;color:#344054;margin-bottom:8px}
+.home-calendar-head button{border:1px solid var(--line);background:#fff;border-radius:7px;padding:4px 8px;font-size:10px;cursor:pointer}
+.home-calendar-head button:hover{background:var(--surface-2)}
+.home-calendar{display:grid;grid-template-columns:repeat(7,minmax(90px,1fr));border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.home-day{min-height:105px;padding:7px;border-right:1px solid var(--line);background:#fff}
+.home-day:last-child{border-right:0}
+.home-day.is-today{background:var(--teal-soft)}
+.home-day-title{font-size:9px;font-weight:900;color:var(--muted);margin-bottom:5px}
+.home-event{background:var(--blue-soft);color:#175cd3;border-radius:7px;padding:5px;margin:3px 0;font-size:8.5px;font-weight:800;cursor:pointer}
+.home-event span{display:block;font-size:7.5px;opacity:.8;margin-top:2px}
+.home-event.late{background:var(--red-soft);color:#b42318}
+
+/* Responsive */
+@media(max-width:800px){
+  .min-h-screen{padding:10px!important}
+  .min-h-screen>.max-w-7xl>div.bg-slate-950>.p-5{padding:14px!important}
+  .min-h-screen .bg-slate-950>.bg-slate-900:first-child{padding:16px!important}
+}
+@media(min-width:761px){
+  .min-h-screen nav{width:auto;overflow:visible}
+  .min-h-screen nav button{white-space:nowrap}
+}
+@media(max-width:760px){
+  .app-nav-wrap{width:100%;display:flex;justify-content:flex-end}
+  .mobile-menu-btn{display:block;margin-left:auto}
+  .min-h-screen nav.app-nav{
+    display:none!important;
+    position:absolute!important;right:0;top:50px;z-index:1000;
+    width:min(280px,calc(100vw - 32px))!important;
+    flex-direction:column!important;
+    padding:7px!important;
+    border-radius:13px!important;
+    background:#fff!important;
+    box-shadow:0 14px 35px rgba(2,6,23,.25)!important;
+    overflow:visible!important;
+  }
+  .min-h-screen nav.app-nav.mobile-open{display:flex!important}
+  .min-h-screen nav.app-nav button{text-align:left!important;padding:11px 12px!important;white-space:normal!important}
+  .min-h-screen .bg-slate-900.border-b{position:relative}
+
+  /* Home planning widget */
+  .home-planning{padding:13px}
+  .home-planning-head{align-items:flex-start}
+  .home-kanban{display:flex!important;overflow-x:auto!important;scroll-snap-type:x mandatory;padding-bottom:6px;gap:10px}
+  .home-kanban-col{min-width:230px;scroll-snap-align:start}
+  .home-calendar{grid-template-columns:repeat(7,110px)!important;overflow-x:auto!important;max-width:100%}
+  .home-day{min-height:100px}
+
+  /* Testing Planning: kanban + calendar become mobile-friendly */
+  .planning-board{display:flex!important;flex-direction:column!important;overflow:visible!important}
+  .planning-column{min-width:0!important;width:100%!important;min-height:auto!important}
+  .planning-calendar{grid-template-columns:repeat(7,125px)!important;overflow-x:auto!important;max-width:100%}
+  .planning-day{min-height:120px!important}
+  .planning-card{padding:11px!important}
+}
+@media(max-width:480px){
+  .home-kanban-col{min-width:210px}
+  .home-calendar{grid-template-columns:repeat(7,95px)!important}
+  .planning-calendar{grid-template-columns:repeat(7,105px)!important}
+  .home-planning-head{flex-direction:column;align-items:flex-start!important;gap:6px}
+}
+</style>
+
+<style>
+/* Database connection status */
+.db-status{display:inline-flex;align-items:center;gap:7px;padding:6px 10px;border-radius:999px;border:1px solid #dbe3ec;background:#f8fafc;color:#667085;font-size:10px;font-weight:700;letter-spacing:.03em}
+.db-status .dot{width:7px;height:7px;border-radius:50%;background:#98a2b3}
+.db-status.ok{background:#ecfdf3;border-color:#b7e4ca;color:#16835b}.db-status.ok .dot{background:#16a05d}
+.db-status.err{background:#fff1f3;border-color:#f0c4cc;color:#b4233f}.db-status.err .dot{background:#d92d4b}
+.db-error-panel{margin:18px 24px;padding:18px 20px;border:1px solid #f0c4cc;border-radius:16px;background:#fff7f8;box-shadow:0 6px 22px rgba(194,65,93,.07)}
+.db-error-panel h3{margin:0 0 6px;font-size:14px;color:#a52f4b}.db-error-panel p{margin:0;color:#667085;font-size:12px;line-height:1.6}.db-error-panel code{background:#fff;border:1px solid #f0d5da;padding:2px 5px;border-radius:5px;color:#8f2940}
+</style>
+
+<style>
+/* --- Model thermostat targets + pair-note visibility --- */
+.pair-header-note{
+  margin-top:7px;
+  padding:7px 9px;
+  border-left:3px solid #159a96;
+  border-radius:0 7px 7px 0;
+  background:#f1fbf8;
+  color:#477064;
+  font-size:10px;
+  line-height:1.45;
+  max-width:720px;
+  overflow-wrap:anywhere;
+}
+.model-form-section{margin-top:10px}
+.model-form-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.model-thermo-targets{
+  margin-top:10px;
+  padding:11px;
+  border:1px solid #dfe6ee;
+  border-radius:11px;
+  background:#f8fafc;
+}
+.model-thermo-targets__head{
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:10px;
+  margin-bottom:9px;
+}
+.model-target-required{
+  flex:0 0 auto;
+  padding:4px 7px;
+  border-radius:999px;
+  background:#fff7e8;
+  border:1px solid #f0d8aa;
+  color:#9a640e;
+  font-size:9px;
+  font-weight:800;
+  text-transform:uppercase;
+  letter-spacing:.05em;
+}
+.model-position-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.model-position-card{
+  padding:9px;
+  border:1px solid #e1e7ef;
+  border-radius:9px;
+  background:#fff;
+}
+.model-position-card__title{
+  margin-bottom:7px;
+  font-size:10px;
+  font-weight:800;
+  color:#344054;
+  text-transform:uppercase;
+  letter-spacing:.06em;
+}
+.model-position-card__fields{display:grid;grid-template-columns:1fr 1fr;gap:7px}
+.model-position-card input{min-width:0}
+@media(max-width:560px){
+  .model-form-grid,.model-position-grid,.model-position-card__fields{grid-template-columns:1fr}
+  .pair-header-note{max-width:100%}
+}
+</style>
+
+<style>
+.thermo-log-comparison{
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:7px;
+  margin-bottom:8px;
+}
+.thermo-log-position{
+  position:relative;
+  padding:8px;
+  border:1px solid #e1e7ef;
+  border-radius:8px;
+  background:#f8fafc;
+  min-width:0;
+}
+.thermo-log-position__name{
+  font-size:9px;
+  font-weight:900;
+  text-transform:uppercase;
+  letter-spacing:.05em;
+  color:#344054;
+}
+.thermo-log-position__reading{
+  margin-top:4px;
+  font:600 10px 'IBM Plex Mono',monospace;
+  color:#172033;
+}
+.thermo-log-position__target{
+  margin-top:3px;
+  font-size:8px;
+  line-height:1.35;
+  color:#7b8798;
+}
+.thermo-log-result{
+  display:inline-flex;
+  margin-top:5px;
+  padding:2px 6px;
+  border-radius:999px;
+  font-size:8px;
+  font-weight:900;
+}
+.thermo-log-result.pass{background:#ecfdf3;color:#16835b}
+.thermo-log-result.fail{background:#fff1f3;color:#c2415d}
+@media(max-width:900px){.thermo-log-comparison{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:560px){.thermo-log-comparison{grid-template-columns:1fr}}
+/* ================================================================
+   UI-ONLY CONTRAST PASS — NO FUNCTIONAL / DATA / BEHAVIOR CHANGES
+   Improves readability of dark buttons, status tags and badges.
+   ================================================================ */
+.pill-contrast,
+.inline-flex.items-center.px-2.py-0\.5.rounded-sm.border.text-\[11px\] {
+  text-shadow: 0 1px 1px rgba(0,0,0,.28);
+}
+
+/* Status / department pills: replace very dark translucent fills with
+   brighter, still-professional surfaces and stronger text contrast. */
+.bg-slate-800.border-slate-600 { background:#334155 !important; color:#f1f5f9 !important; border-color:#64748b !important; }
+.bg-sky-950\/40.border-sky-700 { background:#164e63 !important; color:#bae6fd !important; border-color:#0e7490 !important; }
+.bg-amber-950\/40.border-amber-700 { background:#713f12 !important; color:#fef3c7 !important; border-color:#b45309 !important; }
+.bg-emerald-950\/40.border-emerald-700 { background:#064e3b !important; color:#d1fae5 !important; border-color:#059669 !important; }
+.bg-rose-950\/40.border-rose-700 { background:#881337 !important; color:#ffe4e6 !important; border-color:#e11d48 !important; }
+.bg-orange-950\/40.border-orange-700 { background:#7c2d12 !important; color:#ffedd5 !important; border-color:#ea580c !important; }
+.bg-rose-900\/40.border-rose-800 { background:#7f1d1d !important; color:#ffe4e6 !important; border-color:#be123c !important; }
+
+/* Buttons: keep the existing variants and interactions, but ensure the
+   label remains readable against its background. */
+button.bg-teal-600 { background:#0f766e !important; color:#ffffff !important; }
+button.bg-teal-600:hover { background:#0d9488 !important; }
+button.bg-slate-800 { background:#334155 !important; color:#f1f5f9 !important; }
+button.bg-slate-800:hover { background:#475569 !important; }
+button.bg-rose-900\/40 { background:#7f1d1d !important; color:#ffe4e6 !important; }
+button.bg-rose-900\/40:hover { background:#991b1b !important; }
+
+/* Ghost buttons: slightly lighter hover surface and clearer border. */
+button.border-slate-700.bg-transparent { color:#e2e8f0 !important; border-color:#64748b !important; }
+button.border-slate-700.bg-transparent:hover { background:#334155 !important; color:#ffffff !important; }
+
+/* Disabled buttons should still communicate their label instead of becoming
+   unreadably dim. */
+button:disabled { text-shadow:none; }
+
+/* Planning tags already use light surfaces; make their text/edge a little
+   stronger for consistent readability with the dark application. */
+.planning-status-badge { border:1px solid #bfdbfe; }
+.planning-status-badge.progress { border-color:#fed7aa; }
+.planning-status-badge.completed { border-color:#a7f3d0; }
+.planning-overdue { border:1px solid #fecaca; }
+
+/* Small dashboard filter tag. */
+.inline-flex.items-center.gap-2.rounded-full.bg-sky-50.border.border-sky-200 {
+  background:#e0f2fe !important;
+  color:#075985 !important;
+  border-color:#7dd3fc !important;
+}
+
+</style>
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#18181b">
+<link rel="apple-touch-icon" href="icon-192.png">
+<style>
+/* ===== Workbench shell — FlowBoard-style (neutral, shadcn look) ===== */
+*{box-sizing:border-box}
+html,body{background:#fff!important}
+body{background:#fff!important}
+.ws{--pri:#18181b;--pri-soft:rgba(24,24,27,.07);--bd:#e4e4e7;--mut:#71717a;--mbg:#f4f4f5;display:flex;min-height:100vh;color:#09090b}
+.ws.personal{--pri:#6d28d9;--pri-soft:rgba(109,40,217,.09)}
+.ws-side{width:256px;flex:0 0 256px;position:sticky;top:0;height:100vh;background:#fff;border-right:1px solid var(--bd);display:flex;flex-direction:column}
+.ws-brand{height:64px;display:flex;align-items:center;gap:10px;padding:0 16px 0 20px;border-bottom:1px solid var(--bd)}
+.ws-logo{width:36px;height:36px;border-radius:12px;background:var(--pri-soft);color:var(--pri);display:grid;place-items:center}
+.ws-brand b{font:700 18px 'Inter',sans-serif;flex:1}
+.ws-ic{width:36px;height:36px;border:0;background:none;border-radius:9px;color:var(--mut);cursor:pointer;display:grid;place-items:center;position:relative}
+.ws-ic:hover{background:var(--mbg);color:#09090b}
+.ws-ic i{position:absolute;top:3px;right:2px;min-width:16px;height:16px;border-radius:8px;background:#ef4444;color:#fff;font:600 10px/16px 'Inter';text-align:center;font-style:normal;padding:0 4px}
+.ws-switch{display:grid;grid-template-columns:1fr 1fr;background:var(--mbg);border-radius:10px;padding:3px;margin:12px 12px 4px}
+.ws-switch button{border:0;background:none;padding:7px;border-radius:8px;font:500 13px 'Inter';color:var(--mut);cursor:pointer}
+.ws-switch button.on{background:#fff;color:var(--pri);font-weight:600;box-shadow:0 1px 3px rgba(0,0,0,.1)}
+.ws-nav{flex:1;overflow:auto;padding:8px 12px;display:flex;flex-direction:column;gap:2px}
+.ws-nav h6{margin:14px 12px 4px;font:600 11px 'Inter';color:#a1a1aa}
+.ni{display:flex;align-items:center;gap:12px;min-height:40px;padding:8px 12px;border:0;background:none;border-radius:8px;font:500 14px 'Inter';color:var(--mut);cursor:pointer;text-align:left;width:100%}
+.ni:hover{background:var(--mbg);color:#09090b}
+.ni.on{background:var(--pri-soft);color:var(--pri)}
+.ni .ws-dot{margin:0 3px}
+.ws-dot{width:10px;height:10px;border-radius:50%;flex:0 0 10px;display:inline-block}
+.ws-foot{border-top:1px solid var(--bd);padding:12px;font-size:11px;color:#a1a1aa}
+.ws-foot .ni{min-height:36px}
+.ws-col{flex:1;min-width:0;display:flex;flex-direction:column}
+.ws-top,.ws-bnav{display:none}
+.ws-main{flex:1;padding:32px;max-width:1240px;width:100%}
+.ws-err{background:#fef2f2;border:1px solid #fecaca;color:#b91c1c;padding:10px 14px;border-radius:10px;margin-bottom:14px;font-size:13px}
+.ws-h{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;flex-wrap:wrap;margin-bottom:24px}
+.ws-h h2{margin:0;font:700 28px 'Inter';letter-spacing:-.02em;display:flex;align-items:center}
+.ws-h p{margin:4px 0 0;color:var(--mut);font-size:14px}
+.ws-act{display:flex;gap:8px;flex-wrap:wrap}
+.ws-btn{border:1px solid var(--pri);background:var(--pri);color:#fff;border-radius:8px;min-height:40px;padding:0 16px;font:500 14px 'Inter';cursor:pointer;display:inline-flex;gap:6px;align-items:center;justify-content:center}
+.ws-btn:hover{opacity:.9}
+.ws-btn.ghost{background:#fff;color:#09090b;border-color:var(--bd)}.ws-btn.ghost:hover{background:var(--mbg)}
+.ws-btn.danger{background:#fff;color:#dc2626;border-color:#fecaca}.ws-btn.danger:hover{background:#fef2f2}
+.ws-kpis{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-bottom:28px}
+.ws-kpi{background:#fff;border:1px solid var(--bd);border-radius:12px;padding:16px 18px}
+.ws-kpi b{display:block;font:700 28px 'Inter';letter-spacing:-.02em}
+.ws-kpi span{font-size:13px;color:var(--mut)}
+.ws-card{background:#fff;border:1px solid var(--bd);border-radius:12px;padding:16px}
+.ws-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px}
+.ws-proj{cursor:pointer;transition:box-shadow .15s}.ws-proj:hover{box-shadow:0 4px 14px rgba(0,0,0,.08)}
+.ws-proj .top{display:flex;align-items:center;gap:10px;margin-bottom:6px}
+.ws-proj h4{margin:0;font:600 16px 'Inter'}
+.ws-proj p{margin:0 0 14px;font-size:13px;color:var(--mut);min-height:18px}
+.ws-bar{height:6px;background:var(--mbg);border-radius:6px;overflow:hidden}
+.ws-bar i{display:block;height:100%;background:var(--c,var(--pri))}
+.ws-sec{margin:28px 0 12px;font:600 15px 'Inter'}
+.ws-row{display:flex;align-items:center;gap:10px;padding:10px 0;border-bottom:1px solid #f4f4f5;font-size:14px;cursor:pointer}
+.ws-row:last-child{border:0}
+.ws-row .d{margin-left:auto;color:var(--mut);font-size:12px;white-space:nowrap}
+.ws-row .d.late{color:#dc2626;font-weight:600}
+.chip{display:inline-flex;align-items:center;gap:4px;font:500 11px 'Inter';padding:2px 8px;border-radius:999px;background:var(--mbg);color:#52525b}
+.chip.high{background:#fef2f2;color:#dc2626}.chip.medium{background:#fffbeb;color:#b45309}.chip.low{background:#f0fdf4;color:#15803d}
+.chip.late{background:#fef2f2;color:#dc2626}.chip.lab{background:#f0fdfa;color:#0f766e}
+/* kanban */
+.kb{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:14px;align-items:start}
+.kb-col{background:var(--mbg);border-radius:16px;padding:12px;min-height:150px;border:2px solid transparent}
+.kb-col.over{border-color:var(--pri)}
+.kb-head{display:flex;justify-content:space-between;align-items:center;padding:2px 4px 10px;font:600 13px 'Inter'}
+.kb-head i{font-style:normal;background:#fff;border-radius:999px;padding:1px 9px;font-size:12px;color:var(--mut);font-weight:500}
+.kb-card{background:#fff;border-radius:10px;padding:12px;margin-bottom:8px;border:1px solid var(--bd);cursor:grab;box-shadow:0 1px 2px rgba(0,0,0,.04)}
+.kb-card:hover{box-shadow:0 3px 10px rgba(0,0,0,.08)}
+.kb-card.done .kb-title{text-decoration:line-through;color:#a1a1aa}
+.kb-title{font:500 14px/1.35 'Inter'}
+.kb-meta{display:flex;flex-wrap:wrap;gap:5px;margin-top:8px}
+.kb-move{display:flex;gap:6px;justify-content:flex-end;margin-top:8px}
+.kb-move button{border:1px solid var(--bd);background:#fff;border-radius:8px;width:36px;height:32px;cursor:pointer;color:#52525b;font-size:16px}
+.kb-move button:disabled{opacity:.3}
+@media(hover:hover){.kb-move{display:none}}
+.kb-add{width:100%;border:1px dashed #d4d4d8!important;background:transparent!important;padding:10px;font:14px 'Inter'}
+/* modal */
+.dlg-bg{position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:60;display:grid;place-items:center;padding:16px}
+.dlg{background:#fff;border-radius:14px;width:min(500px,100%);max-height:92vh;overflow:auto;padding:22px;box-shadow:0 20px 50px rgba(0,0,0,.25)}
+.dlg h3{margin:0 0 4px;font:600 18px 'Inter'}.dlg .sub{margin:0 0 16px;font-size:13px;color:var(--mut)}
+.fld{display:block;margin-bottom:14px}.fld>span{display:block;font:500 13px 'Inter';margin-bottom:6px}
+.fld input,.fld select,.fld textarea{width:100%;padding:9px 11px;font-size:14px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.pick{display:flex;flex-wrap:wrap;gap:6px}
+.pick button{border:1px solid var(--bd);background:#fff;border-radius:999px;padding:5px 12px;font:13px 'Inter';cursor:pointer}
+.pick button.on{background:var(--pri);color:#fff;border-color:var(--pri)}
+.sw{width:34px!important;height:34px;border-radius:50%!important;padding:0!important;border:3px solid #fff!important;outline:2px solid transparent}
+.sw.on{outline-color:var(--c)}
+.dlg-act{display:flex;gap:8px;justify-content:flex-end;margin-top:8px;flex-wrap:wrap}
+.toast{position:fixed;left:50%;bottom:84px;transform:translateX(-50%);background:#18181b;color:#fff;padding:10px 16px;border-radius:10px;font-size:13px;z-index:80;max-width:90vw}
+.bell-pop{position:fixed;z-index:70;top:60px;left:12px;width:min(340px,calc(100vw - 24px));background:#fff;border:1px solid var(--bd);border-radius:12px;box-shadow:0 12px 32px rgba(0,0,0,.18);padding:12px}
+.bell-pop h5{margin:0 0 8px;font:600 14px 'Inter'}
+/* calendar */
+.cal{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:1px;background:var(--bd);border:1px solid var(--bd);border-radius:12px;overflow:hidden}
+.cal .h{background:var(--mbg);text-align:center;font:500 12px 'Inter';color:var(--mut);padding:8px}
+.cal .c{background:#fff;min-height:100px;padding:6px;font-size:11px;min-width:0}
+.cal .c.o{background:#fafafa;color:#a1a1aa}.cal .c.t{background:var(--pri-soft)}
+.cal .c b{font:600 12px 'Inter'}
+.ev{display:block;width:100%;text-align:left;border:0;border-left:3px solid var(--c,#18181b);background:var(--mbg);border-radius:4px;padding:2px 5px;margin-top:3px;font:11px 'Inter';white-space:nowrap;overflow:hidden;text-overflow:ellipsis;cursor:pointer}
+.ev.lab{--c:#0f766e;background:#f0fdfa;color:#0f766e}
+/* journal */
+.jr{display:grid;grid-template-columns:290px minmax(0,1fr);gap:16px;align-items:start}
+.jr-list{max-height:70vh;overflow:auto;display:flex;flex-direction:column;gap:6px}
+.jr-item{border:1px solid var(--bd);background:#fff;border-radius:10px;padding:10px 12px;text-align:left;cursor:pointer}
+.jr-item.on{border-color:var(--pri);background:var(--pri-soft)}
+.jr-item b{display:block;font:500 14px 'Inter'}.jr-item span{font-size:12px;color:var(--mut)}
+.jr-ed{padding:24px 28px}
+.jr-ed .ttl{border:0!important;box-shadow:none!important;font:600 28px 'Lora',Georgia,serif!important;padding:0!important;width:100%;background:transparent!important}
+.jr-ed .body{border:0!important;box-shadow:none!important;font:17px/1.75 'Lora',Georgia,serif!important;width:100%;min-height:320px;padding:8px 0!important;resize:vertical;background:transparent!important}
+.mood{display:flex;gap:4px}
+.mood button{border:1px solid transparent;background:var(--mbg);border-radius:10px;font-size:20px;padding:3px 8px;cursor:pointer;opacity:.5}
+.mood button.on{opacity:1;border-color:var(--pri);background:#fff}
+.strip{display:flex;gap:6px}.strip span{width:40px;height:40px;border-radius:10px;background:var(--mbg);display:grid;place-items:center;font-size:19px}
+.chk{width:20px;height:20px;border-radius:6px;border:2px solid #d4d4d8;background:#fff;cursor:pointer;flex:0 0 20px}
+/* embedded Charge Lab: neutralise its old look so it matches the app */
+.ws-main .min-h-screen{padding:0!important;min-height:0!important;background:transparent!important}
+.ws-main .min-h-screen>.max-w-7xl{max-width:none!important}
+.ws-main .min-h-screen>.max-w-7xl>div.bg-slate-950{box-shadow:none!important;border-radius:12px!important;border:1px solid var(--bd)!important}
+.ws-main .min-h-screen .bg-slate-950>.bg-slate-900:first-child{background:#fff!important;border-radius:12px 12px 0 0!important}
+.ws-main .min-h-screen nav{background:var(--mbg)!important;border:0!important}
+.ws-main .min-h-screen nav button.bg-teal-600{background:#18181b!important;box-shadow:none!important}
+.ws-main .kpi-card{background:#fff!important;border:1px solid var(--bd)!important;border-radius:12px!important;color:#09090b!important;min-height:0!important;box-shadow:none!important}
+.ws-main .kpi-card__value,.ws-main .kpi-card__label{color:#09090b!important}
+.ws-main .kpi-card__glow{display:none!important}.ws-main .kpi-card__arrow{background:var(--mbg)!important}
+.ws-main .kpi-card:hover{transform:none!important;box-shadow:0 3px 10px rgba(0,0,0,.08)!important}
+@media(max-width:860px){
+ .ws-side{display:none}
+ .ws-top{display:flex;align-items:center;gap:8px;height:56px;padding:0 12px;background:#fff;border-bottom:1px solid var(--bd);position:sticky;top:0;z-index:30}
+ .ws-top b{font:700 16px 'Inter';flex:1}
+ .ws-top .ws-switch{margin:0;width:150px}
+ .ws-bnav{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:30;background:#fff;border-top:1px solid var(--bd);padding-bottom:env(safe-area-inset-bottom)}
+ .ws-bnav button{flex:1;min-height:56px;border:0;background:none;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;font:11px 'Inter';color:var(--mut)}
+ .ws-bnav button.on{color:var(--pri)}
+ .ws-main{padding:18px 14px 90px}.ws-h h2{font-size:24px}
+ .ws-kpis{grid-template-columns:1fr 1fr 1fr}.ws-kpi{padding:12px}.ws-kpi b{font-size:22px}
+ .jr{grid-template-columns:1fr}.jr-list{max-height:190px}
+ .cal .c{min-height:64px}.ev{font-size:9px}
+ .bell-pop{top:56px}
+}
+</style>
+</head>
+<body>
+<div id="root"></div>
+
+<script type="text/babel" data-presets="react">
+const { useState, useEffect, useCallback, useMemo } = React;
+
+// ---------------------------------------------------------------------------
+// Icons (hand-rolled, lucide-style, so this file has zero npm dependencies)
+// ---------------------------------------------------------------------------
+const ICONS = {
+  check: "M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z|m9 12 2 2 4-4",
+  x: "M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z|m15 9-6 6|m9 9 6 6",
+  clock: "M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z|M12 6v6l4 2",
+  plus: "M5 12h14|M12 5v14",
+  chevronDown: "m6 9 6 6 6-6",
+  chevronRight: "m9 18 6-6-6-6",
+  gauge: "M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z|M12 12l4-4",
+  factory: "M2 20h20|M4 20V10l6 4v-4l6 4V6l4 3v11",
+  package: "M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z|M3.29 7 12 12l8.71-5|M12 22V12",
+  clipboard: "M8 2h8a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H8a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1z|M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2|m9 14 2 2 4-4",
+  settings: "M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6z|M12 1v4|M12 19v4|m4.22 4.22 2.83 2.83|m16.95 16.95 2.83 2.83|M1 12h4|M19 12h4|m4.22 19.78 2.83-2.83|m16.95 7.05 2.83-2.83",
+  alert: "m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z|M12 9v4|M12 17h.01",
+  trash: "M3 6h18|M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6|M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2",
+  tag: "M20.59 13.41 11 3.83A2 2 0 0 0 9.59 3H4a1 1 0 0 0-1 1v5.59A2 2 0 0 0 3.59 11l9.59 9.59a2 2 0 0 0 2.82 0l4.59-4.59a2 2 0 0 0 0-2.82Z|M7.5 7.5h.01",
+  search: "M11 19a8 8 0 1 1 0-16 8 8 0 0 1 0 16Z|m21 21-4.35-4.35",
+  loader: "M21 12a9 9 0 1 1-6.219-8.56",
+  thermometer: "M14 4v10.54a4 4 0 1 1-4 0V4a2 2 0 0 1 4 0Z",
+  timer: "M10 2h4|M12 14 15 11|M12 14a8 8 0 1 1 0 16 8 8 0 0 1 0-16Z" // fallback, overridden below
+};
+// Timer needs a proper circle - fix definition
+ICONS.timer = "M10 2h4|M12 14 15 11|M20 14a8 8 0 1 1-16 0 8 8 0 0 1 16 0Z";
+
+function Icon({ name, size = 16, className = "", spin = false }) {
+  const def = ICONS[name];
+  if (!def) return null;
+  const parts = def.split("|");
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor"
+         strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"
+         className={`${className} ${spin ? "animate-spin" : ""}`}>
+      {parts.map((d, i) => <path key={i} d={d} />)}
+    </svg>
+  );
+}
+
+// ---------------------------------------------------------------------------
+// Domain helpers
+// ---------------------------------------------------------------------------
+const seedData = () => ({
+  models: [
+    { id: "RF120", name: "Refrigerator 120L", category: "Refrigerator", pullDownTargetMin: 90, pullDownToleranceMin: 10, thermoCutIn: 7, thermoCutOut: 2, thermoTolerance: 1.5 },
+    { id: "RF250", name: "Refrigerator 250L", category: "Refrigerator", pullDownTargetMin: 120, pullDownToleranceMin: 15, thermoCutIn: 6, thermoCutOut: 1.5, thermoTolerance: 1.5 },
+    { id: "WD01", name: "Water Dispenser Std", category: "Water Dispenser", pullDownTargetMin: 45, pullDownToleranceMin: 8, thermoCutIn: 10, thermoCutOut: 4, thermoTolerance: 1 },
+  ],
+  suppliers: [
+    { id: "SUPA", name: "Supplier A Compressors Ltd" },
+    { id: "SUPB", name: "Supplier B Motors Co" },
+  ],
+  compressors: [
+    { id: "CMP0045", supplierId: "SUPA", spec: "R600a 1/6HP Rotary" },
+    { id: "CMP0091", supplierId: "SUPB", spec: "R600a 1/6HP Reciprocating" },
+  ],
+  pairs: [
+    {
+      id: "RF120_SUPA_CMP0045", modelId: "RF120", supplierId: "SUPA", compressorId: "CMP0045",
+      dateAdded: "2026-08-10",
+      department: "Development",
+      pullDownAttempts: [{ id: "a1", date: "2026-08-10", measured: 84, at3_5h: { Tf: -18.2, Tr: 3.1, suction: 34.5 }, at24h: { Tf: -20.1, Tr: 3.8, suction: 32.7 }, tester: "M. Tariq", notes: "" }],
+      thermostatAttempts: [{ id: "a2", date: "2026-08-10", positions: { min: {cutIn:7.2,cutOut:2.1}, p3: {cutIn:6.8,cutOut:1.9}, p5: {cutIn:6.2,cutOut:1.5}, max: {cutIn:5.7,cutOut:1.1} }, tester: "M. Tariq", notes: "" }],
+      qualityStatus: "Submitted to Quality", submittedDate: "2026-08-11", decisionDate: "", reviewer: "", comments: "",
+    },
+    {
+      id: "RF120_SUPB_CMP0091", modelId: "RF120", supplierId: "SUPB", compressorId: "CMP0091",
+      dateAdded: "2026-08-11",
+      department: "Development",
+      pullDownAttempts: [{ id: "a3", date: "2026-08-11", measured: 88, tester: "A. Raza", notes: "" }],
+      thermostatAttempts: [{ id: "a4", date: "2026-08-11", cutIn: 9.8, cutOut: 4.6, tester: "A. Raza", notes: "Cut-out drifting high, charge likely over target" }],
+      qualityStatus: "In Test", submittedDate: "", decisionDate: "", reviewer: "", comments: "",
+    },
+  ],
+});
+
+function uid(prefix) { return `${prefix}${Date.now().toString(36)}${Math.floor(Math.random() * 1000)}`; }
+
+const THERMO_POSITION_DEFS = [
+  ["min", "P# Min"],
+  ["p3", "P# 3"],
+  ["p5", "P# 5"],
+  ["max", "P# Max"],
+];
+
+function hasThermoPositionTargets(model) {
+  return !!model?.thermoPositions &&
+    THERMO_POSITION_DEFS.every(([key]) =>
+      model.thermoPositions[key] &&
+      model.thermoPositions[key].cutIn !== "" && model.thermoPositions[key].cutIn !== null && model.thermoPositions[key].cutIn !== undefined &&
+      model.thermoPositions[key].cutOut !== "" && model.thermoPositions[key].cutOut !== null && model.thermoPositions[key].cutOut !== undefined
+    );
+}
+
+function thermoTargetFor(model, key) {
+  if (hasThermoPositionTargets(model)) return model.thermoPositions[key];
+  if (key === "min" && model) return { cutIn: model.thermoCutIn, cutOut: model.thermoCutOut };
+  return null;
+}
+
+function thermoPositionStatus(model, attempt, key) {
+  const target = thermoTargetFor(model, key);
+  const measured = attempt?.positions?.[key];
+  if (!target || !measured || measured.cutIn === "" || measured.cutOut === "") return null;
+  const okIn = Math.abs(Number(measured.cutIn) - Number(target.cutIn)) <= Number(model.thermoTolerance);
+  const okOut = Math.abs(Number(measured.cutOut) - Number(target.cutOut)) <= Number(model.thermoTolerance);
+  return okIn && okOut ? "Pass" : "Fail";
+}
+
+function pullDownResult(model, measured) {
+  if (!model || measured === "" || measured === null || measured === undefined) return null;
+  return Number(measured) <= model.pullDownTargetMin + model.pullDownToleranceMin ? "Pass" : "Fail";
+}
+function thermostatResult(model, attempt) {
+  if (!model || !attempt) return null;
+
+  if (attempt.positions) {
+    const pos = attempt.positions;
+    const complete = THERMO_POSITION_DEFS.every(([k]) =>
+      pos[k] && pos[k].cutIn !== "" && pos[k].cutOut !== "" &&
+      pos[k].cutIn !== null && pos[k].cutOut !== null
+    );
+    if (!complete) return null;
+
+    const targets = THERMO_POSITION_DEFS.map(([key]) => [key, thermoTargetFor(model, key)]);
+    // A thermostat result can only be a full engineering comparison when
+    // the model contains target values for all four positions.
+    if (!targets.every(([, target]) => target && target.cutIn !== "" && target.cutOut !== "")) return null;
+
+    const withinTolerance = ([key, target]) => {
+      const measured = pos[key];
+      return Math.abs(Number(measured.cutIn) - Number(target.cutIn)) <= Number(model.thermoTolerance) &&
+             Math.abs(Number(measured.cutOut) - Number(target.cutOut)) <= Number(model.thermoTolerance);
+    };
+    return targets.every(withinTolerance) ? "Pass" : "Fail";
+  }
+
+  // Backward compatibility for old thermostat records/models.
+  if (attempt.cutIn === "" || attempt.cutOut === "" || attempt.cutIn === null || attempt.cutOut === null) return null;
+  const minTarget = thermoTargetFor(model, "min");
+  if (!minTarget) return null;
+  const okIn = Math.abs(Number(attempt.cutIn) - Number(minTarget.cutIn)) <= Number(model.thermoTolerance);
+  const okOut = Math.abs(Number(attempt.cutOut) - Number(minTarget.cutOut)) <= Number(model.thermoTolerance);
+  return okIn && okOut ? "Pass" : "Fail";
+}
+function latestAttempt(list) { return (!list || list.length === 0) ? null : list[list.length - 1]; }
+function overallOutcome(pair, model) {
+  const pd = latestAttempt(pair.pullDownAttempts);
+  const th = latestAttempt(pair.thermostatAttempts);
+  const pdRes = pd ? pullDownResult(model, pd.measured) : null;
+  const thRes = th ? thermostatResult(model, th) : null;
+  if (!pdRes && !thRes) return "No tests yet";
+  if (!pdRes || !thRes) return "Incomplete";
+  if (pdRes === "Pass" && thRes === "Pass") return "All Passed";
+  if (pdRes === "Fail" && thRes === "Fail") return "All Failed";
+  return "Mixed";
+}
+
+const qStatusColor = {
+  "Pending Test": "text-slate-300 bg-slate-800 border-slate-600",
+  "In Test": "text-sky-300 bg-sky-950/40 border-sky-700",
+  "Submitted to Quality": "text-amber-300 bg-amber-950/40 border-amber-700",
+  "Approved": "text-emerald-300 bg-emerald-950/40 border-emerald-700",
+  "Rejected": "text-rose-300 bg-rose-950/40 border-rose-700",
+  "Rework Requested": "text-orange-300 bg-orange-950/40 border-orange-700",
+};
+
+// ---------------------------------------------------------------------------
+// UI atoms
+// ---------------------------------------------------------------------------
+function Eyebrow({ children }) {
+  return <div className="text-[11px] tracking-[0.18em] uppercase font-medium text-slate-400">{children}</div>;
+}
+function Readout({ value, className = "" }) {
+  return <div className={`text-3xl font-semibold text-slate-50 ${className}`} style={{ fontFamily: "'IBM Plex Mono', monospace" }}>{value}</div>;
+}
+function Kpi({ label, value, accent = "text-slate-900", onClick }) {
+  const theme = {
+    "Pairs Tracked": "kpi-blue",
+    "Pull-Down Pass Rate": "kpi-teal",
+    "Thermostat Pass Rate": "kpi-violet",
+    "Awaiting Quality": "kpi-amber",
+    "Approved": "kpi-green",
+    "Rejected / Rework": "kpi-red"
+  }[label] || "kpi-blue";
+  return (
+    <button type="button" onClick={onClick}
+      className={`kpi-card ${theme} group w-full text-left border p-4 relative overflow-hidden shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-sky-300`}>
+      <div className="kpi-card__glow" />
+      <div className="kpi-card__top">
+        <span className="kpi-card__label">{label}</span>
+        <span className="kpi-card__arrow">↗</span>
+      </div>
+      <div className="kpi-card__value">{value}</div>
+      <div className="kpi-card__action">View units <span>→</span></div>
+    </button>
+  );
+}
+function GaugeBadge({ status, label }) {
+  const map = {
+    Pass: { ring: "stroke-emerald-400", text: "text-emerald-300" },
+    Fail: { ring: "stroke-rose-400", text: "text-rose-300" },
+    null: { ring: "stroke-slate-600", text: "text-slate-500" },
+  };
+  const cfg = map[status] || map[null];
+  return (
+    <div className="flex items-center gap-1.5">
+      <svg width="20" height="20" viewBox="0 0 20 20" className="shrink-0">
+        <circle cx="10" cy="10" r="8" fill="none" strokeWidth="2" className="stroke-slate-800" />
+        <circle cx="10" cy="10" r="8" fill="none" strokeWidth="2" strokeLinecap="round"
+                className={cfg.ring} strokeDasharray={status ? "50.3 50.3" : "6 4"}
+                transform="rotate(-90 10 10)" />
+      </svg>
+      <span className={`text-[11px] font-medium ${cfg.text}`}>{label}</span>
+    </div>
+  );
+}
+function Pill({ children, className }) {
+  return <span className={`inline-flex items-center px-2 py-0.5 rounded-sm border text-[11px] font-medium tracking-wide ${className}`}>{children}</span>;
+}
+function Field({ label, children }) {
+  return (
+    <label className="flex flex-col gap-1">
+      <span className="text-[11px] uppercase tracking-wider text-slate-400">{label}</span>
+      {children}
+    </label>
+  );
+}
+const inputCls = "bg-slate-950 border border-slate-700 rounded-sm px-2.5 py-1.5 text-sm text-slate-100 focus:outline-none focus:ring-1 focus:ring-teal-500 focus:border-teal-500 placeholder-slate-600";
+
+function Btn({ children, onClick, variant = "primary", className = "", disabled }) {
+  const base = "inline-flex items-center gap-1.5 px-3 py-1.5 rounded-sm text-sm font-medium transition-colors disabled:opacity-40 disabled:cursor-not-allowed";
+  const variants = {
+    primary: "bg-teal-600 hover:bg-teal-500 text-white",
+    ghost: "bg-transparent hover:bg-slate-800 text-slate-300 border border-slate-700",
+    danger: "bg-rose-900/40 hover:bg-rose-900/70 text-rose-300 border border-rose-800",
+    subtle: "bg-slate-800 hover:bg-slate-700 text-slate-200",
+  };
+  return <button type="button" onClick={onClick} disabled={disabled} className={`${base} ${variants[variant]} ${className}`}>{children}</button>;
+}
+
+// ---------------------------------------------------------------------------
+// App
+// ---------------------------------------------------------------------------
+function LabApp({ data, persist, req }) {
+  const [tab, setTab] = useState("dashboard");
+  const [expandedPair, setExpandedPair] = useState(null);
+  const [testingFilter, setTestingFilter] = useState("all");
+  const [mobileNavOpen, setMobileNavOpen] = useState(false);
+  useEffect(() => { if (req) { if (req.pairId) setExpandedPair(req.pairId); setTab(req.tab || "testing"); } }, [req]);
+
+  const modelsById = useMemo(() => Object.fromEntries((data?.models || []).map(m => [m.id, m])), [data]);
+  const suppliersById = useMemo(() => Object.fromEntries((data?.suppliers || []).map(s => [s.id, s])), [data]);
+  const compressorsById = useMemo(() => Object.fromEntries((data?.compressors || []).map(c => [c.id, c])), [data]);
+
+  const pairsEnriched = useMemo(() => {
+    if (!data) return [];
+    return data.pairs.map(p => {
+      const model = modelsById[p.modelId];
+      const pd = latestAttempt(p.pullDownAttempts);
+      const th = latestAttempt(p.thermostatAttempts);
+      return {
+        ...p, model, department: p.department || "Development",
+        pullDownStatus: pd ? pullDownResult(model, pd.measured) : null,
+        thermostatStatus: th ? thermostatResult(model, th) : null,
+        outcome: overallOutcome(p, model),
+      };
+    });
+  }, [data, modelsById]);
+
+  const kpis = useMemo(() => {
+    const total = pairsEnriched.length;
+    const awaiting = pairsEnriched.filter(p => p.qualityStatus === "Submitted to Quality").length;
+    const approved = pairsEnriched.filter(p => p.qualityStatus === "Approved").length;
+    const rejected = pairsEnriched.filter(p => p.qualityStatus === "Rejected" || p.qualityStatus === "Rework Requested").length;
+    const pdAttempts = pairsEnriched.flatMap(p => p.pullDownAttempts.map(a => pullDownResult(p.model, a.measured)));
+    const thAttempts = pairsEnriched.flatMap(p => p.thermostatAttempts.map(a => thermostatResult(p.model, a)));
+    const rate = (arr) => { const done = arr.filter(Boolean); return done.length === 0 ? "—" : Math.round((done.filter(r => r === "Pass").length / done.length) * 100) + "%"; };
+    return { total, awaiting, approved, rejected, pdRate: rate(pdAttempts), thRate: rate(thAttempts) };
+  }, [pairsEnriched]);
+
+  const addPair = (modelId, supplierId, compressorId, department, note = "", targetDate = "", planningNote = "") => {
+    const id = `${modelId}_${supplierId}_${compressorId}`;
+    if (data.pairs.some(p => p.id === id)) { alert("This Model + Supplier + Compressor combination already exists."); return false; }
+    persist({
+      ...data,
+      pairs: [...data.pairs, { id, modelId, supplierId, compressorId, department: department || "Development", note: note.trim(), targetDate: targetDate || null, dateAdded: new Date().toISOString().slice(0, 10),
+        pullDownAttempts: [], thermostatAttempts: [], planningStatus: targetDate ? "Planned" : "Unplanned", planningNote: planningNote.trim(), completedAt: null, completedBy: null, qualityStatus: "Pending Test", submittedDate: "", decisionDate: "", reviewer: "", comments: "" }],
+    });
+    return true;
+  };
+  const addAttempt = (pairId, kind, attempt) => {
+    persist({
+      ...data,
+      pairs: data.pairs.map(p => {
+        if (p.id !== pairId) return p;
+        const key = kind === "pulldown" ? "pullDownAttempts" : "thermostatAttempts";
+        const wasEmpty = p.pullDownAttempts.length === 0 && p.thermostatAttempts.length === 0;
+        return { ...p, [key]: [...p[key], attempt], qualityStatus: p.qualityStatus === "Pending Test" && wasEmpty ? "In Test" : p.qualityStatus };
+      }),
+    });
+  };
+  const updatePairStatus = (pairId, patch) => persist({ ...data, pairs: data.pairs.map(p => (p.id === pairId ? { ...p, ...patch } : p)) });
+  const deletePair = (pairId) => persist({ ...data, pairs: data.pairs.filter(p => p.id !== pairId) });
+  const addModel = (m) => persist({ ...data, models: [...data.models, m] });
+  const addSupplier = (s) => persist({ ...data, suppliers: [...data.suppliers, s] });
+  const addCompressor = (c) => persist({ ...data, compressors: [...data.compressors, c] });
+  const deleteModel = (modelId) => {
+    if (data.pairs.some(p => p.modelId === modelId)) { alert("This model is used by one or more pairs. Remove those pairs first."); return; }
+    window.__ask("Delete this model from Master Data?", () => persist({ ...data, models: data.models.filter(m => m.id !== modelId) })); return;
+  };
+  const deleteSupplier = (supplierId) => {
+    if (data.pairs.some(p => p.supplierId === supplierId) || data.compressors.some(c => c.supplierId === supplierId)) { alert("This supplier is used by a pair or compressor lot. Remove those dependencies first."); return; }
+    window.__ask("Delete this supplier from Master Data?", () => persist({ ...data, suppliers: data.suppliers.filter(x => x.id !== supplierId) })); return;
+  };
+  const deleteCompressor = (compressorId) => {
+    if (data.pairs.some(p => p.compressorId === compressorId)) { alert("This compressor lot is used by one or more pairs. Remove those pairs first."); return; }
+    window.__ask("Delete this compressor lot from Master Data?", () => persist({ ...data, compressors: data.compressors.filter(x => x.id !== compressorId) })); return;
+  };
+
+  return (
+    <div className="min-h-screen text-slate-200 p-4 md:p-8">
+      <div className="max-w-7xl mx-auto">
+        <div className="bg-slate-950 border border-slate-800 rounded-md overflow-hidden">
+          <div className="bg-slate-900 border-b border-slate-800 px-5 py-4 flex items-center justify-between flex-wrap gap-3">
+            <div>
+              <div className="flex items-center gap-2">
+                <Icon name="gauge" size={22} className="text-teal-400" />
+                <h1 className="text-xl font-semibold tracking-wide text-slate-50" style={{ fontFamily: "Oswald", letterSpacing: "0.03em" }}>
+                  CHARGE&nbsp;VERIFICATION&nbsp;LAB
+                </h1>
+              </div>
+              <p className="text-xs text-slate-500 mt-0.5 ml-8">Pull-Down &amp; Thermostat qualification tracker · Refrigerators &amp; Water Dispensers</p>
+            </div>
+            <div className="app-nav-wrap">
+              <button type="button" className="mobile-menu-btn" onClick={() => setMobileNavOpen(v => !v)}
+                aria-label="Toggle navigation" aria-expanded={mobileNavOpen}>
+                <span></span><span></span><span></span>
+              </button>
+              <nav className={`flex gap-1 bg-slate-950 border border-slate-800 rounded-sm p-1 app-nav ${mobileNavOpen ? "mobile-open" : ""}`}>
+                {[["dashboard", "Dashboard"], ["testing", "Pairs & Testing"], ["planning", "Planning"], ["quality", "Quality Approvals"], ["master", "Master Data"]].map(([key, label]) => (
+                  <button key={key} onClick={() => { setTab(key); setMobileNavOpen(false); }}
+                    className={`px-3 py-1.5 text-xs font-medium rounded-sm uppercase tracking-wide transition-colors ${tab === key ? "bg-teal-600 text-white" : "text-slate-400 hover:text-slate-200"}`}>
+                    {label}
+                  </button>
+                ))}
+              </nav>
+            </div>
+          </div>
+
+          <div className="p-5">
+            {tab === "dashboard" && <Dashboard kpis={kpis} pairsEnriched={pairsEnriched} data={data} persist={persist} setTab={setTab} setExpandedPair={setExpandedPair} onOpenTesting={(filter) => { setTestingFilter(filter); setTab("testing"); }} />}
+            {tab === "testing" && (
+              <Testing data={data} pairsEnriched={pairsEnriched} modelsById={modelsById} suppliersById={suppliersById}
+                compressorsById={compressorsById} expandedPair={expandedPair} setExpandedPair={setExpandedPair}
+                testingFilter={testingFilter} onClearTestingFilter={() => setTestingFilter("all")} addPair={addPair} addAttempt={addAttempt} deletePair={deletePair} updatePairStatus={updatePairStatus} />
+            )}
+            {tab === "planning" && <TestingPlanning data={data} pairsEnriched={pairsEnriched} setTab={setTab} setExpandedPair={setExpandedPair} persist={persist} />}
+            {tab === "quality" && <Quality pairsEnriched={pairsEnriched} modelsById={modelsById} suppliersById={suppliersById} updatePairStatus={updatePairStatus} />}
+            {tab === "master" && <MasterData data={data} addModel={addModel} addSupplier={addSupplier} addCompressor={addCompressor}
+                deleteModel={deleteModel} deleteSupplier={deleteSupplier} deleteCompressor={deleteCompressor} />}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function getCurrentGasCharge(pair) {
+  const attempts = [
+    ...(pair.pullDownAttempts || []).map(a => ({ ...a, _type: "Pull-Down" })),
+    ...(pair.thermostatAttempts || []).map(a => ({ ...a, _type: "Thermostat" }))
+  ].filter(a => a.gasCharge !== undefined && a.gasCharge !== null && a.gasCharge !== "");
+  if (!attempts.length) return null;
+  attempts.sort((a, b) => String(a.date || "").localeCompare(String(b.date || "")));
+  return attempts[attempts.length - 1].gasCharge;
+}
+
+function Dashboard({ kpis, pairsEnriched, data, persist, onOpenTesting, setTab, setExpandedPair }) {
+  const awaitingList = pairsEnriched.filter(p => p.qualityStatus === "Submitted to Quality");
+  const mixedList = pairsEnriched.filter(p => p.outcome === "Mixed");
+  const cards = [
+    { label: "Pairs Tracked", value: kpis.total, filter: "all", accent: "text-slate-900" },
+    { label: "Pull-Down Pass Rate", value: kpis.pdRate, filter: "pulldown-pass", accent: "text-sky-600" },
+    { label: "Thermostat Pass Rate", value: kpis.thRate, filter: "thermostat-pass", accent: "text-teal-600" },
+    { label: "Awaiting Quality", value: kpis.awaiting, filter: "awaiting-quality", accent: "text-amber-600" },
+    { label: "Approved", value: kpis.approved, filter: "approved", accent: "text-emerald-600" },
+    { label: "Rejected / Rework", value: kpis.rejected, filter: "rejected", accent: "text-rose-600" },
+  ];
+  return (
+    <div className="space-y-6">
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+        {cards.map(card => <Kpi key={card.label} {...card} onClick={() => onOpenTesting(card.filter)} />)}
+      </div>
+      {kpis.awaiting > 0 && (
+        <div className="awaiting-quality-banner bg-amber-50 border border-amber-200 rounded-2xl p-4 shadow-sm">
+          <div className="flex items-center justify-between gap-3 mb-2">
+            <div className="flex items-center gap-2">
+              <Icon name="alert" size={16} className="text-amber-600" />
+              <span className="text-sm font-medium text-amber-900">{kpis.awaiting} pair{kpis.awaiting > 1 ? "s" : ""} submitted to Quality with no decision yet</span>
+            </div>
+            <button type="button" onClick={() => onOpenTesting("awaiting-quality")} className="text-xs font-semibold text-amber-700 hover:text-amber-900">View all →</button>
+          </div>
+          <div className="flex flex-wrap gap-2">
+            {awaitingList.map(p => {
+              const currentCharge = getCurrentGasCharge(p);
+              return (
+                <Pill key={p.id} className="awaiting-unit-pill text-amber-800 bg-white border-amber-200">
+                  <span className="font-semibold">{p.id}</span>
+                  <span className="awaiting-pill-divider">·</span>
+                  <span>Charge: <b>{currentCharge !== null ? `${currentCharge} g` : "—"}</b></span>
+                  <span className="awaiting-pill-divider">·</span>
+                  <span>sent {p.submittedDate || "—"}</span>
+                </Pill>
+              );
+            })}
+          </div>
+        </div>
+      )}
+      {mixedList.length > 0 && (
+        <div className="bg-white border border-slate-200 rounded-2xl p-4 shadow-sm">
+          <div className="flex items-center justify-between gap-3">
+            <Eyebrow>Needs a closer look — pull-down and thermostat disagree</Eyebrow>
+            <button type="button" onClick={() => onOpenTesting("mixed")} className="text-xs font-semibold text-sky-600 hover:text-sky-800">View units →</button>
+          </div>
+          <div className="mt-3 space-y-2">
+            {mixedList.map(p => (
+              <div key={p.id} className="flex items-center justify-between text-sm border-b border-slate-100 pb-2 last:border-0">
+                <span className="font-mono text-xs text-slate-600">{p.id}</span>
+                <div className="flex items-center gap-4"><GaugeBadge status={p.pullDownStatus} label="Pull-Down" /><GaugeBadge status={p.thermostatStatus} label="Thermostat" /></div>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
+
+function Testing({ data, pairsEnriched, modelsById, suppliersById, compressorsById, expandedPair, setExpandedPair, testingFilter = "all", onClearTestingFilter, addPair, addAttempt, deletePair, updatePairStatus }) {
+  const [addOpen, setAddOpen] = useState(false);
+  const [newModel, setNewModel] = useState(data.models[0]?.id || "");
+  const [newSupplier, setNewSupplier] = useState(data.suppliers[0]?.id || "");
+  const [newCompressor, setNewCompressor] = useState(data.compressors[0]?.id || "");
+  const [newDepartment, setNewDepartment] = useState("Development");
+  const [newPairNote, setNewPairNote] = useState("");
+  const [newTargetDate, setNewTargetDate] = useState("");
+  const [newPlanningNote, setNewPlanningNote] = useState("");
+  const [search, setSearch] = useState("");
+  const [sortBy, setSortBy] = useState("newest");
+
+  const filterLabels = { all: "All pairs", "pulldown-pass": "Pull-Down passed", "thermostat-pass": "Thermostat passed", "awaiting-quality": "Awaiting Quality", approved: "Approved", rejected: "Rejected / Rework", mixed: "Mixed outcome" };
+
+  const visiblePairs = useMemo(() => {
+    const q = search.trim().toLowerCase();
+    const filtered = pairsEnriched.filter(p => {
+      const filterMatch = testingFilter === "all" ||
+        (testingFilter === "pulldown-pass" && p.pullDownStatus === "Pass") ||
+        (testingFilter === "thermostat-pass" && p.thermostatStatus === "Pass") ||
+        (testingFilter === "awaiting-quality" && p.qualityStatus === "Submitted to Quality") ||
+        (testingFilter === "approved" && p.qualityStatus === "Approved") ||
+        (testingFilter === "rejected" && (p.qualityStatus === "Rejected" || p.qualityStatus === "Rework Requested")) ||
+        (testingFilter === "mixed" && p.outcome === "Mixed");
+      if (!filterMatch) return false;
+      if (!q) return true;
+      const haystack = [
+        p.id, p.department, p.qualityStatus, p.outcome, p.note, p.planningNote, p.targetDate,
+        modelsById[p.modelId]?.name, p.modelId,
+        suppliersById[p.supplierId]?.name, p.supplierId,
+        compressorsById[p.compressorId]?.id, compressorsById[p.compressorId]?.spec
+      ].filter(Boolean).join(" ").toLowerCase();
+      return haystack.includes(q);
+    });
+    return [...filtered].sort((a,b) => {
+      switch (sortBy) {
+        case "oldest": return String(a.dateAdded).localeCompare(String(b.dateAdded)) || a.id.localeCompare(b.id);
+        case "id": return a.id.localeCompare(b.id);
+        case "model": return (modelsById[a.modelId]?.name || "").localeCompare(modelsById[b.modelId]?.name || "") || a.id.localeCompare(b.id);
+        case "supplier": return (suppliersById[a.supplierId]?.name || "").localeCompare(suppliersById[b.supplierId]?.name || "") || a.id.localeCompare(b.id);
+        case "department": return (a.department || "").localeCompare(b.department || "") || a.id.localeCompare(b.id);
+        case "status": return (a.qualityStatus || "").localeCompare(b.qualityStatus || "") || a.id.localeCompare(b.id);
+        case "outcome": return (a.outcome || "").localeCompare(b.outcome || "") || a.id.localeCompare(b.id);
+        case "newest":
+        default: return String(b.dateAdded).localeCompare(String(a.dateAdded)) || b.id.localeCompare(a.id);
+      }
+    });
+  }, [pairsEnriched, search, sortBy, testingFilter, modelsById, suppliersById, compressorsById]);
+
+  const submitNewPair = () => {
+    if (!newModel || !newSupplier || !newCompressor || !newDepartment) return;
+    const created = addPair(newModel, newSupplier, newCompressor, newDepartment, newPairNote, newTargetDate, newPlanningNote);
+    if (created !== false) {
+      setAddOpen(false);
+      setNewDepartment("Development");
+      setNewPairNote(""); setNewTargetDate(""); setNewPlanningNote("");
+    }
+  };
+
+  return (
+    <div className="space-y-4">
+      <div className="testing-toolbar">
+        <div className="testing-toolbar__top">
+          <div>
+            <Eyebrow>Pairs &amp; Testing</Eyebrow>
+            <div className="text-xs text-slate-500 mt-1">Search, sort and open a pair to record Pull-Down and Thermostat results.</div>
+          </div>
+          <Btn onClick={() => setAddOpen(true)}><Icon name="plus" size={14}/> Add Pair</Btn>
+        </div>
+        <div className="testing-controls">
+          <label className="search-box">
+            <Icon name="search" size={14} className="text-slate-500" />
+            <input value={search} onChange={e => setSearch(e.target.value)} placeholder="Search pair, model, supplier, compressor, department..." />
+            {search && <button type="button" className="search-clear" onClick={() => setSearch("")} aria-label="Clear search">×</button>}
+          </label>
+          <Field label="Sort by">
+            <select className={inputCls} value={sortBy} onChange={e => setSortBy(e.target.value)}>
+              <option value="newest">Newest first</option>
+              <option value="oldest">Oldest first</option>
+              <option value="id">Pair ID A–Z</option>
+              <option value="model">Model A–Z</option>
+              <option value="supplier">Supplier A–Z</option>
+              <option value="department">Department</option>
+              <option value="status">Status</option>
+              <option value="outcome">Outcome</option>
+            </select>
+          </Field>
+          <div className="results-count"><b>{visiblePairs.length}</b> of {pairsEnriched.length} pair{pairsEnriched.length === 1 ? "" : "s"}</div>
+        </div>
+        {testingFilter !== "all" && (
+          <div className="mt-3 flex items-center gap-2">
+            <span className="text-[11px] uppercase tracking-wider text-slate-500">Dashboard filter</span>
+            <span className="inline-flex items-center gap-2 rounded-full bg-sky-50 border border-sky-200 px-3 py-1 text-xs font-medium text-sky-700">{filterLabels[testingFilter]}
+              <button type="button" onClick={onClearTestingFilter} className="text-sky-500 hover:text-sky-800" title="Clear dashboard filter">×</button>
+            </span>
+          </div>
+        )}
+      </div>
+
+      {visiblePairs.length === 0 && (
+        <div className="text-sm text-slate-500 border border-dashed border-slate-800 rounded-sm p-6 text-center">
+          {pairsEnriched.length === 0 ? "No pairs yet — click Add Pair to register one." : "No pairs match your search."}
+        </div>
+      )}
+
+      <div className="space-y-2">
+        {visiblePairs.map(p => (
+          <PairRow key={p.id} pair={p} model={modelsById[p.modelId]} supplier={suppliersById[p.supplierId]} compressor={compressorsById[p.compressorId]}
+            expanded={expandedPair === p.id} onToggle={() => setExpandedPair(expandedPair === p.id ? null : p.id)}
+            addAttempt={addAttempt} deletePair={deletePair} updatePairStatus={updatePairStatus} />
+        ))}
+      </div>
+
+      {addOpen && (
+        <div className="modal-backdrop" onMouseDown={e => { if (e.target === e.currentTarget) setAddOpen(false); }}>
+          <div className="add-pair-modal" role="dialog" aria-modal="true" aria-labelledby="add-pair-title">
+            <div className="add-pair-modal__header">
+              <div>
+                <div id="add-pair-title" className="text-base font-semibold text-slate-100">Add New Pair</div>
+                <div className="text-xs text-slate-500 mt-0.5">Select the unit, supplier, compressor and owning department.</div>
+              </div>
+              <button type="button" className="modal-close" onClick={() => setAddOpen(false)} aria-label="Close">×</button>
+            </div>
+            <div className="add-pair-modal__body">
+              <div className="add-pair-grid">
+                <Field label="Model *">
+                  <select className={inputCls} value={newModel} onChange={e => setNewModel(e.target.value)}>{data.models.map(m => <option key={m.id} value={m.id}>{m.id} — {m.name}</option>)}</select>
+                </Field>
+                <Field label="Supplier *">
+                  <select className={inputCls} value={newSupplier} onChange={e => setNewSupplier(e.target.value)}>{data.suppliers.map(s => <option key={s.id} value={s.id}>{s.id} — {s.name}</option>)}</select>
+                </Field>
+                <Field label="Compressor Lot *">
+                  <select className={inputCls} value={newCompressor} onChange={e => setNewCompressor(e.target.value)}>{data.compressors.map(c => <option key={c.id} value={c.id}>{c.id} — {c.spec}</option>)}</select>
+                </Field>
+                <Field label="Department *">
+                  <select className={inputCls} value={newDepartment} onChange={e => setNewDepartment(e.target.value)}>
+                    <option value="Development">Development</option>
+                    <option value="Quality">Quality</option>
+                  </select>
+                </Field>
+                <Field label="Target Test Date">
+                  <input className={inputCls} type="date" value={newTargetDate} onChange={e => setNewTargetDate(e.target.value)} />
+                </Field>
+              </div>
+              <div className="mt-3">
+                <Field label="Pair Note">
+                  <textarea className={inputCls + " w-full min-h-[80px]"} value={newPairNote} onChange={e => setNewPairNote(e.target.value)}
+                    placeholder="Why is this pair being created? What should the tester or Quality team keep in mind?" />
+                </Field>
+              </div>
+              <div className="mt-3">
+                <Field label="Planning Note (what to do when the target date arrives)">
+                  <textarea className={inputCls + " w-full min-h-[80px]"} value={newPlanningNote} onChange={e => setNewPlanningNote(e.target.value)}
+                    placeholder="e.g. Run 24h load test with 73g R600a; check suction and discharge temperatures." />
+                </Field>
+              </div>
+              <div className="add-pair-preview">
+                <div className="text-[10px] uppercase tracking-wider text-slate-500">Pair preview</div>
+                <div className="font-mono text-sm text-slate-200 mt-1">{newModel || "—"}_{newSupplier || "—"}_{newCompressor || "—"}</div>
+                <Pill className={newDepartment === "Quality" ? "text-amber-300 bg-amber-950/40 border-amber-700" : "text-sky-300 bg-sky-950/40 border-sky-700"}>{newDepartment}</Pill>
+              </div>
+            </div>
+            <div className="add-pair-modal__footer">
+              <Btn variant="ghost" onClick={() => setAddOpen(false)}>Cancel</Btn>
+              <Btn onClick={submitNewPair}><Icon name="plus" size={14}/> Add Pair</Btn>
+            </div>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
+
+function PairRow({ pair, model, supplier, compressor, expanded, onToggle, addAttempt, deletePair, updatePairStatus }) {
+  const [pdMeasured, setPdMeasured] = useState("");
+  const [pdTf35, setPdTf35] = useState("");
+  const [pdTr35, setPdTr35] = useState("");
+  const [pdSuction35, setPdSuction35] = useState("");
+  const [pdTf24, setPdTf24] = useState("");
+  const [pdTr24, setPdTr24] = useState("");
+  const [pdSuction24, setPdSuction24] = useState("");
+  const [pdGasCharge, setPdGasCharge] = useState("");
+  const [pdTestId, setPdTestId] = useState("");
+  const [pdTester, setPdTester] = useState("");
+  const [pdNotes, setPdNotes] = useState("");
+
+  const [thTestId, setThTestId] = useState("");
+  const [thTester, setThTester] = useState("");
+  const [thNotes, setThNotes] = useState("");
+  const [thGasCharge, setThGasCharge] = useState("");
+  const [thPos, setThPos] = useState({
+    min: { cutIn: "", cutOut: "" },
+    p3: { cutIn: "", cutOut: "" },
+    p5: { cutIn: "", cutOut: "" },
+    max: { cutIn: "", cutOut: "" },
+  });
+
+  const setPosition = (key, field, value) => setThPos(prev => ({ ...prev, [key]: { ...prev[key], [field]: value } }));
+
+  const submitPd = () => {
+    if (pdGasCharge === "") {
+      alert("Current gas charge is required before logging the Pull-Down test.");
+      return;
+    }
+    if (pdMeasured === "" && [pdTf35,pdTr35,pdSuction35,pdTf24,pdTr24,pdSuction24].every(v => v === "")) return;
+    addAttempt(pair.id, "pulldown", {
+      id: uid("a"), testId: pdTestId.trim(), date: new Date().toISOString().slice(0, 10), measured: pdMeasured === "" ? "" : Number(pdMeasured),
+      at3_5h: { Tf: pdTf35 === "" ? "" : Number(pdTf35), Tr: pdTr35 === "" ? "" : Number(pdTr35), suction: pdSuction35 === "" ? "" : Number(pdSuction35) },
+      at24h: { Tf: pdTf24 === "" ? "" : Number(pdTf24), Tr: pdTr24 === "" ? "" : Number(pdTr24), suction: pdSuction24 === "" ? "" : Number(pdSuction24) },
+      gasCharge: Number(pdGasCharge), tester: pdTester || "—", notes: pdNotes.trim()
+    });
+    setPdMeasured(""); setPdTf35(""); setPdTr35(""); setPdSuction35(""); setPdTf24(""); setPdTr24(""); setPdSuction24(""); setPdGasCharge(""); setPdTestId(""); setPdTester(""); setPdNotes("");
+  };
+
+  const submitTh = () => {
+    if (thGasCharge === "") {
+      alert("Current gas charge is required before logging the Thermostat test.");
+      return;
+    }
+    const complete = ["min","p3","p5","max"].every(k => thPos[k].cutIn !== "" && thPos[k].cutOut !== "");
+    if (!complete) return;
+    addAttempt(pair.id, "thermostat", { id: uid("a"), testId: thTestId.trim(), date: new Date().toISOString().slice(0, 10), positions: {
+      min: { cutIn: Number(thPos.min.cutIn), cutOut: Number(thPos.min.cutOut) },
+      p3: { cutIn: Number(thPos.p3.cutIn), cutOut: Number(thPos.p3.cutOut) },
+      p5: { cutIn: Number(thPos.p5.cutIn), cutOut: Number(thPos.p5.cutOut) },
+      max: { cutIn: Number(thPos.max.cutIn), cutOut: Number(thPos.max.cutOut) },
+    }, gasCharge: Number(thGasCharge), tester: thTester || "—", notes: thNotes.trim() });
+    setThPos({ min:{cutIn:"",cutOut:""}, p3:{cutIn:"",cutOut:""}, p5:{cutIn:"",cutOut:""}, max:{cutIn:"",cutOut:""} }); setThGasCharge(""); setThTestId(""); setThTester(""); setThNotes("");
+  };
+
+  const submitQuality = () => updatePairStatus(pair.id, { qualityStatus: "Submitted to Quality", submittedDate: new Date().toISOString().slice(0, 10) });
+
+  const pdDisplay = a => {
+    const t35 = a.at3_5h ? `3.5h Tf ${a.at3_5h.Tf}° / Tr ${a.at3_5h.Tr}° / Suc ${a.at3_5h.suction}°` : "3.5h —";
+    const t24 = a.at24h ? `24h Tf ${a.at24h.Tf}° / Tr ${a.at24h.Tr}° / Suc ${a.at24h.suction}°` : "24h —";
+    const charge = a.gasCharge !== undefined && a.gasCharge !== "" ? `${a.gasCharge} g` : "—";
+    const testId = a.testId || "—";
+    return <div className="log-row__main"><div className="log-row__value">{a.measured !== "" && a.measured !== undefined ? `${a.measured} min · ` : ""}{t35} · {t24}</div><div className="log-row__meta"><span>Test ID: <b>{testId}</b></span><span>Charge: <b className="text-amber-300">{charge}</b></span><span>Tester: {a.tester}</span><span>{a.date}</span></div><div className="log-row__note"><b>Note:</b> {a.notes || "No note added."}</div></div>;
+  };
+
+  const thDisplay = a => {
+    if (a.positions) return (
+      <div className="log-row__main">
+        <div className="thermo-log-comparison">
+          {THERMO_POSITION_DEFS.map(([key,label]) => {
+            const measured = a.positions[key];
+            const target = thermoTargetFor(model, key);
+            const result = thermoPositionStatus(model, a, key);
+            return (
+              <div className="thermo-log-position" key={key}>
+                <div className="thermo-log-position__name">{label}</div>
+                <div className="thermo-log-position__reading">Actual {measured.cutIn}/{measured.cutOut}°</div>
+                <div className="thermo-log-position__target">{target ? `Target ${target.cutIn}/${target.cutOut}° ± ${model.thermoTolerance}°` : "Target not configured"}</div>
+                {result && <span className={`thermo-log-result ${result === "Pass" ? "pass" : "fail"}`}>{result}</span>}
+              </div>
+            );
+          })}
+        </div>
+        <div className="log-row__meta"><span>Test ID: <b>{a.testId || "—"}</b></span><span>Charge: <b className="text-amber-300">{a.gasCharge !== undefined && a.gasCharge !== "" ? `${a.gasCharge} g` : "—"}</b></span><span>Tester: {a.tester}</span><span>{a.date}</span></div>
+        <div className="log-row__note"><b>Note:</b> {a.notes || "No note added."}</div>
+      </div>
+    );
+    return <div className="log-row__main"><div className="log-row__value">in {a.cutIn}° / out {a.cutOut}°</div><div className="log-row__meta"><span>Test ID: <b>{a.testId || "—"}</b></span><span>Charge: <b className="text-amber-300">{a.gasCharge !== undefined && a.gasCharge !== "" ? `${a.gasCharge} g` : "—"}</b></span><span>Tester: {a.tester}</span><span>{a.date}</span></div><div className="log-row__note"><b>Note:</b> {a.notes || "No note added."}</div></div>;
+  };
+
+  const pdReady = pdGasCharge !== "";
+  const thReady = thGasCharge !== "" && ["min","p3","p5","max"].every(k => thPos[k].cutIn !== "" && thPos[k].cutOut !== "");
+
+  return (
+    <div className="bg-slate-900 border border-slate-800 rounded-sm overflow-hidden">
+      <button onClick={onToggle} className="w-full flex items-center justify-between px-4 py-3 hover:bg-slate-850 text-left">
+        <div className="flex items-center gap-3">
+          <Icon name={expanded ? "chevronDown" : "chevronRight"} size={16} className="text-slate-500" />
+          <div className="min-w-0">
+            <div className="text-sm font-mono text-slate-200">{pair.id}</div>
+            <div className="text-xs text-slate-500">{model?.name} · {supplier?.name} · {compressor?.spec}</div>
+            <div className="mt-1 flex items-center gap-2 flex-wrap">
+              <Pill className={pair.department === "Quality" ? "text-amber-300 bg-amber-950/40 border-amber-700" : "text-sky-300 bg-sky-950/40 border-sky-700"}>{pair.department || "Development"}</Pill>
+            </div>
+            {pair.note && <div className="pair-header-note"><b>Pair note:</b> {pair.note}</div>}
+          </div>
+        </div>
+        <div className="flex items-center gap-4"><GaugeBadge status={pair.pullDownStatus} label="Pull-Down" /><GaugeBadge status={pair.thermostatStatus} label="Thermostat" /><Pill className={qStatusColor[pair.qualityStatus]}>{pair.qualityStatus}</Pill></div>
+      </button>
+      {expanded && (
+        <div className="border-t border-slate-800 p-4 space-y-4 bg-slate-950/50">
+          <div className="grid md:grid-cols-2 gap-4">
+            <section className="test-panel">
+              <div className="test-panel__header">
+                <div><div className="test-panel__title"><Icon name="timer" size={15} className="text-sky-400"/> Pull-Down Test</div><div className="test-panel__subtitle">Record pull-down time plus temperatures at 3.5 h and 24 h.</div></div>
+                <span className="text-[10px] text-slate-500">Target ≤ {model ? model.pullDownTargetMin + model.pullDownToleranceMin : "—"} min</span>
+              </div>
+              <div className="test-panel__body">
+                <div className="entry-requirements"><span className="req-icon">!</span><span><strong>* Current gas charge is mandatory.</strong> Enter the actual charge present in the unit before logging this Pull-Down record. The Log button stays disabled until charge is entered.</span></div>
+
+                <div className="measurement-block test-id-card">
+                  <Field label="Test ID"><input className={inputCls} value={pdTestId} onChange={e=>setPdTestId(e.target.value)} placeholder="e.g. PD-2026-001" /></Field>
+                </div>
+
+                <div className="gas-charge-card">
+                  <Field label={<span>Current Gas Charge (g) <span className="required-mark">*</span></span>}>
+                    <input className={inputCls} required type="number" min="0" step="0.1" value={pdGasCharge} onChange={e=>setPdGasCharge(e.target.value)} placeholder="e.g. 45" />
+                    <div className="gas-copy">Required for every Pull-Down log</div>
+                  </Field>
+                  <div className="gas-unit">GRAMS (g)</div>
+                </div>
+
+                <div className="test-history"><div className="test-history__label"><span>Previous Pull-Down Logs</span><span>{pair.pullDownAttempts?.length || 0} record(s)</span></div><AttemptHistory attempts={pair.pullDownAttempts} render={a => pdDisplay(a)} /></div>
+
+                <div className="measurement-block">
+                  <div className="measurement-block__title"><Icon name="clock" size={13}/> 3.5 Hours</div>
+                  <div className="measurement-grid">
+                    <Field label="Tf °C"><input className={inputCls} type="number" step="0.1" value={pdTf35} onChange={e=>setPdTf35(e.target.value)} placeholder="e.g. -18.2" /></Field>
+                    <Field label="Tr °C"><input className={inputCls} type="number" step="0.1" value={pdTr35} onChange={e=>setPdTr35(e.target.value)} placeholder="e.g. 3.1" /></Field>
+                    <Field label="Suction °C"><input className={inputCls} type="number" step="0.1" value={pdSuction35} onChange={e=>setPdSuction35(e.target.value)} placeholder="e.g. 34.5" /></Field>
+                  </div>
+                </div>
+
+                <div className="measurement-block">
+                  <div className="measurement-block__title"><Icon name="clock" size={13}/> 24 Hours</div>
+                  <div className="measurement-grid">
+                    <Field label="Tf °C"><input className={inputCls} type="number" step="0.1" value={pdTf24} onChange={e=>setPdTf24(e.target.value)} placeholder="e.g. -20.1" /></Field>
+                    <Field label="Tr °C"><input className={inputCls} type="number" step="0.1" value={pdTr24} onChange={e=>setPdTr24(e.target.value)} placeholder="e.g. 3.8" /></Field>
+                    <Field label="Suction °C"><input className={inputCls} type="number" step="0.1" value={pdSuction24} onChange={e=>setPdSuction24(e.target.value)} placeholder="e.g. 32.7" /></Field>
+                  </div>
+                </div>
+
+                <div className="log-footer">
+                  <Field label="Pull-Down Time (min)"><input className={inputCls} type="number" step="0.1" value={pdMeasured} onChange={e=>setPdMeasured(e.target.value)} placeholder="e.g. 84" /></Field>
+                  <Field label="Tester"><input className={inputCls} value={pdTester} onChange={e=>setPdTester(e.target.value)} placeholder="Name" /></Field>
+                  <div></div>
+                  <div className="log-action"><Btn onClick={submitPd} disabled={!pdReady}><Icon name="plus" size={13}/> Log Pull-Down</Btn>{!pdReady && <div className="inline-disabled-note">* Enter gas charge to enable</div>}</div>
+                </div>
+                <div className="notes-block"><div className="note-label"><span className="text-[11px] uppercase tracking-wider text-slate-400">Test Note</span><span className="note-hint">Optional — saved with this log</span></div><textarea className={`${inputCls} w-full`} rows="2" value={pdNotes} onChange={e=>setPdNotes(e.target.value)} placeholder="Record observations, abnormal readings, ambient conditions, compressor behavior, etc." /></div>
+              </div>
+            </section>
+
+            <section className="test-panel">
+              <div className="test-panel__header">
+                <div><div className="test-panel__title"><Icon name="thermometer" size={15} className="text-teal-400"/> Thermostat Test</div><div className="test-panel__subtitle">Enter Cut-In / Cut-Out at all four thermostat positions.</div></div>
+                <span className="text-[10px] text-slate-500">4 positions required</span>
+              </div>
+              <div className="test-panel__body">
+                <div className="thermo-reference">
+                  <b>Model thermostat targets:</b>{" "}
+                  {model && hasThermoPositionTargets(model)
+                    ? THERMO_POSITION_DEFS.map(([key,label]) => {
+                        const t = model.thermoPositions[key];
+                        return `${label} ${t.cutIn}/${t.cutOut}°`;
+                      }).join(" · ") + ` · ± ${model.thermoTolerance}°`
+                    : "Four-position targets are not configured for this model."}
+                </div>
+                <div className="entry-requirements"><span className="req-icon">!</span><span><strong>* Current gas charge is mandatory.</strong> Enter the actual charge present in the unit before logging this Thermostat record.</span></div>
+
+                <div className="measurement-block test-id-card">
+                  <Field label="Test ID"><input className={inputCls} value={thTestId} onChange={e=>setThTestId(e.target.value)} placeholder="e.g. TH-2026-001" /></Field>
+                </div>
+
+                <div className="gas-charge-card">
+                  <Field label={<span>Current Gas Charge (g) <span className="required-mark">*</span></span>}>
+                    <input className={inputCls} required type="number" min="0" step="0.1" value={thGasCharge} onChange={e=>setThGasCharge(e.target.value)} placeholder="e.g. 45" />
+                    <div className="gas-copy">Required for every Thermostat log</div>
+                  </Field>
+                  <div className="gas-unit">GRAMS (g)</div>
+                </div>
+
+                <div className="test-history"><div className="test-history__label"><span>Previous Thermostat Logs</span><span>{pair.thermostatAttempts?.length || 0} record(s)</span></div><AttemptHistory attempts={pair.thermostatAttempts} render={a => thDisplay(a)} /></div>
+
+                <div className="position-grid">
+                  {THERMO_POSITION_DEFS.map(([key,label]) => (
+                    <div key={key} className="position-card">
+                      <div className="position-card__title">
+                        <span>{label}</span>
+                        <span className="position-card__target">
+                          {(() => {
+                            const t = thermoTargetFor(model, key);
+                            return t ? `Target ${t.cutIn}/${t.cutOut}° ± ${model.thermoTolerance}°` : "Target not set";
+                          })()}
+                        </span>
+                      </div>
+                      <div className="position-grid__fields">
+                        <Field label="Cut-In °C"><input className={inputCls} type="number" step="0.1" value={thPos[key].cutIn} onChange={e=>setPosition(key,'cutIn',e.target.value)} placeholder="In" /></Field>
+                        <Field label="Cut-Out °C"><input className={inputCls} type="number" step="0.1" value={thPos[key].cutOut} onChange={e=>setPosition(key,'cutOut',e.target.value)} placeholder="Out" /></Field>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+
+                <div className="test-action-row">
+                  <div className="test-action-row__fields">
+                    <Field label="Tester"><input className={inputCls} value={thTester} onChange={e=>setThTester(e.target.value)} placeholder="Name" /></Field>
+                    <div></div>
+                  </div>
+                  <div><Btn onClick={submitTh} disabled={!thReady}><Icon name="plus" size={13}/> Log Thermostat</Btn>{!thReady && <div className="inline-disabled-note">* Gas charge + all 4 positions required</div>}</div>
+                </div>
+                <div className="notes-block"><div className="note-label"><span className="text-[11px] uppercase tracking-wider text-slate-400">Test Note</span><span className="note-hint">Optional — saved with this log</span></div><textarea className={`${inputCls} w-full`} rows="2" value={thNotes} onChange={e=>setThNotes(e.target.value)} placeholder="Record cycling behavior, drift, stability, unusual cut-in/cut-out, etc." /></div>
+              </div>
+            </section>
+          </div>
+
+          <div className="flex items-center justify-between pt-2 border-t border-slate-800">
+            <div className="text-xs text-slate-500">Outcome: <span className="text-slate-300 font-medium">{pair.outcome}</span></div>
+            <div className="flex gap-2">
+              {pair.qualityStatus !== "Submitted to Quality" && pair.qualityStatus !== "Approved" && <Btn variant="subtle" onClick={submitQuality}><Icon name="tag" size={13}/> Tag for Quality</Btn>}
+              <Btn variant="danger" onClick={() => deletePair(pair.id)}><Icon name="trash" size={13}/> Remove Pair</Btn>
+            </div>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
+function AttemptHistory({ attempts, render }) {
+  if (!attempts || attempts.length === 0) return <div className="test-history__empty">No test records logged yet.</div>;
+  return (
+    <div>
+      {attempts.map((a, i) => (
+        <div key={a.id} className="log-row">
+          <div className="log-row__top"><span className="log-row__number">#{i + 1}</span>{render(a)}</div>
+        </div>
+      ))}
+    </div>
+  );
+}
+
+function Quality({ pairsEnriched, modelsById, suppliersById, updatePairStatus }) {
+  const relevant = pairsEnriched.filter(p => p.qualityStatus !== "Pending Test");
+  const [reviewerDraft, setReviewerDraft] = useState({});
+  const [commentDraft, setCommentDraft] = useState({});
+  const decide = (pairId, decision) => updatePairStatus(pairId, { qualityStatus: decision, decisionDate: new Date().toISOString().slice(0, 10), reviewer: reviewerDraft[pairId] || "—", comments: commentDraft[pairId] || "" });
+  return (
+    <div className="space-y-3">
+      <div className="text-xs text-slate-500">Pairs can now be tagged for Quality directly from the testing record, regardless of test outcome.</div>
+      {relevant.length === 0 && <div className="text-sm text-slate-500 border border-dashed border-slate-800 rounded-sm p-6 text-center">No pairs in the Quality workflow yet. Pairs appear here once testing begins.</div>}
+      {relevant.map(p => (
+        <div key={p.id} className="bg-slate-900 border border-slate-800 rounded-sm p-4">
+          <div className="flex flex-wrap items-center justify-between gap-3">
+            <div>
+              <div className="text-sm font-mono text-slate-200">{p.id}</div>
+              <div className="text-xs text-slate-500">{modelsById[p.modelId]?.name} · {suppliersById[p.supplierId]?.name} · <span className="text-slate-400">{p.department || "Development"}</span></div>
+            </div>
+            <div className="flex items-center gap-4">
+              <GaugeBadge status={p.pullDownStatus} label="Pull-Down" />
+              <GaugeBadge status={p.thermostatStatus} label="Thermostat" />
+              <Pill className={qStatusColor[p.qualityStatus]}>{p.qualityStatus}</Pill>
+            </div>
+          </div>
+          {p.qualityStatus === "Submitted to Quality" && (
+            <div className="mt-3 pt-3 border-t border-slate-800 flex flex-wrap items-end gap-2">
+              <Field label="Reviewer"><input className={`${inputCls} w-40`} value={reviewerDraft[p.id] || ""} onChange={e => setReviewerDraft({ ...reviewerDraft, [p.id]: e.target.value })} placeholder="Name" /></Field>
+              <Field label="Comments"><input className={`${inputCls} w-64`} value={commentDraft[p.id] || ""} onChange={e => setCommentDraft({ ...commentDraft, [p.id]: e.target.value })} placeholder="Optional" /></Field>
+              <Btn variant="primary" onClick={() => decide(p.id, "Approved")}><Icon name="check" size={13} /> Approve</Btn>
+              <Btn variant="danger" onClick={() => decide(p.id, "Rejected")}><Icon name="x" size={13} /> Reject</Btn>
+              <Btn variant="ghost" onClick={() => decide(p.id, "Rework Requested")}><Icon name="alert" size={13} /> Rework</Btn>
+            </div>
+          )}
+          {(p.qualityStatus === "Approved" || p.qualityStatus === "Rejected" || p.qualityStatus === "Rework Requested") && (
+            <div className="mt-3 pt-3 border-t border-slate-800 text-xs text-slate-500">Decided {p.decisionDate} by {p.reviewer} {p.comments && `— "${p.comments}"`}</div>
+          )}
+        </div>
+      ))}
+    </div>
+  );
+}
+
+
+function MasterData({ data, addModel, addSupplier, addCompressor, deleteModel, deleteSupplier, deleteCompressor }) {
+  // Defensive normalization: old/local/API data may not contain every master-data
+  // collection. Master Data must never blank the entire application because of that.
+  const models = Array.isArray(data?.models) ? data.models : [];
+  const suppliers = Array.isArray(data?.suppliers) ? data.suppliers : [];
+  const compressors = Array.isArray(data?.compressors) ? data.compressors : [];
+
+  const emptyPositions = () => ({
+    min: { cutIn: "", cutOut: "" },
+    p3: { cutIn: "", cutOut: "" },
+    p5: { cutIn: "", cutOut: "" },
+    max: { cutIn: "", cutOut: "" },
+  });
+
+  const [m, setM] = useState(() => ({
+    id: "", name: "", category: "Refrigerator",
+    pullDownTargetMin: "", pullDownToleranceMin: "",
+    thermoTolerance: "",
+    thermoPositions: emptyPositions()
+  }));
+  const [s, setS] = useState({ id: "", name: "" });
+  const [c, setC] = useState(() => ({
+    id: "", supplierId: suppliers[0]?.id || "", spec: ""
+  }));
+
+  const setModelPosition = (key, field, value) => {
+    setM(prev => ({
+      ...prev,
+      thermoPositions: {
+        ...(prev.thermoPositions || emptyPositions()),
+        [key]: {
+          ...((prev.thermoPositions && prev.thermoPositions[key]) || { cutIn: "", cutOut: "" }),
+          [field]: value
+        }
+      }
+    }));
+  };
+
+  const resetModel = () => setM({
+    id: "", name: "", category: "Refrigerator",
+    pullDownTargetMin: "", pullDownToleranceMin: "",
+    thermoTolerance: "",
+    thermoPositions: emptyPositions()
+  });
+
+  const addModelFromForm = () => {
+    const id = String(m.id || "").trim();
+    const name = String(m.name || "").trim();
+
+    if (!id || !name) {
+      alert("Model ID and Name are required.");
+      return;
+    }
+
+    if (m.pullDownTargetMin === "" || m.pullDownToleranceMin === "" || m.thermoTolerance === "") {
+      alert("Pull-down target/tolerance and thermostat tolerance are required.");
+      return;
+    }
+
+    const positions = {};
+    for (const [key, label] of THERMO_POSITION_DEFS) {
+      const source = (m.thermoPositions && m.thermoPositions[key]) || {};
+      if (source.cutIn === "" || source.cutOut === "" ||
+          source.cutIn === null || source.cutOut === null ||
+          source.cutIn === undefined || source.cutOut === undefined) {
+        alert(`Enter both Cut-In and Cut-Out targets for ${label}.`);
+        return;
+      }
+      const cutIn = Number(source.cutIn);
+      const cutOut = Number(source.cutOut);
+      if (!Number.isFinite(cutIn) || !Number.isFinite(cutOut)) {
+        alert(`Enter valid numeric Cut-In and Cut-Out targets for ${label}.`);
+        return;
+      }
+      positions[key] = { cutIn, cutOut };
+    }
+
+    addModel({
+      id,
+      name,
+      category: m.category || "Refrigerator",
+      pullDownTargetMin: Number(m.pullDownTargetMin),
+      pullDownToleranceMin: Number(m.pullDownToleranceMin),
+      // Keep these legacy fields synchronized with P# Min for backward compatibility.
+      thermoCutIn: positions.min.cutIn,
+      thermoCutOut: positions.min.cutOut,
+      thermoTolerance: Number(m.thermoTolerance),
+      thermoPositions: positions
+    });
+    resetModel();
+  };
+
+  const addSupplierFromForm = () => {
+    const id = String(s.id || "").trim();
+    const name = String(s.name || "").trim();
+    if (!id || !name) return;
+    addSupplier({ id, name });
+    setS({ id: "", name: "" });
+  };
+
+  const addCompressorFromForm = () => {
+    const id = String(c.id || "").trim();
+    const spec = String(c.spec || "").trim();
+    if (!id || !spec) return;
+    addCompressor({ id, supplierId: c.supplierId || suppliers[0]?.id || "", spec });
+    setC({ id: "", supplierId: suppliers[0]?.id || "", spec: "" });
+  };
+
+  return (
+    <div className="grid lg:grid-cols-3 gap-5">
+      <section className="bg-slate-900 border border-slate-800 rounded-sm p-4">
+        <div className="flex items-center gap-1.5 mb-3">
+          <Icon name="package" size={14} className="text-teal-400"/>
+          <Eyebrow>Models</Eyebrow>
+        </div>
+
+        <div className="space-y-1 mb-3 max-h-56 overflow-auto">
+          {models.map(mm => (
+            <div key={mm.id} className="text-xs bg-slate-950 border border-slate-800 rounded-sm px-2 py-2 flex items-center justify-between gap-2">
+              <div className="min-w-0">
+                <div className="font-mono text-slate-300">{mm.id} — {mm.name}</div>
+                <div className="text-slate-500">
+                  Pull-down ≤ {Number(mm.pullDownTargetMin || 0) + Number(mm.pullDownToleranceMin || 0)}min ·{" "}
+                  {hasThermoPositionTargets(mm)
+                    ? "Thermostat targets: Min / 3 / 5 / Max"
+                    : `Legacy thermo Min ${mm.thermoCutIn ?? "—"}/${mm.thermoCutOut ?? "—"}°C ± ${mm.thermoTolerance ?? "—"}°`}
+                </div>
+              </div>
+              <Btn variant="danger" className="px-2 shrink-0" onClick={() => deleteModel(mm.id)}>
+                <Icon name="trash" size={12}/>
+              </Btn>
+            </div>
+          ))}
+          {!models.length && (
+            <div className="text-xs text-slate-400 text-center py-5">No models added yet.</div>
+          )}
+        </div>
+
+        <div className="model-form-section">
+          <div className="model-form-grid">
+            <input className={inputCls} placeholder="Model ID" value={m.id} onChange={e => setM(prev => ({...prev, id:e.target.value}))}/>
+            <input className={inputCls} placeholder="Name" value={m.name} onChange={e => setM(prev => ({...prev, name:e.target.value}))}/>
+            <select className={inputCls} value={m.category} onChange={e => setM(prev => ({...prev, category:e.target.value}))}>
+              <option>Refrigerator</option>
+              <option>Deep Freezer</option>
+              <option>Water Dispenser</option>
+            </select>
+            <input className={inputCls} type="number" placeholder="Pull-down target (min)" value={m.pullDownTargetMin} onChange={e => setM(prev => ({...prev, pullDownTargetMin:e.target.value}))}/>
+            <input className={inputCls} type="number" placeholder="Pull-down tolerance (min)" value={m.pullDownToleranceMin} onChange={e => setM(prev => ({...prev, pullDownToleranceMin:e.target.value}))}/>
+            <input className={inputCls} type="number" step="0.1" placeholder="Thermo tolerance °C" value={m.thermoTolerance} onChange={e => setM(prev => ({...prev, thermoTolerance:e.target.value}))}/>
+          </div>
+
+          <div className="model-thermo-targets">
+            <div className="model-thermo-targets__head">
+              <div>
+                <div className="text-[11px] uppercase tracking-wider font-semibold text-slate-500">Thermostat position targets</div>
+                <div className="text-[10px] text-slate-400 mt-1">
+                  Set the expected Cut-In / Cut-Out for every position. Completed thermostat tests compare each position separately.
+                </div>
+              </div>
+              <span className="model-target-required">Required</span>
+            </div>
+
+            <div className="model-position-grid">
+              {THERMO_POSITION_DEFS.map(([key, label]) => {
+                const pos = m.thermoPositions?.[key] || {cutIn:"", cutOut:""};
+                return (
+                  <div className="model-position-card" key={key}>
+                    <div className="model-position-card__title">{label}</div>
+                    <div className="model-position-card__fields">
+                      <input className={inputCls} type="number" step="0.1" placeholder="Cut-In °C"
+                        value={pos.cutIn}
+                        onChange={e => setModelPosition(key, "cutIn", e.target.value)}/>
+                      <input className={inputCls} type="number" step="0.1" placeholder="Cut-Out °C"
+                        value={pos.cutOut}
+                        onChange={e => setModelPosition(key, "cutOut", e.target.value)}/>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </div>
+
+        <Btn className="mt-2 w-full justify-center" onClick={addModelFromForm}>
+          <Icon name="plus" size={13}/> Add Model
+        </Btn>
+      </section>
+
+      <section className="bg-slate-900 border border-slate-800 rounded-sm p-4">
+        <div className="flex items-center gap-1.5 mb-3">
+          <Icon name="factory" size={14} className="text-teal-400"/>
+          <Eyebrow>Suppliers</Eyebrow>
+        </div>
+
+        <div className="space-y-1 mb-3 max-h-56 overflow-auto">
+          {suppliers.map(ss => (
+            <div key={ss.id} className="text-xs bg-slate-950 border border-slate-800 rounded-sm px-2 py-1.5 flex items-center justify-between gap-2">
+              <span className="font-mono text-slate-300">{ss.id} — {ss.name}</span>
+              <Btn variant="danger" className="px-2" onClick={() => deleteSupplier(ss.id)}>
+                <Icon name="trash" size={12}/>
+              </Btn>
+            </div>
+          ))}
+          {!suppliers.length && <div className="text-xs text-slate-400 text-center py-5">No suppliers added yet.</div>}
+        </div>
+
+        <div className="grid grid-cols-1 gap-2">
+          <input className={inputCls} placeholder="Supplier ID" value={s.id} onChange={e => setS(prev => ({...prev, id:e.target.value}))}/>
+          <input className={inputCls} placeholder="Supplier Name" value={s.name} onChange={e => setS(prev => ({...prev, name:e.target.value}))}/>
+        </div>
+        <Btn className="mt-2 w-full justify-center" onClick={addSupplierFromForm}>
+          <Icon name="plus" size={13}/> Add Supplier
+        </Btn>
+      </section>
+
+      <section className="bg-slate-900 border border-slate-800 rounded-sm p-4">
+        <div className="flex items-center gap-1.5 mb-3">
+          <Icon name="settings" size={14} className="text-teal-400"/>
+          <Eyebrow>Compressor Lots</Eyebrow>
+        </div>
+
+        <div className="space-y-1 mb-3 max-h-56 overflow-auto">
+          {compressors.map(cc => (
+            <div key={cc.id} className="text-xs bg-slate-950 border border-slate-800 rounded-sm px-2 py-1.5 flex items-center justify-between gap-2">
+              <div>
+                <div className="font-mono text-slate-300">{cc.id}</div>
+                <div className="text-slate-500">{suppliers.find(x => x.id === cc.supplierId)?.name || "Supplier not found"} · {cc.spec}</div>
+              </div>
+              <Btn variant="danger" className="px-2" onClick={() => deleteCompressor(cc.id)}>
+                <Icon name="trash" size={12}/>
+              </Btn>
+            </div>
+          ))}
+          {!compressors.length && <div className="text-xs text-slate-400 text-center py-5">No compressor lots added yet.</div>}
+        </div>
+
+        <div className="grid grid-cols-1 gap-2">
+          <input className={inputCls} placeholder="Compressor Lot ID" value={c.id} onChange={e => setC(prev => ({...prev, id:e.target.value}))}/>
+          <select className={inputCls} value={c.supplierId} onChange={e => setC(prev => ({...prev, supplierId:e.target.value}))}>
+            {suppliers.map(ss => <option key={ss.id} value={ss.id}>{ss.name}</option>)}
+            {!suppliers.length && <option value="">No suppliers available</option>}
+          </select>
+          <input className={inputCls} placeholder="Spec (e.g. R600a 1/6HP Rotary)" value={c.spec} onChange={e => setC(prev => ({...prev, spec:e.target.value}))}/>
+        </div>
+        <Btn className="mt-2 w-full justify-center" onClick={addCompressorFromForm}>
+          <Icon name="plus" size={13}/> Add Compressor Lot
+        </Btn>
+      </section>
+    </div>
+  );
+}
+
+/* ===================== WORKBENCH: Kanban + Lab + Personal ===================== */
+const { useRef } = React;
+const WS_KEY = "workspace-v1";
+const WS_API = (window.WORKSPACE_API_BASE_URL ?? (/^https?:$/.test(location.protocol) && !/^(localhost|127\.)/.test(location.hostname) ? "/api" : "")).replace(/\/$/, ""); // hosted => uses /api (MongoDB); opened as a file => this browser only
+Object.assign(ICONS, {
+  folder: "M4 20h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13c0 1.1.9 2 2 2Z",
+  cal: "M8 2v4|M16 2v4|M3 10h18|M5 4h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2Z",
+  users: "M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2|M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8|M22 21v-2a4 4 0 0 0-3-3.87|M16 3.13a4 4 0 0 1 0 7.75",
+  book: "M4 19.5A2.5 2.5 0 0 1 6.5 17H20|M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2Z",
+  home: "m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Z|M9 22V12h6v10",
+  dl: "M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4|m7 10 5 5 5-5|M12 15V3",
+  ul: "M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4|m17 8-5-5-5 5|M12 3v12",
+});
+
+const ymd = d => { const x = new Date(d); return `${x.getFullYear()}-${String(x.getMonth() + 1).padStart(2, "0")}-${String(x.getDate()).padStart(2, "0")}`; };
+const todayStr = () => ymd(new Date());
+const fmtD = s => s ? new Date(s + "T12:00:00").toLocaleDateString(undefined, { day: "numeric", month: "short" }) : "";
+const late = t => t.dueDate && t.status !== "done" && t.dueDate < todayStr();
+const COLORS = ["#2563eb", "#0f9f9a", "#16835b", "#c77912", "#c2415d", "#8a4fb8", "#e0568c", "#5b6b82"];
+const TASK_COLS = [["todo", "To Do"], ["in_progress", "In Progress"], ["done", "Done"]];
+const PCATS = ["Health", "Home", "Money", "Family", "Learning", "Errands", "Other"];
+const MOODS = ["😞", "🙁", "😐", "🙂", "😄"];
+
+function wsSeed(empty) {
+  const d = todayStr(), plus = n => { const x = new Date(); x.setDate(x.getDate() + n); return ymd(x); };
+  const base = { lab: seedData(), work: { projects: [], tasks: [], people: [] }, personal: { tasks: [], journal: [] } };
+  if (empty) return base;
+  base.work.people = [{ id: "pe1", name: "M. Tariq", role: "Lab Engineer" }, { id: "pe2", name: "A. Raza", role: "Test Technician" }];
+  base.work.projects = [{ id: "pr1", name: "Q4 Compressor Qualification", description: "Supplier trials and tests", color: "#0f9f9a" }];
+  base.work.tasks = [
+    { id: "t1", projectId: "pr1", title: "Prepare test rig for RF250 trial", notes: "", status: "in_progress", priority: "high", dueDate: plus(2), assignees: ["pe2"], pairId: "" },
+    { id: "t2", projectId: "pr1", title: "Review supplier B drawings", notes: "", status: "todo", priority: "medium", dueDate: plus(6), assignees: ["pe1"], pairId: "RF120_SUPB_CMP0091" },
+    { id: "t3", projectId: "pr1", title: "Send RF120 results to Quality", notes: "", status: "done", priority: "medium", dueDate: plus(-1), assignees: ["pe1"], pairId: "RF120_SUPA_CMP0045" },
+  ];
+  base.personal.tasks = [
+    { id: "p1", title: "Book dentist appointment", notes: "", status: "todo", priority: "medium", dueDate: d, category: "Health" },
+    { id: "p2", title: "Pay utility bills", notes: "", status: "todo", priority: "high", dueDate: plus(3), category: "Money" },
+    { id: "p3", title: "Read 20 pages", notes: "", status: "in_progress", priority: "low", dueDate: "", category: "Learning" },
+  ];
+  base.personal.journal = [{ id: "j1", date: d, title: "A fresh start", body: "This journal is private to you and stored only in this browser. Write whatever you like here.", mood: 4, created: Date.now() }];
+  return base;
+}
+function wsNormalize(d) {
+  if (!d) return wsSeed();
+  if (d.pairs && d.models) return { ...wsSeed(true), lab: d }; // legacy lab-only backup
+  const e = wsSeed(true);
+  return { lab: d.lab || e.lab, work: { ...e.work, ...(d.work || {}) }, personal: { ...e.personal, ...(d.personal || {}) } };
+}
+const wsHdr = () => { const h = { "Content-Type": "application/json" }; try { const k = localStorage.getItem("wb-key"); if (k) h["x-access-key"] = k; } catch (e) {} return h; };
+async function wsLoad() {
+  if (WS_API) {
+    const r = await fetch(WS_API + "/state", { cache: "no-store", headers: wsHdr() });
+    if (r.status === 401) throw new Error("LOCKED");
+    if (r.status === 404) return null;
+    if (!r.ok) { let m = ""; try { m = (await r.json()).message; } catch (e) {} throw new Error(m || "API " + r.status); }
+    return r.json();
+  }
+  try { const raw = localStorage.getItem(WS_KEY); return raw ? JSON.parse(raw) : null; } catch (e) { return null; }
+}
+async function wsSave(s) {
+  if (WS_API) {
+    const r = await fetch(WS_API + "/state", { method: "PUT", headers: wsHdr(), body: JSON.stringify(s) });
+    if (!r.ok) { let m = ""; try { m = (await r.json()).message; } catch (e) {} throw new Error(m || "API " + r.status); }
+    return;
+  }
+  localStorage.setItem(WS_KEY, JSON.stringify(s));
+}
+
+/* ---------- Kanban pieces ---------- */
+function TaskMeta({ t, people, pairs }) {
+  const who = (t.assignees || []).map(id => people?.find(p => p.id === id)?.name).filter(Boolean);
+  return <div className="kb-meta">
+    <span className={`chip ${t.priority}`}>{t.priority}</span>
+    {t.category && <span className="chip">{t.category}</span>}
+    {t.dueDate && <span className={`chip ${late(t) ? "late" : ""}`}>{fmtD(t.dueDate)}{late(t) ? " · overdue" : ""}</span>}
+    {t.pairId && <span className="chip lab" title="Linked lab pair">⚗ {t.pairId}</span>}
+    {who.map(n => <span className="chip" key={n}>{n}</span>)}
+  </div>;
+}
+function QuickAdd({ onAdd }) {
+  const [v, setV] = useState("");
+  return <input className="kb-add" value={v} placeholder="+ Add a task (Enter)" onChange={e => setV(e.target.value)}
+    onKeyDown={e => { if (e.key === "Enter" && v.trim()) { onAdd(v.trim()); setV(""); } }} />;
+}
+function KbBoard({ tasks, cols, onMove, onOpen, onQuickAdd, people, pairs }) {
+  const [over, setOver] = useState(null);
+  return <div className="kb">{cols.map(([k, label], ci) => {
+    const list = tasks.filter(t => t.status === k);
+    return <div key={k} className={`kb-col ${over === k ? "over" : ""}`}
+      onDragOver={e => { e.preventDefault(); setOver(k); }} onDragLeave={() => setOver(null)}
+      onDrop={e => { e.preventDefault(); setOver(null); const id = e.dataTransfer.getData("text/plain"); if (id) onMove(id, k); }}>
+      <div className="kb-head"><span>{label}</span><i>{list.length}</i></div>
+      {list.map(t => <div key={t.id} className={`kb-card p-${t.priority || "medium"} ${t.status === "done" ? "done" : ""}`} draggable
+        onDragStart={e => e.dataTransfer.setData("text/plain", t.id)} onClick={() => onOpen(t)}>
+        <div className="kb-title">{t.title}</div>
+        <TaskMeta t={t} people={people} pairs={pairs} />
+        <div className="kb-move" onClick={e => e.stopPropagation()}>
+          <button disabled={ci === 0} onClick={() => onMove(t.id, cols[ci - 1][0])}>‹</button>
+          <button disabled={ci === cols.length - 1} onClick={() => onMove(t.id, cols[ci + 1][0])}>›</button>
+        </div>
+      </div>)}
+      {onQuickAdd && ci === 0 && <QuickAdd onAdd={onQuickAdd} />}
+    </div>;
+  })}</div>;
+}
+function TaskDialog({ task, people, pairs, cats, onSave, onDelete, onClose }) {
+  const [t, setT] = useState(task);
+  const set = (k, v) => setT(x => ({ ...x, [k]: v }));
+  const tog = id => set("assignees", (t.assignees || []).includes(id) ? t.assignees.filter(a => a !== id) : [...(t.assignees || []), id]);
+  return <div className="dlg-bg" onMouseDown={e => e.target === e.currentTarget && onClose()}>
+    <div className="dlg">
+      <h3>{task.isNew ? "New task" : "Edit task"}</h3>
+      <label className="fld"><span>Title</span><input autoFocus value={t.title} onChange={e => set("title", e.target.value)} /></label>
+      <label className="fld"><span>Notes</span><textarea rows={3} value={t.notes || ""} onChange={e => set("notes", e.target.value)} /></label>
+      <div className="two">
+        <label className="fld"><span>Status</span><select value={t.status} onChange={e => set("status", e.target.value)}>{TASK_COLS.map(([k, l]) => <option key={k} value={k}>{l}</option>)}</select></label>
+        <label className="fld"><span>Priority</span><select value={t.priority} onChange={e => set("priority", e.target.value)}><option value="low">Low</option><option value="medium">Medium</option><option value="high">High</option></select></label>
+      </div>
+      <div className="two">
+        <label className="fld"><span>Due date</span><input type="date" value={t.dueDate || ""} onChange={e => set("dueDate", e.target.value)} /></label>
+        {cats && <label className="fld"><span>Category</span><select value={t.category || "Other"} onChange={e => set("category", e.target.value)}>{cats.map(c => <option key={c}>{c}</option>)}</select></label>}
+        {pairs && <label className="fld"><span>Linked lab pair</span><select value={t.pairId || ""} onChange={e => set("pairId", e.target.value)}><option value="">— none —</option>{pairs.map(p => <option key={p.id} value={p.id}>{p.id}</option>)}</select></label>}
+      </div>
+      {people && <div className="fld"><span>Assignees</span><div className="pick">{people.length ? people.map(p => <button key={p.id} type="button" className={(t.assignees || []).includes(p.id) ? "on" : ""} onClick={() => tog(p.id)}>{p.name}</button>) : <em style={{ fontSize: 12, color: "#98a2b3" }}>Add people in the People page first.</em>}</div></div>}
+      <div className="dlg-act">
+        {!task.isNew && <button className="ws-btn danger" onClick={() => onDelete(t.id)}>Delete</button>}
+        <button className="ws-btn ghost" onClick={onClose}>Cancel</button>
+        <button className="ws-btn" onClick={() => t.title.trim() && onSave({ ...t, isNew: undefined })}>Save</button>
+      </div>
+    </div>
+  </div>;
+}
+const newTask = (extra) => ({ id: uid("t"), title: "", notes: "", status: "todo", priority: "medium", dueDate: "", isNew: true, ...extra });
+const upsert = (list, t) => list.some(x => x.id === t.id) ? list.map(x => x.id === t.id ? t : x) : [...list, t];
+
+/* ---------- Work pages ---------- */
+function WorkOverview({ st, go, openPair }) {
+  const ui = React.useContext(UICtx);
+  const { projects, tasks } = st.work, pairs = st.lab.pairs, td = todayStr();
+  const open = tasks.filter(t => t.status !== "done");
+  const awaiting = pairs.filter(p => p.qualityStatus === "Submitted to Quality").length;
+  const upcoming = [
+    ...open.filter(t => t.dueDate).map(t => ({ k: "t", id: t.id, title: t.title, date: t.dueDate, sub: projects.find(p => p.id === t.projectId)?.name, pid: t.projectId })),
+    ...pairs.filter(p => p.targetDate && !["Completed", "Cancelled"].includes(p.planningStatus)).map(p => ({ k: "p", id: p.id, title: `Test ${p.id}`, date: p.targetDate, sub: "Charge Lab" })),
+  ].sort((a, b) => a.date.localeCompare(b.date)).slice(0, 9);
+  return <div>
+    <div className="ws-h"><div><h2>Overview</h2><p>{open.length} open tasks · {open.filter(late).length} overdue · {tasks.length - open.length} completed</p></div>
+      <button className="ws-btn" onClick={() => ui.projectForm()}><Icon name="plus" size={15} /> New project</button></div>
+    <div className="ws-sec" style={{ marginTop: 0 }}>Projects</div>
+    <div className="ws-grid">
+      {projects.map(p => { const ts = tasks.filter(t => t.projectId === p.id), dn = ts.filter(t => t.status === "done").length;
+        return <div key={p.id} className="ws-card ws-proj" style={{ "--c": p.color }} onClick={() => go("project:" + p.id)}>
+          <div className="top"><span className="ws-dot" style={{ background: p.color }} /><h4>{p.name}</h4></div><p>{p.description}</p>
+          <div className="ws-bar"><i style={{ width: (ts.length ? dn / ts.length * 100 : 0) + "%" }} /></div>
+          <p style={{ margin: "8px 0 0" }}>{dn}/{ts.length} done</p></div>; })}
+      <div className="ws-card ws-proj" style={{ "--c": "#0f766e" }} onClick={() => go("lab")}>
+        <div className="top"><span className="ws-dot" style={{ background: "#0f766e" }} /><h4>Charge Verification Lab</h4></div><p>{awaiting} awaiting Quality</p>
+        <div className="ws-bar"><i style={{ width: (pairs.length ? pairs.filter(p => p.planningStatus === "Completed").length / pairs.length * 100 : 0) + "%" }} /></div>
+        <p style={{ margin: "8px 0 0" }}>{pairs.filter(p => p.planningStatus === "Completed").length}/{pairs.length} completed</p></div>
+    </div>
+    <div className="ws-sec">Coming up</div>
+    <div className="ws-card">{upcoming.length ? upcoming.map(u => <div key={u.k + u.id} className="ws-row" onClick={() => u.k === "p" ? openPair(u.id) : go("project:" + u.pid)}>
+      {u.k === "p" ? <span className="chip lab">⚗ Lab</span> : <span className="chip">Task</span>}<span>{u.title}</span><span style={{ color: "#98a2b3", fontSize: 12 }}>{u.sub}</span>
+      <span className={`d ${u.date < td ? "late" : ""}`}>{fmtD(u.date)}</span></div>) : <em style={{ color: "#98a2b3", fontSize: 13 }}>Nothing scheduled.</em>}</div>
+  </div>;
+}
+function ProjectPage({ st, setWork, pid, go }) {
+  const ui = React.useContext(UICtx);
+  const p = st.work.projects.find(x => x.id === pid), [dlg, setDlg] = useState(null);
+  if (!p) return <div className="ws-card">Project not found.</div>;
+  const tasks = st.work.tasks.filter(t => t.projectId === pid);
+  const move = (id, status) => setWork(w => ({ ...w, tasks: w.tasks.map(t => t.id === id ? { ...t, status } : t) }));
+  return <div>
+    <div className="ws-h"><div><h2><span className="ws-dot" style={{ background: p.color, display: "inline-block", marginRight: 10 }} />{p.name}</h2><p>{p.description}</p></div>
+      <div className="ws-act">
+        <button className="ws-btn ghost" onClick={() => ui.projectForm(p)}>Edit</button>
+        <button className="ws-btn danger" onClick={() => ui.ask("Delete this project and all its tasks?", () => { setWork(w => ({ ...w, projects: w.projects.filter(x => x.id !== pid), tasks: w.tasks.filter(t => t.projectId !== pid) })); go("overview"); })}>Delete</button>
+        <button className="ws-btn" onClick={() => setDlg(newTask({ projectId: pid, assignees: [], pairId: "" }))}>+ New task</button></div></div>
+    <KbBoard tasks={tasks} cols={TASK_COLS} onMove={move} onOpen={setDlg} people={st.work.people} pairs={st.lab.pairs}
+      onQuickAdd={title => setWork(w => ({ ...w, tasks: [...w.tasks, newTask({ projectId: pid, title, assignees: [], pairId: "", isNew: undefined })] }))} />
+    {dlg && <TaskDialog task={dlg} people={st.work.people} pairs={st.lab.pairs} onClose={() => setDlg(null)}
+      onSave={t => { setWork(w => ({ ...w, tasks: upsert(w.tasks, t) })); setDlg(null); }}
+      onDelete={id => { setWork(w => ({ ...w, tasks: w.tasks.filter(t => t.id !== id) })); setDlg(null); }} />}
+  </div>;
+}
+const planStatus = p => ["Unplanned", "Planned", "In Progress", "Completed", "Cancelled"].includes(p.planningStatus) ? p.planningStatus : (p.targetDate ? "Planned" : "Unplanned");
+function CalendarPage({ st, go, openPair }) {
+  const [m, setM] = useState(() => { const d = new Date(); d.setDate(1); return d; }), td = todayStr();
+  const first = new Date(m); first.setDate(1 - ((first.getDay() + 6) % 7));
+  const days = Array.from({ length: 42 }, (_, i) => { const d = new Date(first); d.setDate(first.getDate() + i); return d; });
+  const shift = n => setM(x => new Date(x.getFullYear(), x.getMonth() + n, 1));
+  return <div>
+    <div className="ws-h"><div><h2>{m.toLocaleDateString(undefined, { month: "long", year: "numeric" })}</h2><p>Task deadlines and lab testing dates.</p></div>
+      <div style={{ display: "flex", gap: 6 }}><button className="ws-btn ghost" onClick={() => shift(-1)}>‹</button><button className="ws-btn ghost" onClick={() => { const d = new Date(); d.setDate(1); setM(d); }}>Today</button><button className="ws-btn ghost" onClick={() => shift(1)}>›</button></div></div>
+    <div className="cal">{["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"].map(d => <div className="h" key={d}>{d}</div>)}
+      {days.map(d => { const s = ymd(d);
+        return <div key={s} className={`c ${d.getMonth() !== m.getMonth() ? "o" : ""} ${s === td ? "t" : ""}`}><b>{d.getDate()}</b>
+          {st.work.tasks.filter(t => t.dueDate === s).map(t => { const pr = st.work.projects.find(p => p.id === t.projectId);
+            return <button key={t.id} className="ev" style={{ "--c": pr?.color, textDecoration: t.status === "done" ? "line-through" : "" }} onClick={() => go("project:" + t.projectId)}>{t.title}</button>; })}
+          {st.lab.pairs.filter(p => p.targetDate === s && planStatus(p) !== "Cancelled").map(p => <button key={p.id} className="ev lab" onClick={() => openPair(p.id)}>⚗ {p.id}</button>)}
+        </div>; })}</div>
+  </div>;
+}
+function PeoplePage({ st, setWork }) {
+  const ui = React.useContext(UICtx);
+  const [n, setN] = useState(""), [r, setR] = useState("");
+  const add = () => { if (!n.trim()) return; setWork(w => ({ ...w, people: [...w.people, { id: uid("pe"), name: n.trim(), role: r.trim() }] })); setN(""); setR(""); };
+  return <div>
+    <div className="ws-h"><div><h2>People</h2><p>Team members you can assign tasks to.</p></div></div>
+    <div className="ws-card" style={{ display: "flex", gap: 8, flexWrap: "wrap", marginBottom: 14 }}>
+      <input style={{ flex: "1 1 160px", padding: 9 }} placeholder="Name" value={n} onChange={e => setN(e.target.value)} />
+      <input style={{ flex: "1 1 160px", padding: 9 }} placeholder="Role" value={r} onChange={e => setR(e.target.value)} onKeyDown={e => e.key === "Enter" && add()} />
+      <button className="ws-btn" onClick={add}>Add</button></div>
+    <div className="ws-card">{st.work.people.map(p => { const ts = st.work.tasks.filter(t => (t.assignees || []).includes(p.id));
+      return <div className="ws-row" key={p.id} style={{ cursor: "default" }}><b>{p.name}</b><span style={{ color: "#98a2b3" }}>{p.role}</span>
+        <span className="d">{ts.filter(t => t.status !== "done").length} open · {ts.filter(t => t.status === "done").length} done</span>
+        <button className="ws-btn danger" style={{ padding: "3px 8px" }} onClick={() => ui.ask("Remove " + p.name + "?", () => setWork(w => ({ ...w, people: w.people.filter(x => x.id !== p.id), tasks: w.tasks.map(t => ({ ...t, assignees: (t.assignees || []).filter(a => a !== p.id) })) })))}>×</button></div>; })}
+      {!st.work.people.length && <em style={{ color: "#98a2b3", fontSize: 13 }}>No people yet.</em>}</div>
+  </div>;
+}
+
+/* ---------- Personal pages ---------- */
+function PersonalTasks({ st, setPers }) {
+  const [dlg, setDlg] = useState(null), [cat, setCat] = useState("All");
+  const all = st.personal.tasks, tasks = cat === "All" ? all : all.filter(t => t.category === cat);
+  return <div>
+    <div className="ws-h"><div><h2>My tasks</h2><p>Personal to-dos, kept separate from work projects.</p></div>
+      <button className="ws-btn" onClick={() => setDlg(newTask({ category: "Other" }))}>+ New task</button></div>
+    <div className="pick" style={{ marginBottom: 14 }}>{["All", ...PCATS].map(c => <button key={c} className={cat === c ? "on" : ""} onClick={() => setCat(c)}>{c}</button>)}</div>
+    <KbBoard tasks={tasks} cols={TASK_COLS} onOpen={setDlg}
+      onMove={(id, status) => setPers(p => ({ ...p, tasks: p.tasks.map(t => t.id === id ? { ...t, status } : t) }))}
+      onQuickAdd={title => setPers(p => ({ ...p, tasks: [...p.tasks, newTask({ title, category: cat === "All" ? "Other" : cat, isNew: undefined })] }))} />
+    {dlg && <TaskDialog task={dlg} cats={PCATS} onClose={() => setDlg(null)}
+      onSave={t => { setPers(p => ({ ...p, tasks: upsert(p.tasks, t) })); setDlg(null); }}
+      onDelete={id => { setPers(p => ({ ...p, tasks: p.tasks.filter(t => t.id !== id) })); setDlg(null); }} />}
+  </div>;
+}
+function streakOf(j) {
+  const days = new Set(j.map(e => e.date)); let n = 0; const d = new Date();
+  if (!days.has(ymd(d))) d.setDate(d.getDate() - 1);
+  while (days.has(ymd(d))) { n++; d.setDate(d.getDate() - 1); }
+  return n;
+}
+function Journal({ st, setPers }) {
+  const ui = React.useContext(UICtx);
+  const entries = [...st.personal.journal].sort((a, b) => b.date.localeCompare(a.date) || b.created - a.created);
+  const [sel, setSel] = useState(entries[0]?.id || null), [q, setQ] = useState("");
+  const cur = entries.find(e => e.id === sel), shown = entries.filter(e => (e.title + e.body + (e.tags || "")).toLowerCase().includes(q.toLowerCase()));
+  const edit = patch => setPers(p => ({ ...p, journal: p.journal.map(e => e.id === sel ? { ...e, ...patch } : e) }));
+  const add = () => { const e = { id: uid("j"), date: todayStr(), title: "", body: "", mood: 3, tags: "", created: Date.now() }; setPers(p => ({ ...p, journal: [...p.journal, e] })); setSel(e.id); };
+  const words = (cur?.body || "").trim().split(/\s+/).filter(Boolean).length;
+  return <div>
+    <div className="ws-h"><div><h2>Journal</h2><p>{entries.length} entries · {streakOf(entries)}-day streak · private to this browser</p></div><button className="ws-btn" onClick={add}>+ New entry</button></div>
+    <div className="jr">
+      <div><input style={{ width: "100%", padding: 9, marginBottom: 8 }} placeholder="Search entries…" value={q} onChange={e => setQ(e.target.value)} />
+        <div className="jr-list">{shown.map(e => <button key={e.id} className={`jr-item ${e.id === sel ? "on" : ""}`} onClick={() => setSel(e.id)}>
+          <b>{MOODS[(e.mood || 3) - 1]} {e.title || "Untitled"}</b><span>{new Date(e.date + "T12:00:00").toLocaleDateString(undefined, { weekday: "short", day: "numeric", month: "short", year: "numeric" })}</span></button>)}
+          {!shown.length && <em style={{ color: "#98a2b3", fontSize: 13 }}>No entries.</em>}</div></div>
+      {cur ? <div className="ws-card jr-ed">
+        <input className="ttl" placeholder="Title" value={cur.title} onChange={e => edit({ title: e.target.value })} />
+        <div style={{ display: "flex", gap: 12, flexWrap: "wrap", alignItems: "center" }}>
+          <input type="date" value={cur.date} onChange={e => edit({ date: e.target.value })} style={{ padding: 6 }} />
+          <div className="mood">{MOODS.map((m, i) => <button key={m} className={cur.mood === i + 1 ? "on" : ""} onClick={() => edit({ mood: i + 1 })}>{m}</button>)}</div></div>
+        <textarea className="body" placeholder="What's on your mind today?" value={cur.body} onChange={e => edit({ body: e.target.value })} />
+        <div style={{ display: "flex", gap: 10, alignItems: "center", flexWrap: "wrap" }}>
+          <input placeholder="tags, comma separated" value={cur.tags || ""} onChange={e => edit({ tags: e.target.value })} style={{ flex: 1, padding: 8, minWidth: 160 }} />
+          <span style={{ fontSize: 12, color: "#98a2b3" }}>{words} words · saved automatically</span>
+          <button className="ws-btn danger" onClick={() => ui.ask("Delete this entry?", () => { setPers(p => ({ ...p, journal: p.journal.filter(e => e.id !== sel) })); setSel(null); })}>Delete</button></div>
+      </div> : <div className="ws-card" style={{ color: "#98a2b3" }}>Select or create an entry.</div>}
+    </div>
+  </div>;
+}
+function PersonalToday({ st, setPers, go }) {
+  const td = todayStr(), h = new Date().getHours(), j = st.personal.journal;
+  const due = st.personal.tasks.filter(t => t.status !== "done" && t.dueDate && t.dueDate <= td);
+  const week = Array.from({ length: 7 }, (_, i) => { const d = new Date(); d.setDate(d.getDate() - 6 + i); const e = j.find(x => x.date === ymd(d)); return { d, m: e ? MOODS[(e.mood || 3) - 1] : "·" }; });
+  const done = id => setPers(p => ({ ...p, tasks: p.tasks.map(t => t.id === id ? { ...t, status: "done" } : t) }));
+  return <div>
+    <div className="ws-h"><div><h2>{h < 12 ? "Good morning" : h < 18 ? "Good afternoon" : "Good evening"}</h2><p>{new Date().toLocaleDateString(undefined, { weekday: "long", day: "numeric", month: "long" })}</p></div>
+      <button className="ws-btn" onClick={() => go("journal")}>Write today's entry</button></div>
+    <div className="ws-kpis">
+      <div className="ws-kpi"><b>{due.length}</b><span>Due today or overdue</span></div>
+      <div className="ws-kpi"><b>{st.personal.tasks.filter(t => t.status !== "done").length}</b><span>Open personal tasks</span></div>
+      <div className="ws-kpi"><b>{streakOf(j)}</b><span>Day journal streak</span></div></div>
+    <div className="ws-sec" style={{ marginTop: 0 }}>Needs attention</div>
+    <div className="ws-card">{due.length ? due.map(t => <div className="ws-row" key={t.id} style={{ cursor: "default" }}><div className="chk" onClick={() => done(t.id)} /><span>{t.title}</span><span className={`d ${t.dueDate < td ? "late" : ""}`}>{t.dueDate < td ? "Overdue" : "Today"}</span></div>) : <em style={{ color: "#98a2b3", fontSize: 13 }}>Nothing due. Enjoy the calm.</em>}</div>
+    <div className="ws-sec">Mood this week</div>
+    <div className="strip">{week.map((w, i) => <span key={i} title={w.d.toDateString()}>{w.m}</span>)}</div>
+  </div>;
+}
+
+
+/* ---------- Shared dialogs ---------- */
+Object.assign(ICONS, {
+  bell: "M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9|M10.3 21a1.94 1.94 0 0 0 3.4 0",
+  kanban: "M3 3h18v18H3z|M8 7v7|M12 7v3|M16 7v10",
+  cal2: "M8 2v4|M16 2v4|M3 10h18|M5 4h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2Z",
+});
+const UICtx = React.createContext({ ask: () => {}, projectForm: () => {} });
+function Modal({ title, sub, onClose, children }) {
+  return <div className="dlg-bg" onMouseDown={e => e.target === e.currentTarget && onClose()}><div className="dlg"><h3>{title}</h3>{sub && <p className="sub">{sub}</p>}{children}</div></div>;
+}
+function ConfirmDialog({ msg, onYes, onClose }) {
+  return <Modal title="Are you sure?" sub={msg} onClose={onClose}><div className="dlg-act"><button className="ws-btn ghost" onClick={onClose}>Cancel</button><button className="ws-btn" onClick={onYes}>Confirm</button></div></Modal>;
+}
+function ProjectDialog({ p, onSave, onClose }) {
+  const [f, setF] = useState(p || { name: "", description: "", color: COLORS[0] });
+  return <Modal title={p ? "Edit project" : "Create project"} onClose={onClose}>
+    <label className="fld"><span>Name</span><input autoFocus value={f.name} placeholder="e.g. Website redesign" onChange={e => setF({ ...f, name: e.target.value })} onKeyDown={e => e.key === "Enter" && f.name.trim() && onSave(f)} /></label>
+    <label className="fld"><span>Description (optional)</span><textarea rows={3} value={f.description || ""} onChange={e => setF({ ...f, description: e.target.value })} /></label>
+    <div className="fld"><span>Color</span><div className="pick">{COLORS.map(c => <button key={c} type="button" className={`sw ${f.color === c ? "on" : ""}`} style={{ background: c, "--c": c }} onClick={() => setF({ ...f, color: c })} />)}</div></div>
+    <div className="dlg-act"><button className="ws-btn ghost" onClick={onClose}>Cancel</button><button className="ws-btn" disabled={!f.name.trim()} onClick={() => onSave({ ...f, name: f.name.trim() })}>{p ? "Save" : "Create project"}</button></div>
+  </Modal>;
+}
+function BackupDialog({ st, onRestore, onClose }) {
+  const json = JSON.stringify(st, null, 2), [msg, setMsg] = useState(""), [txt, setTxt] = useState(""), [show, setShow] = useState(false), fileRef = useRef(null);
+  const download = () => { try { const url = URL.createObjectURL(new Blob([json], { type: "application/json" })); const a = document.createElement("a"); a.href = url; a.download = `workbench-backup-${todayStr()}.json`; document.body.appendChild(a); a.click(); a.remove(); setTimeout(() => URL.revokeObjectURL(url), 2000); setMsg("Download started. If nothing appears, use “Show text” and copy it."); } catch (e) { setShow(true); setMsg("Downloads are blocked here — copy the text below instead."); } };
+  const copy = async () => { try { await navigator.clipboard.writeText(json); setMsg("Copied to clipboard."); } catch (e) { setShow(true); setMsg("Select the text below and copy it."); } };
+  const restore = raw => { try { const d = JSON.parse(raw); if (!d || typeof d !== "object") throw 0; onRestore(d); } catch (e) { setMsg("That isn't a valid backup."); } };
+  const pickFile = e => { const f = e.target.files[0]; if (!f) return; const r = new FileReader(); r.onload = () => restore(r.result); r.readAsText(f); e.target.value = ""; };
+  return <Modal title="Backup & restore" sub="Your data lives in this browser. Save a backup to move it to another device." onClose={onClose}>
+    <div className="dlg-act" style={{ justifyContent: "flex-start", marginBottom: 10 }}>
+      <button className="ws-btn" onClick={download}>Download backup</button><button className="ws-btn ghost" onClick={copy}>Copy</button><button className="ws-btn ghost" onClick={() => setShow(s => !s)}>{show ? "Hide text" : "Show text"}</button></div>
+    {show && <textarea readOnly rows={5} value={json} onFocus={e => e.target.select()} style={{ width: "100%", fontSize: 11, fontFamily: "monospace", marginBottom: 10 }} />}
+    <div className="ws-sec" style={{ margin: "14px 0 8px" }}>Restore</div>
+    <div className="dlg-act" style={{ justifyContent: "flex-start" }}><button className="ws-btn ghost" onClick={() => fileRef.current.click()}>Choose backup file…</button><input ref={fileRef} type="file" accept=".json,application/json" style={{ display: "none" }} onChange={pickFile} /></div>
+    <textarea rows={3} placeholder="…or paste backup text here" value={txt} onChange={e => setTxt(e.target.value)} style={{ width: "100%", fontSize: 12, marginTop: 8 }} />
+    {txt.trim() && <div className="dlg-act"><button className="ws-btn" onClick={() => restore(txt)}>Restore from text</button></div>}
+    {msg && <p className="sub" style={{ marginTop: 10, color: "#0f766e" }}>{msg}</p>}
+  </Modal>;
+}
+
+/* ---------- Lab planning (replaces the lab's 3 duplicate planning views) ---------- */
+const PLAN_COLS = ["Unplanned", "Planned", "In Progress", "Completed", "Cancelled"];
+function PlanDialog({ p, onSave, onOpen, onClose }) {
+  const [f, setF] = useState({ planningStatus: planStatus(p), targetDate: p.targetDate || "", planningNote: p.planningNote || "" });
+  return <Modal title={p.id} sub={`${p.model?.name || p.modelId} · ${p.department || "Development"}`} onClose={onClose}>
+    <div className="two">
+      <label className="fld"><span>Stage</span><select value={f.planningStatus} onChange={e => setF({ ...f, planningStatus: e.target.value })}>{PLAN_COLS.map(c => <option key={c}>{c}</option>)}</select></label>
+      <label className="fld"><span>Target date</span><input type="date" value={f.targetDate} onChange={e => setF({ ...f, targetDate: e.target.value })} /></label></div>
+    <label className="fld"><span>Planning note — what to do when the date arrives</span><textarea rows={3} value={f.planningNote} onChange={e => setF({ ...f, planningNote: e.target.value })} placeholder="e.g. Run 24h load test with 73g R600a" /></label>
+    <div className="dlg-act"><button className="ws-btn ghost" onClick={onOpen}>Open tests →</button><button className="ws-btn ghost" onClick={onClose}>Cancel</button>
+      <button className="ws-btn" onClick={() => onSave({ planningStatus: f.planningStatus, targetDate: f.targetDate || null, planningNote: f.planningNote, completedAt: f.planningStatus === "Completed" ? (p.completedAt || new Date().toISOString()) : null })}>Save</button></div>
+  </Modal>;
+}
+function TestingPlanning({ data, pairsEnriched, setTab, setExpandedPair, persist }) {
+  const [over, setOver] = useState(null), [dlg, setDlg] = useState(null), td = todayStr(), pairs = pairsEnriched || [];
+  const upd = (id, patch) => persist({ ...data, pairs: data.pairs.map(p => p.id === id ? { ...p, ...patch } : p) });
+  const move = (id, c) => upd(id, { planningStatus: c, completedAt: c === "Completed" ? new Date().toISOString() : null });
+  const open = id => { setExpandedPair(id); setTab("testing"); };
+  const ci = c => PLAN_COLS.indexOf(c);
+  return <div>
+    <div className="ws-h" style={{ marginBottom: 16 }}><div><h2 style={{ fontSize: 20 }}>Planning board</h2><p>Drag a pair between stages. Click a card to set its date and note.</p></div></div>
+    <div className="kb" style={{ gridTemplateColumns: "repeat(auto-fit,minmax(220px,1fr))" }}>{PLAN_COLS.map(c => {
+      const list = pairs.filter(p => planStatus(p) === c);
+      return <div key={c} className={`kb-col ${over === c ? "over" : ""}`} onDragOver={e => { e.preventDefault(); setOver(c); }} onDragLeave={() => setOver(null)}
+        onDrop={e => { e.preventDefault(); setOver(null); const id = e.dataTransfer.getData("text/plain"); if (id) move(id, c); }}>
+        <div className="kb-head"><span>{c}</span><i>{list.length}</i></div>
+        {list.map(p => { const pdr = p.pullDownStatus, thr = p.thermostatStatus, isLate = p.targetDate && p.targetDate < td && ["Planned", "In Progress"].includes(c);
+          return <div key={p.id} className="kb-card" draggable onDragStart={e => e.dataTransfer.setData("text/plain", p.id)} onClick={() => setDlg(p)}>
+            <div className="kb-title" style={{ fontFamily: "'IBM Plex Mono',monospace", fontSize: 12 }}>{p.id}</div>
+            <div style={{ fontSize: 12, color: "#71717a", marginTop: 3 }}>{p.model?.name || p.modelId} · {p.department || "Development"}</div>
+            {p.planningNote && <div style={{ fontSize: 12, color: "#52525b", marginTop: 6 }}>{p.planningNote}</div>}
+            <div className="kb-meta">
+              <span className={`chip ${pdr === "Pass" ? "low" : pdr === "Fail" ? "high" : ""}`}>Pull-down {pdr || "—"}</span>
+              <span className={`chip ${thr === "Pass" ? "low" : thr === "Fail" ? "high" : ""}`}>Thermostat {thr || "—"}</span>
+              {p.targetDate && <span className={`chip ${isLate ? "late" : ""}`}>{fmtD(p.targetDate)}{isLate ? " · overdue" : ""}</span>}</div>
+            <div className="kb-move" onClick={e => e.stopPropagation()}><button disabled={ci(c) === 0} onClick={() => move(p.id, PLAN_COLS[ci(c) - 1])}>‹</button><button disabled={ci(c) === 4} onClick={() => move(p.id, PLAN_COLS[ci(c) + 1])}>›</button></div>
+          </div>; })}
+      </div>; })}</div>
+    {dlg && <PlanDialog p={dlg} onClose={() => setDlg(null)} onOpen={() => open(dlg.id)} onSave={patch => { upd(dlg.id, patch); setDlg(null); }} />}
+  </div>;
+}
+
+/* ---------- Reminders (in-app + system notifications) ---------- */
+function openDated(st) {
+  const out = [];
+  st.work.tasks.forEach(t => t.status !== "done" && t.dueDate && out.push({ id: "w" + t.id, title: t.title, sub: "Work task", date: t.dueDate, to: { space: "work", page: "project:" + t.projectId } }));
+  st.personal.tasks.forEach(t => t.status !== "done" && t.dueDate && out.push({ id: "p" + t.id, title: t.title, sub: "Personal task", date: t.dueDate, to: { space: "personal", page: "ptasks" } }));
+  st.lab.pairs.forEach(p => { const s = planStatus(p); if (p.targetDate && !["Completed", "Cancelled"].includes(s)) out.push({ id: "l" + p.id, title: "Test " + p.id, sub: "Charge Lab", date: p.targetDate, to: { space: "work", page: "lab", pair: p.id } }); });
+  return out.sort((a, b) => a.date.localeCompare(b.date));
+}
+async function pushNotify(title, body) {
+  try {
+    if (typeof Notification === "undefined" || Notification.permission !== "granted") return;
+    const reg = navigator.serviceWorker && await navigator.serviceWorker.getRegistration();
+    if (reg) return reg.showNotification(title, { body, tag: "wb-due", icon: "icon-192.png", badge: "icon-192.png" });
+    new Notification(title, { body, tag: "wb-due" });
+  } catch (e) {}
+}
+
+/* ---------- Root shell ---------- */
+function Root() {
+  const [st, setSt] = useState(null), [err, setErr] = useState(""), [space, setSpace] = useState("work"), [page, setPage] = useState("overview");
+  const [labReq, setLabReq] = useState(null), [dlg, setDlg] = useState(null), [toast, setToast] = useState(""), [bell, setBell] = useState(false);
+  const [locked, setLocked] = useState(false), [keyIn, setKeyIn] = useState(""), dirty = useRef(false);
+  const [perm, setPerm] = useState(typeof Notification !== "undefined" ? Notification.permission : "unsupported"), ready = useRef(false);
+  useEffect(() => {
+    window.__toast = m => { setToast(m); clearTimeout(window.__tt); window.__tt = setTimeout(() => setToast(""), 4500); };
+    window.__ask = (msg, fn) => setDlg({ t: "ask", msg, fn });
+    window.alert = m => window.__toast(String(m));
+  }, []);
+  useEffect(() => { (async () => { try { const d = await wsLoad(); setSt(d ? wsNormalize(d) : wsSeed()); ready.current = true; } catch (e) { if (e.message === "LOCKED") setLocked(true); else setErr("Could not load data: " + e.message + (WS_API ? " — check MONGODB_URI in Vercel and visit /api/health" : "")); } })(); }, []);
+  useEffect(() => { // pull newer data when you come back to the app (phone <-> web)
+    if (!WS_API) return;
+    const h = async () => { if (document.visibilityState !== "visible" || dirty.current || !ready.current) return; try { const d = await wsLoad(); if (d) setSt(s => JSON.stringify(wsNormalize(d)) === JSON.stringify(s) ? s : wsNormalize(d)); } catch (e) {} };
+    document.addEventListener("visibilitychange", h); return () => document.removeEventListener("visibilitychange", h);
+  }, []);
+  useEffect(() => { if (!st || !ready.current) return; dirty.current = true; const t = setTimeout(() => wsSave(st).then(() => { dirty.current = false; setErr(""); }).catch(e => setErr("Couldn't save: " + e.message)), 350); return () => clearTimeout(t); }, [st]);
+  useEffect(() => { // one-tap permission on first interaction, so no setup step is needed
+    if (typeof Notification === "undefined" || Notification.permission !== "default") return;
+    const h = () => Notification.requestPermission().then(p => setPerm(p)).catch(() => {});
+    window.addEventListener("pointerdown", h, { once: true }); return () => window.removeEventListener("pointerdown", h);
+  }, []);
+  useEffect(() => { // installable app + background checks (only when hosted over https)
+    if (!("serviceWorker" in navigator) || !/^https?:$/.test(location.protocol)) return;
+    navigator.serviceWorker.register("sw.js").then(async reg => { try { if (reg.periodicSync) await reg.periodicSync.register("wb-due", { minInterval: 6 * 3600 * 1000 }); } catch (e) {} }).catch(() => {});
+  }, []);
+  useEffect(() => {
+    if (!st) return;
+    const run = () => {
+      const td = todayStr(), items = openDated(st);
+      let seen; try { seen = JSON.parse(localStorage.getItem("wb-notified") || "{}"); } catch (e) { seen = {}; }
+      if (seen.d !== td) seen = { d: td, ids: [] };
+      const fresh = items.filter(i => i.date <= td && !seen.ids.includes(i.id));
+      if (fresh.length) { pushNotify(fresh.length === 1 ? fresh[0].title : `${fresh.length} items need attention`, fresh.length === 1 ? `${fresh[0].sub} · ${fresh[0].date < td ? "overdue" : "due today"}` : fresh.slice(0, 4).map(i => i.title).join(", ")); seen.ids.push(...fresh.map(i => i.id)); try { localStorage.setItem("wb-notified", JSON.stringify(seen)); } catch (e) {} }
+      try { caches.open("wb-data").then(c => { c.put("due.json", new Response(JSON.stringify({ items }))); c.put("notified.json", new Response(JSON.stringify(seen))); }); } catch (e) {}
+    };
+    run(); const t = setInterval(run, 60000); return () => clearInterval(t);
+  }, [st]);
+  if (locked) return <div className="dlg-bg" style={{ background: "#fff" }}><div className="dlg" style={{ border: "1px solid #e4e4e7" }}><h3>Workbench is locked</h3><p className="sub">Enter your access key to open your data.</p>
+    <input type="password" autoFocus value={keyIn} onChange={e => setKeyIn(e.target.value)} onKeyDown={e => e.key === "Enter" && (localStorage.setItem("wb-key", keyIn), location.reload())} style={{ width: "100%", padding: 10 }} />
+    <div className="dlg-act"><button className="ws-btn" onClick={() => { localStorage.setItem("wb-key", keyIn); location.reload(); }}>Unlock</button></div></div></div>;
+  if (!st) return <div style={{ padding: 40, color: "#71717a" }}>{err || "Loading…"}</div>;
+  const setWork = fn => setSt(s => ({ ...s, work: fn(s.work) })), setPers = fn => setSt(s => ({ ...s, personal: fn(s.personal) })), setLab = fn => setSt(s => ({ ...s, lab: fn(s.lab) }));
+  const go = p => { setPage(p); setBell(false); window.scrollTo(0, 0); };
+  const switchSpace = s => { setSpace(s); setPage(s === "work" ? "overview" : "today"); };
+  const openPair = id => { setSpace("work"); setPage("lab"); setLabReq({ tab: id ? "testing" : "planning", pairId: id, n: Date.now() }); setBell(false); };
+  const goItem = it => { if (it.to.pair) return openPair(it.to.pair); setSpace(it.to.space); setPage(it.to.page); setBell(false); };
+  const saveProject = f => { if (f.id) setWork(w => ({ ...w, projects: w.projects.map(x => x.id === f.id ? f : x) })); else { const id = uid("pr"); setWork(w => ({ ...w, projects: [...w.projects, { ...f, id }] })); setSpace("work"); setPage("project:" + id); } setDlg(null); };
+  const ui = { ask: (msg, fn) => setDlg({ t: "ask", msg, fn }), projectForm: p => setDlg({ t: "project", p: p || null }) };
+  const due = openDated(st).filter(i => i.date <= todayStr());
+  const NI = ({ id, icon, dot, children }) => <button className={`ni ${page === id ? "on" : ""}`} onClick={() => go(id)}>{dot ? <span className="ws-dot" style={{ background: dot }} /> : <Icon name={icon} size={18} />}{children}</button>;
+  const Switch = <div className="ws-switch"><button className={space === "work" ? "on" : ""} onClick={() => switchSpace("work")}>Work</button><button className={space === "personal" ? "on" : ""} onClick={() => switchSpace("personal")}>Personal</button></div>;
+  const Bell = <button className="ws-ic" title="Reminders" onClick={() => setBell(b => !b)}><Icon name="bell" size={19} />{due.length > 0 && <i>{due.length}</i>}</button>;
+  const view = space === "personal"
+    ? (page === "journal" ? <Journal st={st} setPers={setPers} /> : page === "ptasks" ? <PersonalTasks st={st} setPers={setPers} /> : <PersonalToday st={st} setPers={setPers} go={go} />)
+    : page === "lab" ? <LabApp data={st.lab} persist={next => setLab(() => next)} req={labReq} />
+    : page === "calendar" ? <CalendarPage st={st} go={go} openPair={openPair} />
+    : page === "people" ? <PeoplePage st={st} setWork={setWork} />
+    : page.startsWith("project:") ? <ProjectPage key={page} st={st} setWork={setWork} pid={page.slice(8)} go={go} />
+    : <WorkOverview st={st} go={go} openPair={openPair} />;
+  const bn = space === "work" ? [["overview", "home", "Overview"], ["lab", "gauge", "Charge Lab"], ["calendar", "cal", "Calendar"], ["people", "users", "People"]] : [["today", "home", "Today"], ["journal", "book", "Journal"], ["ptasks", "check", "Tasks"]];
+  return <UICtx.Provider value={ui}><div className={`ws ${space}`}>
+    <aside className="ws-side">
+      <div className="ws-brand"><div className="ws-logo"><Icon name="kanban" size={19} /></div><b>Workbench</b>{Bell}</div>
+      {Switch}
+      <nav className="ws-nav">{space === "work" ? <>
+        <NI id="overview" icon="home">Overview</NI>
+        <h6>PROJECTS</h6>{st.work.projects.map(p => <NI key={p.id} id={"project:" + p.id} dot={p.color}>{p.name}</NI>)}
+        <h6>LAB</h6><NI id="lab" icon="gauge">Charge Verification</NI>
+        <h6>PLAN</h6><NI id="calendar" icon="cal">Calendar</NI><NI id="people" icon="users">People</NI>
+      </> : <><NI id="today" icon="home">Today</NI><NI id="journal" icon="book">Journal</NI><NI id="ptasks" icon="check">My tasks</NI></>}</nav>
+      <div className="ws-foot"><button className="ni" onClick={() => setDlg({ t: "backup" })}><Icon name="dl" size={17} />Backup & restore</button>{WS_API ? "Synced to your server" : "Saved in this browser"}</div>
+    </aside>
+    <div className="ws-col">
+      <header className="ws-top"><b>Workbench</b>{Switch}{Bell}<button className="ws-ic" title="Backup" onClick={() => setDlg({ t: "backup" })}><Icon name="dl" size={18} /></button></header>
+      <main className="ws-main">{err && <div className="ws-err">{err}</div>}{view}</main>
+      <nav className="ws-bnav">{bn.map(([id, ic, l]) => <button key={id} className={page === id ? "on" : ""} onClick={() => go(id)}><Icon name={ic} size={20} />{l}</button>)}</nav>
+    </div>
+    {bell && <div className="bell-pop"><h5>Needs attention · {due.length}</h5>
+      {due.length ? due.slice(0, 8).map(i => <div key={i.id} className="ws-row" onClick={() => goItem(i)}><span>{i.title}</span><span className={`d ${i.date < todayStr() ? "late" : ""}`}>{i.date < todayStr() ? "Overdue" : "Today"}</span></div>) : <p className="sub" style={{ margin: 0, fontSize: 13, color: "#71717a" }}>Nothing due. You're all caught up.</p>}
+      <p style={{ fontSize: 11, color: "#a1a1aa", margin: "10px 0 0" }}>{perm === "granted" ? "System notifications are on." : perm === "denied" ? "Notifications are blocked in your browser settings." : perm === "unsupported" ? "This browser can't show system notifications." : "Click anywhere to allow system notifications."}</p></div>}
+    {dlg?.t === "ask" && <ConfirmDialog msg={dlg.msg} onYes={() => { dlg.fn(); setDlg(null); }} onClose={() => setDlg(null)} />}
+    {dlg?.t === "project" && <ProjectDialog p={dlg.p} onSave={saveProject} onClose={() => setDlg(null)} />}
+    {dlg?.t === "backup" && <BackupDialog st={st} onClose={() => setDlg(null)} onRestore={d => { setSt(wsNormalize(d)); setDlg(null); window.__toast("Backup restored"); }} />}
+    {toast && <div className="toast">{toast}</div>}
+  </div></UICtx.Provider>;
+}
+
+ReactDOM.createRoot(document.getElementById("root")).render(<Root />);
+</script>
+</body>
+</html>
