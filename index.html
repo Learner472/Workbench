@@ -843,8 +843,9 @@ body{background:#fff!important}
  .ws-top b{font:700 16px 'Inter';flex:1}
  .ws-top .ws-switch{margin:0;width:150px}
  .ws-bnav{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:30;background:#fff;border-top:1px solid var(--bd);padding-bottom:env(safe-area-inset-bottom)}
- .ws-bnav button{flex:1;min-height:56px;border:0;background:none;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;font:11px 'Inter';color:var(--mut)}
- .ws-bnav button.on{color:var(--pri)}
+ .ws-bnav button{flex:1 1 0;min-width:0;min-height:60px;border:0;background:none;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;font:11px 'Inter';color:var(--mut)}
+ .ws-bnav button span{font:500 11px 'Inter';white-space:nowrap}
+ .ws-bnav button.on{color:var(--pri);font-weight:600}
  .ws-main{padding:18px 14px 90px}.ws-h h2{font-size:24px}
  .ws-kpis{grid-template-columns:1fr 1fr 1fr}.ws-kpi{padding:12px}.ws-kpi b{font-size:22px}
  .jr{grid-template-columns:1fr}.jr-list{max-height:190px}
@@ -2409,8 +2410,9 @@ async function pushNotify(title, body) {
 }
 
 /* ---------- Root shell ---------- */
+const WS_START = ({ journal: ["personal", "journal"], ptasks: ["personal", "ptasks"], today: ["personal", "today"], calendar: ["work", "calendar"], lab: ["work", "lab"] })[new URLSearchParams(location.search).get("go")] || ["work", "overview"];
 function Root() {
-  const [st, setSt] = useState(null), [err, setErr] = useState(""), [space, setSpace] = useState("work"), [page, setPage] = useState("overview");
+  const [st, setSt] = useState(null), [err, setErr] = useState(""), [space, setSpace] = useState(WS_START[0]), [page, setPage] = useState(WS_START[1]);
   const [labReq, setLabReq] = useState(null), [dlg, setDlg] = useState(null), [toast, setToast] = useState(""), [bell, setBell] = useState(false);
   const [locked, setLocked] = useState(false), [keyIn, setKeyIn] = useState(""), dirty = useRef(false);
   const [perm, setPerm] = useState(typeof Notification !== "undefined" ? Notification.permission : "unsupported"), ready = useRef(false);
@@ -2469,23 +2471,23 @@ function Root() {
     : page === "people" ? <PeoplePage st={st} setWork={setWork} />
     : page.startsWith("project:") ? <ProjectPage key={page} st={st} setWork={setWork} pid={page.slice(8)} go={go} />
     : <WorkOverview st={st} go={go} openPair={openPair} />;
-  const bn = space === "work" ? [["overview", "home", "Overview"], ["lab", "gauge", "Charge Lab"], ["calendar", "cal", "Calendar"], ["people", "users", "People"]] : [["today", "home", "Today"], ["journal", "book", "Journal"], ["ptasks", "check", "Tasks"]];
+  const bn = space === "work" ? [["overview", "home", "Home"], ["lab", "gauge", "Lab"], ["calendar", "cal", "Calendar"], ["people", "users", "People"]] : [["today", "home", "Today"], ["journal", "book", "Journal"], ["ptasks", "check", "Tasks"]];
   return <UICtx.Provider value={ui}><div className={`ws ${space}`}>
     <aside className="ws-side">
       <div className="ws-brand"><div className="ws-logo"><Icon name="kanban" size={19} /></div><b>Workbench</b>{Bell}</div>
       {Switch}
-      <nav className="ws-nav">{space === "work" ? <>
+      <div className="ws-nav">{space === "work" ? <>
         <NI id="overview" icon="home">Overview</NI>
         <h6>PROJECTS</h6>{st.work.projects.map(p => <NI key={p.id} id={"project:" + p.id} dot={p.color}>{p.name}</NI>)}
         <h6>LAB</h6><NI id="lab" icon="gauge">Charge Verification</NI>
         <h6>PLAN</h6><NI id="calendar" icon="cal">Calendar</NI><NI id="people" icon="users">People</NI>
-      </> : <><NI id="today" icon="home">Today</NI><NI id="journal" icon="book">Journal</NI><NI id="ptasks" icon="check">My tasks</NI></>}</nav>
+      </> : <><NI id="today" icon="home">Today</NI><NI id="journal" icon="book">Journal</NI><NI id="ptasks" icon="check">My tasks</NI></>}</div>
       <div className="ws-foot"><button className="ni" onClick={() => setDlg({ t: "backup" })}><Icon name="dl" size={17} />Backup & restore</button>{WS_API ? "Synced to your server" : "Saved in this browser"}</div>
     </aside>
     <div className="ws-col">
       <header className="ws-top"><b>Workbench</b>{Switch}{Bell}<button className="ws-ic" title="Backup" onClick={() => setDlg({ t: "backup" })}><Icon name="dl" size={18} /></button></header>
       <main className="ws-main">{err && <div className="ws-err">{err}</div>}{view}</main>
-      <nav className="ws-bnav">{bn.map(([id, ic, l]) => <button key={id} className={page === id ? "on" : ""} onClick={() => go(id)}><Icon name={ic} size={20} />{l}</button>)}</nav>
+      <div className="ws-bnav">{bn.map(([id, ic, l]) => <button key={id} className={page === id ? "on" : ""} onClick={() => go(id)}><Icon name={ic} size={22} /><span>{l}</span></button>)}</div>
     </div>
     {bell && <div className="bell-pop"><h5>Needs attention · {due.length}</h5>
       {due.length ? due.slice(0, 8).map(i => <div key={i.id} className="ws-row" onClick={() => goItem(i)}><span>{i.title}</span><span className={`d ${i.date < todayStr() ? "late" : ""}`}>{i.date < todayStr() ? "Overdue" : "Today"}</span></div>) : <p className="sub" style={{ margin: 0, fontSize: 13, color: "#71717a" }}>Nothing due. You're all caught up.</p>}
