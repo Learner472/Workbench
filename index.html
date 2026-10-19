@@ -852,6 +852,17 @@ body{background:#fff!important}
  .cal .c{min-height:64px}.ev{font-size:9px}
  .bell-pop{top:56px}
 }
+/* v3: focus, budget, reading */
+.fc{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:16px;align-items:start}
+.fc-main{text-align:left}.ring{display:block;width:min(260px,70vw);margin:14px auto}
+.forest{display:flex;flex-wrap:wrap;gap:4px;font-size:24px;min-height:34px;margin-bottom:12px}
+.wk{display:flex;gap:8px;align-items:flex-end;height:96px;margin-bottom:10px}
+.wk div{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:4px;height:100%}
+.wk i{display:block;width:100%;max-width:34px;background:var(--pri);border-radius:6px 6px 2px 2px;opacity:.85}
+.wk span{font:11px 'Inter';color:#a1a1aa}
+.cat{display:grid;grid-template-columns:150px 1fr auto;gap:12px;align-items:center;padding:9px 0;font-size:14px;cursor:pointer}
+.cat em{font-style:normal;font-size:12px;white-space:nowrap}
+@media(max-width:860px){.fc{grid-template-columns:1fr}.cat{grid-template-columns:110px 1fr auto;font-size:13px}.ws-bnav button span{font-size:10px}}
 </style>
 </head>
 <body>
@@ -2060,12 +2071,6 @@ function wsSeed(empty) {
   base.personal.journal = [{ id: "j1", date: d, title: "A fresh start", body: "This journal is private to you and stored only in this browser. Write whatever you like here.", mood: 4, created: Date.now() }];
   return base;
 }
-function wsNormalize(d) {
-  if (!d) return wsSeed();
-  if (d.pairs && d.models) return { ...wsSeed(true), lab: d }; // legacy lab-only backup
-  const e = wsSeed(true);
-  return { lab: d.lab || e.lab, work: { ...e.work, ...(d.work || {}) }, personal: { ...e.personal, ...(d.personal || {}) } };
-}
 const wsHdr = () => { const h = { "Content-Type": "application/json" }; try { const k = localStorage.getItem("wb-key"); if (k) h["x-access-key"] = k; } catch (e) {} return h; };
 async function wsLoad() {
   if (WS_API) {
@@ -2092,7 +2097,7 @@ function TaskMeta({ t, people, pairs }) {
   return <div className="kb-meta">
     <span className={`chip ${t.priority}`}>{t.priority}</span>
     {t.category && <span className="chip">{t.category}</span>}
-    {t.dueDate && <span className={`chip ${late(t) ? "late" : ""}`}>{fmtD(t.dueDate)}{late(t) ? " · overdue" : ""}</span>}
+    {t.dueDate && <span className={`chip ${late(t) ? "late" : ""}`}>{fmtD(t.dueDate)}{t.dueTime ? " · " + hhmm(t.dueTime) : ""}{late(t) ? " · overdue" : ""}</span>}
     {t.pairId && <span className="chip lab" title="Linked lab pair">⚗ {t.pairId}</span>}
     {who.map(n => <span className="chip" key={n}>{n}</span>)}
   </div>;
@@ -2123,34 +2128,6 @@ function KbBoard({ tasks, cols, onMove, onOpen, onQuickAdd, people, pairs }) {
     </div>;
   })}</div>;
 }
-function TaskDialog({ task, people, pairs, cats, onSave, onDelete, onClose }) {
-  const [t, setT] = useState(task);
-  const set = (k, v) => setT(x => ({ ...x, [k]: v }));
-  const tog = id => set("assignees", (t.assignees || []).includes(id) ? t.assignees.filter(a => a !== id) : [...(t.assignees || []), id]);
-  return <div className="dlg-bg" onMouseDown={e => e.target === e.currentTarget && onClose()}>
-    <div className="dlg">
-      <h3>{task.isNew ? "New task" : "Edit task"}</h3>
-      <label className="fld"><span>Title</span><input autoFocus value={t.title} onChange={e => set("title", e.target.value)} /></label>
-      <label className="fld"><span>Notes</span><textarea rows={3} value={t.notes || ""} onChange={e => set("notes", e.target.value)} /></label>
-      <div className="two">
-        <label className="fld"><span>Status</span><select value={t.status} onChange={e => set("status", e.target.value)}>{TASK_COLS.map(([k, l]) => <option key={k} value={k}>{l}</option>)}</select></label>
-        <label className="fld"><span>Priority</span><select value={t.priority} onChange={e => set("priority", e.target.value)}><option value="low">Low</option><option value="medium">Medium</option><option value="high">High</option></select></label>
-      </div>
-      <div className="two">
-        <label className="fld"><span>Due date</span><input type="date" value={t.dueDate || ""} onChange={e => set("dueDate", e.target.value)} /></label>
-        {cats && <label className="fld"><span>Category</span><select value={t.category || "Other"} onChange={e => set("category", e.target.value)}>{cats.map(c => <option key={c}>{c}</option>)}</select></label>}
-        {pairs && <label className="fld"><span>Linked lab pair</span><select value={t.pairId || ""} onChange={e => set("pairId", e.target.value)}><option value="">— none —</option>{pairs.map(p => <option key={p.id} value={p.id}>{p.id}</option>)}</select></label>}
-      </div>
-      {people && <div className="fld"><span>Assignees</span><div className="pick">{people.length ? people.map(p => <button key={p.id} type="button" className={(t.assignees || []).includes(p.id) ? "on" : ""} onClick={() => tog(p.id)}>{p.name}</button>) : <em style={{ fontSize: 12, color: "#98a2b3" }}>Add people in the People page first.</em>}</div></div>}
-      <div className="dlg-act">
-        {!task.isNew && <button className="ws-btn danger" onClick={() => onDelete(t.id)}>Delete</button>}
-        <button className="ws-btn ghost" onClick={onClose}>Cancel</button>
-        <button className="ws-btn" onClick={() => t.title.trim() && onSave({ ...t, isNew: undefined })}>Save</button>
-      </div>
-    </div>
-  </div>;
-}
-const newTask = (extra) => ({ id: uid("t"), title: "", notes: "", status: "todo", priority: "medium", dueDate: "", isNew: true, ...extra });
 const upsert = (list, t) => list.some(x => x.id === t.id) ? list.map(x => x.id === t.id ? t : x) : [...list, t];
 
 /* ---------- Work pages ---------- */
@@ -2160,12 +2137,12 @@ function WorkOverview({ st, go, openPair }) {
   const open = tasks.filter(t => t.status !== "done");
   const awaiting = pairs.filter(p => p.qualityStatus === "Submitted to Quality").length;
   const upcoming = [
-    ...open.filter(t => t.dueDate).map(t => ({ k: "t", id: t.id, title: t.title, date: t.dueDate, sub: projects.find(p => p.id === t.projectId)?.name, pid: t.projectId })),
+    ...open.filter(t => t.dueDate).map(t => ({ k: "t", id: t.id, title: t.title, date: t.dueDate, sub: projects.find(p => p.id === t.projectId)?.name || "Inbox", pid: t.projectId })),
     ...pairs.filter(p => p.targetDate && !["Completed", "Cancelled"].includes(p.planningStatus)).map(p => ({ k: "p", id: p.id, title: `Test ${p.id}`, date: p.targetDate, sub: "Charge Lab" })),
   ].sort((a, b) => a.date.localeCompare(b.date)).slice(0, 9);
   return <div>
     <div className="ws-h"><div><h2>Overview</h2><p>{open.length} open tasks · {open.filter(late).length} overdue · {tasks.length - open.length} completed</p></div>
-      <button className="ws-btn" onClick={() => ui.projectForm()}><Icon name="plus" size={15} /> New project</button></div>
+      <div className="ws-act"><button className="ws-btn ghost" onClick={() => go("people")}><Icon name="users" size={15} /> People</button><button className="ws-btn" onClick={() => ui.projectForm()}><Icon name="plus" size={15} /> New project</button></div></div>
     <div className="ws-sec" style={{ marginTop: 0 }}>Projects</div>
     <div className="ws-grid">
       {projects.map(p => { const ts = tasks.filter(t => t.projectId === p.id), dn = ts.filter(t => t.status === "done").length;
@@ -2173,34 +2150,16 @@ function WorkOverview({ st, go, openPair }) {
           <div className="top"><span className="ws-dot" style={{ background: p.color }} /><h4>{p.name}</h4></div><p>{p.description}</p>
           <div className="ws-bar"><i style={{ width: (ts.length ? dn / ts.length * 100 : 0) + "%" }} /></div>
           <p style={{ margin: "8px 0 0" }}>{dn}/{ts.length} done</p></div>; })}
+      {(() => { const ts = tasks.filter(t => !t.projectId), dn = ts.filter(t => t.status === "done").length; return <div className="ws-card ws-proj" style={{ "--c": "#71717a" }} onClick={() => go("project:inbox")}><div className="top"><span className="ws-dot" style={{ background: "#71717a" }} /><h4>Inbox</h4></div><p>Day-to-day tasks, no project</p><div className="ws-bar"><i style={{ width: (ts.length ? dn / ts.length * 100 : 0) + "%" }} /></div><p style={{ margin: "8px 0 0" }}>{dn}/{ts.length} done</p></div>; })()}
       <div className="ws-card ws-proj" style={{ "--c": "#0f766e" }} onClick={() => go("lab")}>
         <div className="top"><span className="ws-dot" style={{ background: "#0f766e" }} /><h4>Charge Verification Lab</h4></div><p>{awaiting} awaiting Quality</p>
         <div className="ws-bar"><i style={{ width: (pairs.length ? pairs.filter(p => p.planningStatus === "Completed").length / pairs.length * 100 : 0) + "%" }} /></div>
         <p style={{ margin: "8px 0 0" }}>{pairs.filter(p => p.planningStatus === "Completed").length}/{pairs.length} completed</p></div>
     </div>
     <div className="ws-sec">Coming up</div>
-    <div className="ws-card">{upcoming.length ? upcoming.map(u => <div key={u.k + u.id} className="ws-row" onClick={() => u.k === "p" ? openPair(u.id) : go("project:" + u.pid)}>
+    <div className="ws-card">{upcoming.length ? upcoming.map(u => <div key={u.k + u.id} className="ws-row" onClick={() => u.k === "p" ? openPair(u.id) : go("project:" + (u.pid || "inbox"))}>
       {u.k === "p" ? <span className="chip lab">⚗ Lab</span> : <span className="chip">Task</span>}<span>{u.title}</span><span style={{ color: "#98a2b3", fontSize: 12 }}>{u.sub}</span>
       <span className={`d ${u.date < td ? "late" : ""}`}>{fmtD(u.date)}</span></div>) : <em style={{ color: "#98a2b3", fontSize: 13 }}>Nothing scheduled.</em>}</div>
-  </div>;
-}
-function ProjectPage({ st, setWork, pid, go }) {
-  const ui = React.useContext(UICtx);
-  const p = st.work.projects.find(x => x.id === pid), [dlg, setDlg] = useState(null);
-  if (!p) return <div className="ws-card">Project not found.</div>;
-  const tasks = st.work.tasks.filter(t => t.projectId === pid);
-  const move = (id, status) => setWork(w => ({ ...w, tasks: w.tasks.map(t => t.id === id ? { ...t, status } : t) }));
-  return <div>
-    <div className="ws-h"><div><h2><span className="ws-dot" style={{ background: p.color, display: "inline-block", marginRight: 10 }} />{p.name}</h2><p>{p.description}</p></div>
-      <div className="ws-act">
-        <button className="ws-btn ghost" onClick={() => ui.projectForm(p)}>Edit</button>
-        <button className="ws-btn danger" onClick={() => ui.ask("Delete this project and all its tasks?", () => { setWork(w => ({ ...w, projects: w.projects.filter(x => x.id !== pid), tasks: w.tasks.filter(t => t.projectId !== pid) })); go("overview"); })}>Delete</button>
-        <button className="ws-btn" onClick={() => setDlg(newTask({ projectId: pid, assignees: [], pairId: "" }))}>+ New task</button></div></div>
-    <KbBoard tasks={tasks} cols={TASK_COLS} onMove={move} onOpen={setDlg} people={st.work.people} pairs={st.lab.pairs}
-      onQuickAdd={title => setWork(w => ({ ...w, tasks: [...w.tasks, newTask({ projectId: pid, title, assignees: [], pairId: "", isNew: undefined })] }))} />
-    {dlg && <TaskDialog task={dlg} people={st.work.people} pairs={st.lab.pairs} onClose={() => setDlg(null)}
-      onSave={t => { setWork(w => ({ ...w, tasks: upsert(w.tasks, t) })); setDlg(null); }}
-      onDelete={id => { setWork(w => ({ ...w, tasks: w.tasks.filter(t => t.id !== id) })); setDlg(null); }} />}
   </div>;
 }
 const planStatus = p => ["Unplanned", "Planned", "In Progress", "Completed", "Cancelled"].includes(p.planningStatus) ? p.planningStatus : (p.targetDate ? "Planned" : "Unplanned");
@@ -2216,7 +2175,7 @@ function CalendarPage({ st, go, openPair }) {
       {days.map(d => { const s = ymd(d);
         return <div key={s} className={`c ${d.getMonth() !== m.getMonth() ? "o" : ""} ${s === td ? "t" : ""}`}><b>{d.getDate()}</b>
           {st.work.tasks.filter(t => t.dueDate === s).map(t => { const pr = st.work.projects.find(p => p.id === t.projectId);
-            return <button key={t.id} className="ev" style={{ "--c": pr?.color, textDecoration: t.status === "done" ? "line-through" : "" }} onClick={() => go("project:" + t.projectId)}>{t.title}</button>; })}
+            return <button key={t.id} className="ev" style={{ "--c": pr?.color || "#71717a", textDecoration: t.status === "done" ? "line-through" : "" }} onClick={() => go("project:" + (t.projectId || "inbox"))}>{t.dueTime ? hhmm(t.dueTime).replace(" ", "").toLowerCase() + " " : ""}{t.title}</button>; })}
           {st.lab.pairs.filter(p => p.targetDate === s && planStatus(p) !== "Cancelled").map(p => <button key={p.id} className="ev lab" onClick={() => openPair(p.id)}>⚗ {p.id}</button>)}
         </div>; })}</div>
   </div>;
@@ -2297,11 +2256,12 @@ function PersonalToday({ st, setPers, go }) {
   const done = id => setPers(p => ({ ...p, tasks: p.tasks.map(t => t.id === id ? { ...t, status: "done" } : t) }));
   return <div>
     <div className="ws-h"><div><h2>{h < 12 ? "Good morning" : h < 18 ? "Good afternoon" : "Good evening"}</h2><p>{new Date().toLocaleDateString(undefined, { weekday: "long", day: "numeric", month: "long" })}</p></div>
-      <button className="ws-btn" onClick={() => go("journal")}>Write today's entry</button></div>
+      <div className="ws-act"><button className="ws-btn ghost" onClick={() => go("focus")}>Start focus</button><button className="ws-btn" onClick={() => go("journal")}>Write today's entry</button></div></div>
     <div className="ws-kpis">
       <div className="ws-kpi"><b>{due.length}</b><span>Due today or overdue</span></div>
       <div className="ws-kpi"><b>{st.personal.tasks.filter(t => t.status !== "done").length}</b><span>Open personal tasks</span></div>
       <div className="ws-kpi"><b>{streakOf(j)}</b><span>Day journal streak</span></div></div>
+    <ReadingBanner st={st} go={go} />
     <div className="ws-sec" style={{ marginTop: 0 }}>Needs attention</div>
     <div className="ws-card">{due.length ? due.map(t => <div className="ws-row" key={t.id} style={{ cursor: "default" }}><div className="chk" onClick={() => done(t.id)} /><span>{t.title}</span><span className={`d ${t.dueDate < td ? "late" : ""}`}>{t.dueDate < td ? "Overdue" : "Today"}</span></div>) : <em style={{ color: "#98a2b3", fontSize: 13 }}>Nothing due. Enjoy the calm.</em>}</div>
     <div className="ws-sec">Mood this week</div>
@@ -2392,96 +2352,339 @@ function TestingPlanning({ data, pairsEnriched, setTab, setExpandedPair, persist
   </div>;
 }
 
-/* ---------- Reminders (in-app + system notifications) ---------- */
-function openDated(st) {
-  const out = [];
-  st.work.tasks.forEach(t => t.status !== "done" && t.dueDate && out.push({ id: "w" + t.id, title: t.title, sub: "Work task", date: t.dueDate, to: { space: "work", page: "project:" + t.projectId } }));
-  st.personal.tasks.forEach(t => t.status !== "done" && t.dueDate && out.push({ id: "p" + t.id, title: t.title, sub: "Personal task", date: t.dueDate, to: { space: "personal", page: "ptasks" } }));
-  st.lab.pairs.forEach(p => { const s = planStatus(p); if (p.targetDate && !["Completed", "Cancelled"].includes(s)) out.push({ id: "l" + p.id, title: "Test " + p.id, sub: "Charge Lab", date: p.targetDate, to: { space: "work", page: "lab", pair: p.id } }); });
-  return out.sort((a, b) => a.date.localeCompare(b.date));
+
+/* ===================== v3: task times, Inbox, Focus, Budget, Reading ===================== */
+Object.assign(ICONS, {
+  inbox: "M22 12h-6l-2 3h-4l-2-3H2|M5.45 5.11 2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11Z",
+  timer: "M10 2h4|M12 14l3-3|M12 22a8 8 0 1 0 0-16 8 8 0 0 0 0 16Z",
+  wallet: "M19 7V4a1 1 0 0 0-1-1H5a2 2 0 0 0 0 4h15a1 1 0 0 1 1 1v4h-3a2 2 0 0 0 0 4h3a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1|M3 5v14a2 2 0 0 0 2 2h15a1 1 0 0 0 1-1v-4",
+  bookopen: "M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z|M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z",
+});
+const FOCUS_DEF = { focus: 25, short: 5, long: 15, every: 4, auto: false, sound: true };
+const DEF_CATS = () => [["Food", "🍔"], ["Travel", "🚌"], ["Bills", "💡"], ["Shopping", "🛍️"], ["Health", "💊"], ["Education", "📚"], ["Entertainment", "🎬"], ["Other", "📦"]].map(([name, icon], i) => ({ id: "c" + i, name, icon, limit: 0 }));
+const PERS_DEF = () => ({ tasks: [], journal: [], budget: { currency: "Rs", accounts: [], cats: DEF_CATS(), txns: [] }, reading: { books: [], log: [], goal: { pages: 10, on: true, at: "21:00" } } });
+function wsNormalize(d) {
+  if (!d) d = wsSeed();
+  const base = wsSeed(true); if (d.pairs && d.models) d = { lab: d };
+  const p = d.personal || {}, pd = PERS_DEF(), rd = p.reading || {}, f = d.focus || {};
+  return { lab: d.lab || base.lab, work: { ...base.work, ...(d.work || {}) },
+    personal: { ...pd, ...p, budget: { ...pd.budget, ...(p.budget || {}) }, reading: { ...pd.reading, ...rd, goal: { ...pd.reading.goal, ...(rd.goal || {}) } } },
+    focus: { sessions: [], ...f, settings: { ...FOCUS_DEF, ...(f.settings || {}) } } };
 }
-async function pushNotify(title, body) {
+const hhmm = t => { if (!t) return ""; const [h, m] = t.split(":").map(Number); return `${h % 12 || 12}:${String(m).padStart(2, "0")} ${h < 12 ? "AM" : "PM"}`; };
+const atMs = (d, t) => new Date(`${d}T${t || "09:00"}:00`).getTime();
+const newTask = extra => ({ id: uid("t"), title: "", notes: "", status: "todo", priority: "medium", dueDate: "", dueTime: "", remind: 0, created: Date.now(), isNew: true, ...extra });
+const sumBy = (a, f) => a.reduce((s, x) => s + f(x), 0);
+
+function TaskDialog({ task, people, pairs, cats, projects, onSave, onDelete, onClose }) {
+  const [t, setT] = useState(task); const set = (k, v) => setT(x => ({ ...x, [k]: v }));
+  const tog = id => set("assignees", (t.assignees || []).includes(id) ? t.assignees.filter(a => a !== id) : [...(t.assignees || []), id]);
+  const save = () => { if (!t.title.trim()) return; const ch = t.dueDate !== task.dueDate || t.dueTime !== task.dueTime || t.remind !== task.remind; onSave({ ...t, isNew: undefined, created: ch ? Date.now() : t.created }); };
+  return <Modal title={task.isNew ? "New task" : "Edit task"} onClose={onClose}>
+    <label className="fld"><span>Title</span><input autoFocus value={t.title} onChange={e => set("title", e.target.value)} onKeyDown={e => e.key === "Enter" && save()} /></label>
+    <label className="fld"><span>Notes</span><textarea rows={2} value={t.notes || ""} onChange={e => set("notes", e.target.value)} /></label>
+    {projects && <label className="fld"><span>Project</span><select value={t.projectId || ""} onChange={e => set("projectId", e.target.value)}><option value="">Inbox (no project)</option>{projects.map(p => <option key={p.id} value={p.id}>{p.name}</option>)}</select></label>}
+    <div className="two">
+      <label className="fld"><span>Status</span><select value={t.status} onChange={e => set("status", e.target.value)}>{TASK_COLS.map(([k, l]) => <option key={k} value={k}>{l}</option>)}</select></label>
+      <label className="fld"><span>Priority</span><select value={t.priority} onChange={e => set("priority", e.target.value)}><option value="low">Low</option><option value="medium">Medium</option><option value="high">High</option></select></label>
+      <label className="fld"><span>Due date</span><input type="date" value={t.dueDate || ""} onChange={e => set("dueDate", e.target.value)} /></label>
+      <label className="fld"><span>Time (optional)</span><input type="time" value={t.dueTime || ""} onChange={e => set("dueTime", e.target.value)} /></label>
+    </div>
+    {t.dueDate && <label className="fld"><span>Remind me</span><select value={t.remind || 0} onChange={e => set("remind", +e.target.value)} disabled={!t.dueTime}>
+      <option value={0}>{t.dueTime ? "At the due time" : "At 9:00 AM on the due day"}</option><option value={10}>10 minutes before</option><option value={30}>30 minutes before</option><option value={60}>1 hour before</option><option value={1440}>1 day before</option></select></label>}
+    {(cats || pairs) && <div className="two">
+      {cats && <label className="fld"><span>Category</span><select value={t.category || "Other"} onChange={e => set("category", e.target.value)}>{cats.map(c => <option key={c}>{c}</option>)}</select></label>}
+      {pairs && <label className="fld"><span>Linked lab pair</span><select value={t.pairId || ""} onChange={e => set("pairId", e.target.value)}><option value="">— none —</option>{pairs.map(p => <option key={p.id} value={p.id}>{p.id}</option>)}</select></label>}</div>}
+    {people && <div className="fld"><span>Assignees</span><div className="pick">{people.length ? people.map(p => <button key={p.id} type="button" className={(t.assignees || []).includes(p.id) ? "on" : ""} onClick={() => tog(p.id)}>{p.name}</button>) : <em style={{ fontSize: 12, color: "#a1a1aa" }}>Add people first (Overview → People).</em>}</div></div>}
+    <div className="dlg-act">{!task.isNew && <button className="ws-btn danger" onClick={() => onDelete(t.id)}>Delete</button>}<button className="ws-btn ghost" onClick={onClose}>Cancel</button><button className="ws-btn" onClick={save}>Save</button></div>
+  </Modal>;
+}
+function ProjectPage({ st, setWork, pid, go }) {
+  const ui = React.useContext(UICtx), inbox = pid === "inbox", [dlg, setDlg] = useState(null);
+  const p = inbox ? { id: "inbox", name: "Inbox", description: "Day-to-day tasks that don't belong to a project", color: "#71717a" } : st.work.projects.find(x => x.id === pid);
+  if (!p) return <div className="ws-card">Project not found.</div>;
+  const base = inbox ? "" : pid, tasks = st.work.tasks.filter(t => inbox ? !t.projectId : t.projectId === pid);
+  const move = (id, status) => setWork(w => ({ ...w, tasks: w.tasks.map(t => t.id === id ? { ...t, status } : t) }));
+  return <div>
+    <div className="ws-h"><div><h2><span className="ws-dot" style={{ background: p.color, marginRight: 10 }} />{p.name}</h2><p>{p.description}</p></div>
+      <div className="ws-act">
+        {!inbox && <><button className="ws-btn ghost" onClick={() => ui.projectForm(p)}>Edit</button>
+          <button className="ws-btn danger" onClick={() => ui.ask("Delete this project and all its tasks?", () => { setWork(w => ({ ...w, projects: w.projects.filter(x => x.id !== pid), tasks: w.tasks.filter(t => t.projectId !== pid) })); go("overview"); })}>Delete</button></>}
+        <button className="ws-btn" onClick={() => setDlg(newTask({ projectId: base, assignees: [], pairId: "" }))}>+ New task</button></div></div>
+    <KbBoard tasks={tasks} cols={TASK_COLS} onMove={move} onOpen={setDlg} people={st.work.people} pairs={st.lab.pairs}
+      onQuickAdd={title => setWork(w => ({ ...w, tasks: [...w.tasks, newTask({ projectId: base, title, assignees: [], pairId: "", isNew: undefined })] }))} />
+    {dlg && <TaskDialog task={dlg} people={st.work.people} pairs={st.lab.pairs} projects={st.work.projects} onClose={() => setDlg(null)}
+      onSave={t => { setWork(w => ({ ...w, tasks: upsert(w.tasks, t) })); setDlg(null); }}
+      onDelete={id => { setWork(w => ({ ...w, tasks: w.tasks.filter(t => t.id !== id) })); setDlg(null); }} />}
+  </div>;
+}
+
+/* ---------- Focus (Pomodoro) ---------- */
+const MODES = { focus: "Focus", short: "Short break", long: "Long break" };
+function beep() { try { const a = new (window.AudioContext || window.webkitAudioContext)(); [0, .28, .56].forEach(t => { const o = a.createOscillator(), g = a.createGain(); o.connect(g); g.connect(a.destination); o.frequency.value = 880; g.gain.value = .15; o.start(a.currentTime + t); o.stop(a.currentTime + t + .16); }); } catch (e) {} }
+function FocusPage({ st, setFocus, setWork, setPers, preset }) {
+  const S = st.focus.settings, sessions = st.focus.sessions, td = todayStr(), dur = m => S[m] * 60000;
+  const [tm, setTm] = useState(() => { try { const x = JSON.parse(localStorage.getItem("wb-timer")); if (x && x.mode) return x; } catch (e) {} return { mode: "focus", endsAt: null, left: dur("focus"), label: "", taskId: "", cycle: 0 }; });
+  const [now, setNow] = useState(Date.now()), [cfg, setCfg] = useState(false), done = useRef(false);
+  useEffect(() => { try { localStorage.setItem("wb-timer", JSON.stringify(tm)); } catch (e) {} }, [tm]);
+  useEffect(() => { if (preset) setTm(t => ({ ...t, mode: "focus", endsAt: null, left: dur("focus"), label: preset.label, taskId: "" })); }, [preset]);
+  useEffect(() => { setTm(t => t.endsAt ? t : { ...t, left: dur(t.mode) }); }, [S.focus, S.short, S.long]);
+  useEffect(() => { if (!tm.endsAt) return; const i = setInterval(() => setNow(Date.now()), 250); return () => clearInterval(i); }, [tm.endsAt]);
+  const left = tm.endsAt ? Math.max(0, tm.endsAt - now) : tm.left, running = !!tm.endsAt;
+  const tasks = [...st.work.tasks.filter(t => t.status !== "done").map(t => ({ k: "w:" + t.id, title: t.title, g: "Work" })), ...st.personal.tasks.filter(t => t.status !== "done").map(t => ({ k: "p:" + t.id, title: t.title, g: "Personal" }))];
+  const linked = tasks.find(t => t.k === tm.taskId), label = linked ? linked.title : tm.label;
+  const nextMode = (m, cycle) => m === "focus" ? (cycle % S.every === 0 ? "long" : "short") : "focus";
+  useEffect(() => {
+    if (!tm.endsAt || now < tm.endsAt || done.current) return; done.current = true;
+    if (S.sound) beep(); const wasF = tm.mode === "focus", cycle = wasF ? tm.cycle + 1 : tm.cycle, nx = nextMode(tm.mode, cycle);
+    if (wasF) setFocus(f => ({ ...f, sessions: [...f.sessions, { id: uid("s"), at: Date.now(), mins: S.focus, label: label || "Focus" }] }));
+    pushNotify(wasF ? "Focus session complete 🌳" : "Break is over", wasF ? `Time for a ${MODES[nx].toLowerCase()}.` : "Ready for the next focus session?", "wb-focus");
+    setTm({ ...tm, mode: nx, cycle, endsAt: S.auto ? Date.now() + dur(nx) : null, left: dur(nx) });
+    setTimeout(() => { done.current = false; }, 500);
+  }, [now, tm.endsAt]);
+  useEffect(() => { let l; if (running && navigator.wakeLock) navigator.wakeLock.request("screen").then(x => l = x).catch(() => {}); return () => { l && l.release().catch(() => {}); }; }, [running]);
+  useEffect(() => { const o = document.title; if (running) document.title = `${String(Math.floor(left / 60000)).padStart(2, "0")}:${String(Math.floor(left / 1000) % 60).padStart(2, "0")} · ${MODES[tm.mode]}`; return () => { document.title = o; }; }, [running, Math.floor(left / 1000)]);
+  const start = () => { done.current = false; setNow(Date.now()); setTm({ ...tm, endsAt: Date.now() + left, left }); };
+  const pause = () => setTm({ ...tm, endsAt: null, left });
+  const setMode = m => setTm({ ...tm, mode: m, endsAt: null, left: dur(m) });
+  const reset = () => { if (running && tm.mode === "focus" && dur("focus") - left > 60000) setFocus(f => ({ ...f, sessions: [...f.sessions, { id: uid("s"), at: Date.now(), mins: 0, dead: true, label: label || "Focus" }] })); setTm({ ...tm, endsAt: null, left: dur(tm.mode) }); };
+  const finishTask = () => { const [k, id] = tm.taskId.split(":"); (k === "w" ? setWork : setPers)(x => ({ ...x, tasks: x.tasks.map(t => t.id === id ? { ...t, status: "done" } : t) })); setTm({ ...tm, taskId: "" }); };
+  const total = dur(tm.mode), C = 2 * Math.PI * 90, mm = String(Math.floor(left / 60000)).padStart(2, "0"), ss = String(Math.floor(left / 1000) % 60).padStart(2, "0");
+  const today = sessions.filter(s => ymd(s.at) === td), grown = today.filter(s => !s.dead), mins = sumBy(grown, s => s.mins);
+  const days = Array.from({ length: 7 }, (_, i) => { const d = new Date(); d.setDate(d.getDate() - 6 + i); const k = ymd(d); return { k, d, m: sumBy(sessions.filter(s => ymd(s.at) === k && !s.dead), s => s.mins) }; });
+  let streak = 0; { const d = new Date(); if (!sessions.some(s => !s.dead && ymd(s.at) === ymd(d))) d.setDate(d.getDate() - 1); while (sessions.some(s => !s.dead && ymd(s.at) === ymd(d))) { streak++; d.setDate(d.getDate() - 1); } }
+  const mx = Math.max(30, ...days.map(d => d.m)), setS = (k, v) => setFocus(f => ({ ...f, settings: { ...f.settings, [k]: v } }));
+  return <div>
+    <div className="ws-h"><div><h2>Focus</h2><p>Pomodoro timer linked to your real tasks. Finish a session to grow a tree; quit early and it withers.</p></div><button className="ws-btn ghost" onClick={() => setCfg(c => !c)}>{cfg ? "Hide settings" : "Settings"}</button></div>
+    {cfg && <div className="ws-card" style={{ marginBottom: 16 }}><div className="two" style={{ gridTemplateColumns: "repeat(auto-fit,minmax(120px,1fr))" }}>
+      {[["focus", "Focus (min)"], ["short", "Short break"], ["long", "Long break"], ["every", "Long break every"]].map(([k, l]) => <label className="fld" key={k}><span>{l}</span><input type="number" min="1" max="180" value={S[k]} onChange={e => setS(k, Math.max(1, +e.target.value || 1))} /></label>)}</div>
+      <div className="pick"><button className={S.auto ? "on" : ""} onClick={() => setS("auto", !S.auto)}>Auto-start next</button><button className={S.sound ? "on" : ""} onClick={() => setS("sound", !S.sound)}>Sound</button></div></div>}
+    <div className="fc"><div className="ws-card fc-main">
+      <div className="pick" style={{ justifyContent: "center" }}>{Object.keys(MODES).map(m => <button key={m} className={tm.mode === m ? "on" : ""} onClick={() => setMode(m)}>{MODES[m]}</button>)}</div>
+      <svg viewBox="0 0 200 200" className="ring"><circle cx="100" cy="100" r="90" fill="none" stroke="#e4e4e7" strokeWidth="9" /><circle cx="100" cy="100" r="90" fill="none" stroke="var(--pri)" strokeWidth="9" strokeLinecap="round" strokeDasharray={C} strokeDashoffset={C * (1 - (1 - left / total))} transform="rotate(-90 100 100)" /><text x="100" y="112" textAnchor="middle" fontSize="42" fontFamily="IBM Plex Mono,monospace" fontWeight="600" fill="#09090b">{mm}:{ss}</text></svg>
+      <div className="ws-act" style={{ justifyContent: "center" }}>{running ? <button className="ws-btn" onClick={pause}>Pause</button> : <button className="ws-btn" onClick={start}>{left < total ? "Resume" : "Start"}</button>}<button className="ws-btn ghost" onClick={reset}>Reset</button><button className="ws-btn ghost" onClick={() => setTm({ ...tm, mode: nextMode(tm.mode, tm.mode === "focus" ? tm.cycle + 1 : tm.cycle), cycle: tm.mode === "focus" ? tm.cycle + 1 : tm.cycle, endsAt: null, left: dur(nextMode(tm.mode, tm.mode === "focus" ? tm.cycle + 1 : tm.cycle)) })}>Skip</button></div>
+      <label className="fld" style={{ marginTop: 16 }}><span>Working on</span><select value={tm.taskId} onChange={e => setTm({ ...tm, taskId: e.target.value })}><option value="">— free label —</option>{["Work", "Personal"].map(g => <optgroup key={g} label={g}>{tasks.filter(t => t.g === g).map(t => <option key={t.k} value={t.k}>{t.title}</option>)}</optgroup>)}</select></label>
+      {!tm.taskId && <input style={{ width: "100%", padding: 9 }} placeholder="What are you focusing on?" value={tm.label} onChange={e => setTm({ ...tm, label: e.target.value })} />}
+      {tm.taskId && <button className="ws-btn ghost" style={{ marginTop: 4 }} onClick={finishTask}>✓ Mark this task done</button>}
+      <p style={{ fontSize: 12, color: "#a1a1aa", margin: "12px 0 0", textAlign: "center" }}>Session {tm.cycle % S.every + 1} of {S.every} · timer keeps running if you switch apps.</p></div>
+    <div className="ws-card"><h4 style={{ margin: "0 0 10px", font: "600 15px Inter" }}>Today</h4>
+      <div className="ws-kpis" style={{ gridTemplateColumns: "repeat(3,1fr)", marginBottom: 14 }}><div className="ws-kpi"><b>{grown.length}</b><span>Sessions</span></div><div className="ws-kpi"><b>{mins}</b><span>Minutes</span></div><div className="ws-kpi"><b>{streak}</b><span>Day streak</span></div></div>
+      <div className="forest">{today.length ? today.map(s => <span key={s.id} title={s.label}>{s.dead ? "🥀" : "🌳"}</span>) : <em style={{ fontSize: 13, color: "#a1a1aa" }}>No trees yet. Start a session!</em>}</div>
+      <div className="wk">{days.map(d => <div key={d.k} title={d.m + " min"}><i style={{ height: Math.max(3, d.m / mx * 70) }} /><span>{d.d.toLocaleDateString(undefined, { weekday: "narrow" })}</span></div>)}</div>
+      {grown.slice(-4).reverse().map(s => <div className="ws-row" key={s.id} style={{ cursor: "default" }}><span>🌳 {s.label}</span><span className="d">{new Date(s.at).toLocaleTimeString([], { hour: "numeric", minute: "2-digit" })} · {s.mins}m</span></div>)}
+    </div></div>
+  </div>;
+}
+
+/* ---------- Budget ---------- */
+function BudgetPage({ st, setPers }) {
+  const b = st.personal.budget, cur = b.currency || "Rs", ui = React.useContext(UICtx);
+  const [m, setM] = useState(() => { const d = new Date(); return new Date(d.getFullYear(), d.getMonth(), 1); }), [dlg, setDlg] = useState(null), [af, setAf] = useState("all");
+  const setB = fn => setPers(p => ({ ...p, budget: fn(p.budget) })), fmt = n => cur + " " + Math.round(n).toLocaleString();
+  const ms = ymd(m).slice(0, 7), bal = a => { let v = +a.balance || 0; b.txns.forEach(t => { if (t.type === "income" && t.accountId === a.id) v += t.amount; if (t.type === "expense" && t.accountId === a.id) v -= t.amount; if (t.type === "transfer") { if (t.accountId === a.id) v -= t.amount; if (t.toId === a.id) v += t.amount; } }); return v; };
+  const mt = b.txns.filter(t => t.date.startsWith(ms) && (af === "all" || t.accountId === af || t.toId === af)).sort((x, y) => y.date.localeCompare(x.date) || (y.created || 0) - (x.created || 0));
+  const spent = sumBy(mt.filter(t => t.type === "expense"), t => t.amount), inc = sumBy(mt.filter(t => t.type === "income"), t => t.amount);
+  const catName = id => b.cats.find(c => c.id === id), accName = id => b.accounts.find(a => a.id === id)?.name || "—";
+  return <div>
+    <div className="ws-h"><div><h2>Budget</h2><p>Accounts, expenses and monthly limits per category.</p></div>
+      <div className="ws-act"><input title="Currency symbol" value={cur} onChange={e => setB(x => ({ ...x, currency: e.target.value }))} style={{ width: 64, padding: 8, textAlign: "center" }} /><button className="ws-btn" onClick={() => b.accounts.length ? setDlg({ t: "txn" }) : setDlg({ t: "acc" })}><Icon name="plus" size={15} /> Add transaction</button></div></div>
+    <div className="ws-sec" style={{ marginTop: 0 }}>Accounts</div>
+    <div className="ws-grid" style={{ gridTemplateColumns: "repeat(auto-fill,minmax(190px,1fr))" }}>
+      {b.accounts.map(a => <div key={a.id} className="ws-card ws-proj" onClick={() => setDlg({ t: "acc", a })} style={{ "--c": "#18181b" }}><p style={{ margin: 0, minHeight: 0 }}>{a.type}</p><h4>{a.name}</h4><b style={{ font: "700 20px 'IBM Plex Mono',monospace", color: bal(a) < 0 ? "#dc2626" : "#09090b" }}>{fmt(bal(a))}</b></div>)}
+      <button className="ws-card ws-proj" style={{ border: "1px dashed #d4d4d8", color: "#71717a", background: "none", minHeight: 96 }} onClick={() => setDlg({ t: "acc" })}>+ Add account</button></div>
+    <div className="ws-h" style={{ margin: "26px 0 12px" }}><div className="ws-act" style={{ alignItems: "center" }}>
+      <button className="ws-btn ghost" onClick={() => setM(new Date(m.getFullYear(), m.getMonth() - 1, 1))}>‹</button><b style={{ minWidth: 130, textAlign: "center" }}>{m.toLocaleDateString(undefined, { month: "long", year: "numeric" })}</b><button className="ws-btn ghost" onClick={() => setM(new Date(m.getFullYear(), m.getMonth() + 1, 1))}>›</button></div>
+      <select value={af} onChange={e => setAf(e.target.value)} style={{ padding: 8 }}><option value="all">All accounts</option>{b.accounts.map(a => <option key={a.id} value={a.id}>{a.name}</option>)}</select></div>
+    <div className="ws-kpis"><div className="ws-kpi"><b>{fmt(spent)}</b><span>Spent</span></div><div className="ws-kpi"><b>{fmt(inc)}</b><span>Income</span></div><div className="ws-kpi"><b style={{ color: inc - spent < 0 ? "#dc2626" : "#15803d" }}>{fmt(inc - spent)}</b><span>Net</span></div></div>
+    <div className="ws-sec" style={{ marginTop: 0 }}>Categories <button className="ws-btn ghost" style={{ minHeight: 30, padding: "0 10px", marginLeft: 8 }} onClick={() => setDlg({ t: "cat" })}>+ New</button></div>
+    <div className="ws-card">{b.cats.map(c => { const s = sumBy(mt.filter(t => t.type === "expense" && t.catId === c.id), t => t.amount), over = c.limit > 0 && s > c.limit;
+      return <div key={c.id} className="cat" onClick={() => setDlg({ t: "cat", c })}><span>{c.icon} {c.name}</span><div className="ws-bar"><i style={{ width: Math.min(100, c.limit ? s / c.limit * 100 : spent ? s / spent * 100 : 0) + "%", background: over ? "#dc2626" : "var(--pri)" }} /></div><em style={{ color: over ? "#dc2626" : "#71717a" }}>{fmt(s)}{c.limit ? " / " + fmt(c.limit) : ""}</em></div>; })}</div>
+    <div className="ws-sec">Transactions</div>
+    <div className="ws-card">{mt.length ? mt.map(t => <div key={t.id} className="ws-row" onClick={() => setDlg({ t: "txn", x: t })}>
+      <span style={{ fontSize: 20 }}>{t.type === "transfer" ? "🔁" : t.type === "income" ? "💰" : catName(t.catId)?.icon || "📦"}</span>
+      <div><div>{t.note || (t.type === "transfer" ? "Transfer" : t.type === "income" ? "Income" : catName(t.catId)?.name || "Expense")}</div><div style={{ fontSize: 12, color: "#a1a1aa" }}>{fmtD(t.date)} · {accName(t.accountId)}{t.type === "transfer" ? " → " + accName(t.toId) : ""}</div></div>
+      <b className="d" style={{ color: t.type === "expense" ? "#dc2626" : t.type === "income" ? "#15803d" : "#52525b", fontSize: 14 }}>{t.type === "expense" ? "−" : t.type === "income" ? "+" : ""}{fmt(t.amount)}</b></div>) : <em style={{ color: "#a1a1aa", fontSize: 13 }}>No transactions this month.</em>}</div>
+    {dlg?.t === "txn" && <TxnDialog b={b} x={dlg.x} onClose={() => setDlg(null)} onSave={x => { setB(bb => ({ ...bb, txns: upsert(bb.txns, x) })); setDlg(null); }} onDelete={id => { setB(bb => ({ ...bb, txns: bb.txns.filter(t => t.id !== id) })); setDlg(null); }} />}
+    {dlg?.t === "acc" && <AccDialog a={dlg.a} used={dlg.a && b.txns.some(t => t.accountId === dlg.a.id || t.toId === dlg.a.id)} onClose={() => setDlg(null)} onSave={a => { setB(bb => ({ ...bb, accounts: upsert(bb.accounts, a) })); setDlg(null); }} onDelete={id => { setB(bb => ({ ...bb, accounts: bb.accounts.filter(a => a.id !== id) })); setDlg(null); }} />}
+    {dlg?.t === "cat" && <CatDialog c={dlg.c} onClose={() => setDlg(null)} onSave={c => { setB(bb => ({ ...bb, cats: upsert(bb.cats, c) })); setDlg(null); }} onDelete={id => { setB(bb => ({ ...bb, cats: bb.cats.filter(c => c.id !== id) })); setDlg(null); }} />}
+  </div>;
+}
+function TxnDialog({ b, x, onSave, onDelete, onClose }) {
+  const [f, setF] = useState(x || { id: uid("x"), type: "expense", amount: "", accountId: b.accounts[0]?.id, toId: b.accounts[1]?.id || "", catId: b.cats[0]?.id, date: todayStr(), note: "", created: Date.now() });
+  const set = (k, v) => setF(o => ({ ...o, [k]: v })), ok = +f.amount > 0 && f.accountId && (f.type !== "transfer" || (f.toId && f.toId !== f.accountId));
+  return <Modal title={x ? "Edit transaction" : "Add transaction"} onClose={onClose}>
+    <div className="pick" style={{ marginBottom: 14 }}>{[["expense", "Expense"], ["income", "Income"], ["transfer", "Transfer"]].map(([k, l]) => <button key={k} className={f.type === k ? "on" : ""} onClick={() => set("type", k)}>{l}</button>)}</div>
+    <div className="two"><label className="fld"><span>Amount</span><input type="number" min="0" autoFocus value={f.amount} onChange={e => set("amount", e.target.value)} /></label>
+      <label className="fld"><span>Date</span><input type="date" value={f.date} onChange={e => set("date", e.target.value)} /></label>
+      <label className="fld"><span>{f.type === "income" ? "Into account" : "From account"}</span><select value={f.accountId} onChange={e => set("accountId", e.target.value)}>{b.accounts.map(a => <option key={a.id} value={a.id}>{a.name}</option>)}</select></label>
+      {f.type === "transfer" ? <label className="fld"><span>To account</span><select value={f.toId} onChange={e => set("toId", e.target.value)}><option value="">— choose —</option>{b.accounts.filter(a => a.id !== f.accountId).map(a => <option key={a.id} value={a.id}>{a.name}</option>)}</select></label>
+        : f.type === "expense" && <label className="fld"><span>Category</span><select value={f.catId} onChange={e => set("catId", e.target.value)}>{b.cats.map(c => <option key={c.id} value={c.id}>{c.icon} {c.name}</option>)}</select></label>}</div>
+    <label className="fld"><span>Note (optional)</span><input value={f.note} onChange={e => set("note", e.target.value)} /></label>
+    <div className="dlg-act">{x && <button className="ws-btn danger" onClick={() => onDelete(f.id)}>Delete</button>}<button className="ws-btn ghost" onClick={onClose}>Cancel</button><button className="ws-btn" disabled={!ok} onClick={() => onSave({ ...f, amount: +f.amount })}>Save</button></div></Modal>;
+}
+function AccDialog({ a, used, onSave, onDelete, onClose }) {
+  const [f, setF] = useState(a || { id: uid("a"), name: "", type: "Cash", balance: 0 }), set = (k, v) => setF(o => ({ ...o, [k]: v }));
+  return <Modal title={a ? "Edit account" : "New account"} sub="Where your money sits: cash, a bank, a wallet app or a card." onClose={onClose}>
+    <label className="fld"><span>Name</span><input autoFocus value={f.name} placeholder="e.g. HBL Savings" onChange={e => set("name", e.target.value)} /></label>
+    <div className="two"><label className="fld"><span>Type</span><select value={f.type} onChange={e => set("type", e.target.value)}>{["Cash", "Bank", "Wallet", "Card", "Savings"].map(t => <option key={t}>{t}</option>)}</select></label>
+      <label className="fld"><span>Opening balance</span><input type="number" value={f.balance} onChange={e => set("balance", +e.target.value)} /></label></div>
+    <div className="dlg-act">{a && <button className="ws-btn danger" disabled={used} title={used ? "Delete its transactions first" : ""} onClick={() => onDelete(f.id)}>{used ? "Has transactions" : "Delete"}</button>}<button className="ws-btn ghost" onClick={onClose}>Cancel</button><button className="ws-btn" disabled={!f.name.trim()} onClick={() => onSave({ ...f, name: f.name.trim() })}>Save</button></div></Modal>;
+}
+function CatDialog({ c, onSave, onDelete, onClose }) {
+  const [f, setF] = useState(c || { id: uid("c"), name: "", icon: "🏷️", limit: 0 }), set = (k, v) => setF(o => ({ ...o, [k]: v }));
+  return <Modal title={c ? "Edit category" : "New category"} onClose={onClose}>
+    <div className="two" style={{ gridTemplateColumns: "80px 1fr" }}><label className="fld"><span>Icon</span><input value={f.icon} onChange={e => set("icon", e.target.value)} style={{ textAlign: "center", fontSize: 20 }} /></label>
+      <label className="fld"><span>Name</span><input autoFocus value={f.name} onChange={e => set("name", e.target.value)} /></label></div>
+    <label className="fld"><span>Monthly limit (0 = none)</span><input type="number" min="0" value={f.limit} onChange={e => set("limit", +e.target.value || 0)} /></label>
+    <div className="dlg-act">{c && <button className="ws-btn danger" onClick={() => onDelete(f.id)}>Delete</button>}<button className="ws-btn ghost" onClick={onClose}>Cancel</button><button className="ws-btn" disabled={!f.name.trim()} onClick={() => onSave({ ...f, name: f.name.trim() })}>Save</button></div></Modal>;
+}
+
+/* ---------- Reading ---------- */
+const pagesOn = (r, d) => sumBy(r.log.filter(l => l.date === d), l => l.pages);
+function readStreak(r) { const g = r.goal.pages || 1, d = new Date(); if (pagesOn(r, ymd(d)) < g) d.setDate(d.getDate() - 1); let n = 0; while (pagesOn(r, ymd(d)) >= g) { n++; d.setDate(d.getDate() - 1); } return n; }
+function ReadingBanner({ st, go }) {
+  const r = st.personal.reading, td = todayStr(), p = pagesOn(r, td), g = r.goal.pages || 1; if (!r.goal.on) return null;
+  const nag = p < g && new Date().getTime() >= atMs(td, r.goal.at);
+  return <div className="ws-card" style={{ marginBottom: 16, cursor: "pointer", borderColor: nag ? "#fecaca" : "#e4e4e7", background: nag ? "#fef2f2" : "#fff" }} onClick={() => go("reading")}>
+    <div style={{ display: "flex", justifyContent: "space-between", fontSize: 14, marginBottom: 8 }}><b>📖 Reading today</b><span>{p} / {g} pages{p >= g ? " ✓" : ""}</span></div><div className="ws-bar"><i style={{ width: Math.min(100, p / g * 100) + "%" }} /></div>
+    {nag && <p style={{ margin: "8px 0 0", fontSize: 13, color: "#b91c1c" }}>You haven't hit your reading goal. Don't break your {readStreak(r)}-day streak.</p>}</div>;
+}
+function ReadingPage({ st, setPers, goFocus }) {
+  const r = st.personal.reading, td = todayStr(), [dlg, setDlg] = useState(null), [bk, setBk] = useState(""), [pg, setPg] = useState(""), [mn, setMn] = useState(""), ui = React.useContext(UICtx);
+  const setR = fn => setPers(p => ({ ...p, reading: fn(p.reading) })), g = r.goal.pages || 1, today = pagesOn(r, td), cur = r.books.filter(b => b.status === "Reading"), sel = bk || cur[0]?.id || "";
+  const log = () => { const n = Math.floor(+pg); if (!sel || !(n > 0)) return; setR(x => ({ ...x, log: [...x.log, { id: uid("l"), date: td, bookId: sel, pages: n, mins: +mn || 0 }], books: x.books.map(b => b.id === sel ? { ...b, page: b.pages ? Math.min(b.pages, (b.page || 0) + n) : (b.page || 0) + n, status: b.pages && (b.page || 0) + n >= b.pages ? "Finished" : b.status } : b) })); setPg(""); setMn(""); window.__toast && window.__toast(`Logged ${n} pages`); };
+  const days = Array.from({ length: 7 }, (_, i) => { const d = new Date(); d.setDate(d.getDate() - 6 + i); return { d, p: pagesOn(r, ymd(d)) }; }), mx = Math.max(g, ...days.map(d => d.p));
+  const bookCard = b => <div key={b.id} className="ws-card" style={{ cursor: "pointer" }} onClick={() => setDlg(b)}><h4 style={{ margin: 0, font: "600 15px Inter" }}>{b.title}</h4><p style={{ margin: "2px 0 10px", fontSize: 13, color: "#71717a" }}>{b.author}</p>
+    <div className="ws-bar"><i style={{ width: (b.pages ? Math.min(100, (b.page || 0) / b.pages * 100) : 0) + "%" }} /></div><p style={{ margin: "6px 0 0", fontSize: 12, color: "#71717a" }}>{b.status === "Finished" ? "Finished ✓" : `Page ${b.page || 0}${b.pages ? " of " + b.pages : ""}`}</p></div>;
+  return <div>
+    <div className="ws-h"><div><h2>Reading</h2><p>A daily goal with a streak, and reminders that keep nagging until you've read.</p></div><button className="ws-btn" onClick={() => setDlg({})}><Icon name="plus" size={15} /> Add book</button></div>
+    <div className="ws-card" style={{ marginBottom: 16 }}>
+      <div style={{ display: "flex", justifyContent: "space-between", flexWrap: "wrap", gap: 8, marginBottom: 10 }}><b style={{ fontSize: 15 }}>Today: {today} / {g} pages {today >= g && "✓"}</b><span className="chip">🔥 {readStreak(r)}-day streak</span></div>
+      <div className="ws-bar" style={{ height: 10 }}><i style={{ width: Math.min(100, today / g * 100) + "%" }} /></div>
+      <div className="wk" style={{ marginTop: 14 }}>{days.map((d, i) => <div key={i} title={d.p + " pages"}><i style={{ height: Math.max(3, d.p / mx * 70), background: d.p >= g ? "#16a34a" : "#d4d4d8" }} /><span>{d.d.toLocaleDateString(undefined, { weekday: "narrow" })}</span></div>)}</div></div>
+    <div className="ws-card" style={{ marginBottom: 16 }}><div className="ws-sec" style={{ margin: "0 0 10px" }}>Log reading</div>
+      {cur.length ? <div className="ws-act"><select value={sel} onChange={e => setBk(e.target.value)} style={{ padding: 9, flex: "1 1 180px" }}>{cur.map(b => <option key={b.id} value={b.id}>{b.title}</option>)}</select>
+        <input type="number" min="1" placeholder="Pages" value={pg} onChange={e => setPg(e.target.value)} style={{ width: 90, padding: 9 }} onKeyDown={e => e.key === "Enter" && log()} /><input type="number" min="0" placeholder="Minutes" value={mn} onChange={e => setMn(e.target.value)} style={{ width: 100, padding: 9 }} />
+        <button className="ws-btn" onClick={log}>Log</button><button className="ws-btn ghost" onClick={() => goFocus("Reading: " + (r.books.find(b => b.id === sel)?.title || "book"))}>Start 25-min session</button></div>
+        : <em style={{ fontSize: 13, color: "#a1a1aa" }}>Add a book and set it to "Reading" to start logging.</em>}</div>
+    <div className="ws-card" style={{ marginBottom: 16 }}><div className="ws-sec" style={{ margin: "0 0 10px" }}>Reading commitment</div>
+      <div className="ws-act" style={{ alignItems: "center" }}><label style={{ fontSize: 13 }}>Pages per day <input type="number" min="1" value={r.goal.pages} onChange={e => setR(x => ({ ...x, goal: { ...x.goal, pages: Math.max(1, +e.target.value || 1) } }))} style={{ width: 70, padding: 7, marginLeft: 6 }} /></label>
+        <label style={{ fontSize: 13 }}>Remind from <input type="time" value={r.goal.at} onChange={e => setR(x => ({ ...x, goal: { ...x.goal, at: e.target.value } }))} style={{ padding: 7, marginLeft: 6 }} /></label>
+        <div className="pick"><button className={r.goal.on ? "on" : ""} onClick={() => setR(x => ({ ...x, goal: { ...x.goal, on: !x.goal.on } }))}>{r.goal.on ? "Nagging on" : "Nagging off"}</button></div></div>
+      <p style={{ fontSize: 12, color: "#a1a1aa", margin: "8px 0 0" }}>From that time, you'll get a notification every 30 minutes until you reach your page goal.</p></div>
+    {cur.length > 0 && <><div className="ws-sec" style={{ marginTop: 0 }}>Currently reading</div><div className="ws-grid">{cur.map(bookCard)}</div></>}
+    {r.books.some(b => b.status === "Want to read") && <><div className="ws-sec">Want to read</div><div className="ws-grid">{r.books.filter(b => b.status === "Want to read").map(bookCard)}</div></>}
+    {r.books.some(b => b.status === "Finished") && <><div className="ws-sec">Finished</div><div className="ws-grid">{r.books.filter(b => b.status === "Finished").map(bookCard)}</div></>}
+    {dlg && <BookDialog b={dlg.id ? dlg : null} onClose={() => setDlg(null)} onSave={b => { setR(x => ({ ...x, books: upsert(x.books, b) })); setDlg(null); }} onDelete={id => { setR(x => ({ ...x, books: x.books.filter(b => b.id !== id) })); setDlg(null); }} />}
+  </div>;
+}
+function BookDialog({ b, onSave, onDelete, onClose }) {
+  const [f, setF] = useState(b || { id: uid("b"), title: "", author: "", pages: "", page: 0, status: "Reading" }), set = (k, v) => setF(o => ({ ...o, [k]: v }));
+  return <Modal title={b ? "Edit book" : "Add book"} onClose={onClose}>
+    <label className="fld"><span>Title</span><input autoFocus value={f.title} onChange={e => set("title", e.target.value)} /></label>
+    <label className="fld"><span>Author</span><input value={f.author} onChange={e => set("author", e.target.value)} /></label>
+    <div className="two"><label className="fld"><span>Total pages</span><input type="number" min="1" value={f.pages} onChange={e => set("pages", +e.target.value || "")} /></label><label className="fld"><span>Current page</span><input type="number" min="0" value={f.page} onChange={e => set("page", +e.target.value || 0)} /></label></div>
+    <label className="fld"><span>Status</span><select value={f.status} onChange={e => set("status", e.target.value)}>{["Reading", "Want to read", "Finished"].map(s => <option key={s}>{s}</option>)}</select></label>
+    <div className="dlg-act">{b && <button className="ws-btn danger" onClick={() => onDelete(f.id)}>Delete</button>}<button className="ws-btn ghost" onClick={onClose}>Cancel</button><button className="ws-btn" disabled={!f.title.trim()} onClick={() => onSave({ ...f, title: f.title.trim() })}>Save</button></div></Modal>;
+}
+
+/* ---------- Reminders ---------- */
+function openDated(st) {
+  const out = [], td = todayStr(), mk = (id, title, sub, date, time, remind, to, created) => { const at = atMs(date, time) - (time ? (remind || 0) * 60000 : 0); out.push({ id, title, sub, date, time, at, to, created, skip: !!(created && created > at && date === td) }); };
+  st.work.tasks.forEach(t => t.status !== "done" && t.dueDate && mk("w" + t.id, t.title, "Work task", t.dueDate, t.dueTime, t.remind, { space: "work", page: "project:" + (t.projectId || "inbox") }, t.created));
+  st.personal.tasks.forEach(t => t.status !== "done" && t.dueDate && mk("p" + t.id, t.title, "Personal task", t.dueDate, t.dueTime, t.remind, { space: "personal", page: "ptasks" }, t.created));
+  st.lab.pairs.forEach(p => { if (p.targetDate && !["Completed", "Cancelled"].includes(planStatus(p))) mk("l" + p.id, "Test " + p.id, "Charge Lab", p.targetDate, "", 0, { space: "work", page: "lab", pair: p.id }); });
+  const r = st.personal.reading, pr = pagesOn(r, td);
+  if (r.goal.on && pr < r.goal.pages) out.push({ id: "read" + td, title: `Read ${r.goal.pages - pr} more page${r.goal.pages - pr === 1 ? "" : "s"}`, sub: "Reading goal", date: td, time: r.goal.at, at: atMs(td, r.goal.at), repeat: 30, to: { space: "personal", page: "reading" } });
+  return out.sort((a, b) => a.at - b.at);
+}
+async function pushNotify(title, body, tag) {
   try {
     if (typeof Notification === "undefined" || Notification.permission !== "granted") return;
-    const reg = navigator.serviceWorker && await navigator.serviceWorker.getRegistration();
-    if (reg) return reg.showNotification(title, { body, tag: "wb-due", icon: "icon-192.png", badge: "icon-192.png" });
-    new Notification(title, { body, tag: "wb-due" });
+    const reg = navigator.serviceWorker && await navigator.serviceWorker.getRegistration(), o = { body, tag: tag || "wb-due", icon: "icon-192.png", badge: "icon-192.png" };
+    if (reg) return reg.showNotification(title, o); new Notification(title, o);
   } catch (e) {}
 }
 
 /* ---------- Root shell ---------- */
-const WS_START = ({ journal: ["personal", "journal"], ptasks: ["personal", "ptasks"], today: ["personal", "today"], calendar: ["work", "calendar"], lab: ["work", "lab"] })[new URLSearchParams(location.search).get("go")] || ["work", "overview"];
+const WS_START = ({ journal: ["personal", "journal"], ptasks: ["personal", "ptasks"], today: ["personal", "today"], budget: ["personal", "budget"], reading: ["personal", "reading"], focus: ["work", "focus"], inbox: ["work", "project:inbox"], calendar: ["work", "calendar"], lab: ["work", "lab"] })[new URLSearchParams(location.search).get("go")] || ["work", "overview"];
 function Root() {
   const [st, setSt] = useState(null), [err, setErr] = useState(""), [space, setSpace] = useState(WS_START[0]), [page, setPage] = useState(WS_START[1]);
-  const [labReq, setLabReq] = useState(null), [dlg, setDlg] = useState(null), [toast, setToast] = useState(""), [bell, setBell] = useState(false);
-  const [locked, setLocked] = useState(false), [keyIn, setKeyIn] = useState(""), dirty = useRef(false);
-  const [perm, setPerm] = useState(typeof Notification !== "undefined" ? Notification.permission : "unsupported"), ready = useRef(false);
+  const [labReq, setLabReq] = useState(null), [dlg, setDlg] = useState(null), [toast, setToast] = useState(""), [bell, setBell] = useState(false), [fp, setFp] = useState(null);
+  const [locked, setLocked] = useState(false), [keyIn, setKeyIn] = useState(""), dirty = useRef(false), ready = useRef(false);
+  const [perm, setPerm] = useState(typeof Notification !== "undefined" ? Notification.permission : "unsupported");
   useEffect(() => {
     window.__toast = m => { setToast(m); clearTimeout(window.__tt); window.__tt = setTimeout(() => setToast(""), 4500); };
-    window.__ask = (msg, fn) => setDlg({ t: "ask", msg, fn });
-    window.alert = m => window.__toast(String(m));
+    window.__ask = (msg, fn) => setDlg({ t: "ask", msg, fn }); window.alert = m => window.__toast(String(m));
   }, []);
-  useEffect(() => { (async () => { try { const d = await wsLoad(); setSt(d ? wsNormalize(d) : wsSeed()); ready.current = true; } catch (e) { if (e.message === "LOCKED") setLocked(true); else setErr("Could not load data: " + e.message + (WS_API ? " — check MONGODB_URI in Vercel and visit /api/health" : "")); } })(); }, []);
-  useEffect(() => { // pull newer data when you come back to the app (phone <-> web)
+  useEffect(() => { (async () => { try { const d = await wsLoad(); setSt(wsNormalize(d)); ready.current = true; } catch (e) { if (e.message === "LOCKED") setLocked(true); else setErr("Could not load data: " + e.message + (WS_API ? " — check MONGODB_URI in Vercel and visit /api/health" : "")); } })(); }, []);
+  useEffect(() => {
     if (!WS_API) return;
     const h = async () => { if (document.visibilityState !== "visible" || dirty.current || !ready.current) return; try { const d = await wsLoad(); if (d) setSt(s => JSON.stringify(wsNormalize(d)) === JSON.stringify(s) ? s : wsNormalize(d)); } catch (e) {} };
     document.addEventListener("visibilitychange", h); return () => document.removeEventListener("visibilitychange", h);
   }, []);
   useEffect(() => { if (!st || !ready.current) return; dirty.current = true; const t = setTimeout(() => wsSave(st).then(() => { dirty.current = false; setErr(""); }).catch(e => setErr("Couldn't save: " + e.message)), 350); return () => clearTimeout(t); }, [st]);
-  useEffect(() => { // one-tap permission on first interaction, so no setup step is needed
+  useEffect(() => {
     if (typeof Notification === "undefined" || Notification.permission !== "default") return;
     const h = () => Notification.requestPermission().then(p => setPerm(p)).catch(() => {});
     window.addEventListener("pointerdown", h, { once: true }); return () => window.removeEventListener("pointerdown", h);
   }, []);
-  useEffect(() => { // installable app + background checks (only when hosted over https)
+  useEffect(() => {
     if (!("serviceWorker" in navigator) || !/^https?:$/.test(location.protocol)) return;
     navigator.serviceWorker.register("sw.js").then(async reg => { try { if (reg.periodicSync) await reg.periodicSync.register("wb-due", { minInterval: 6 * 3600 * 1000 }); } catch (e) {} }).catch(() => {});
   }, []);
   useEffect(() => {
     if (!st) return;
     const run = () => {
-      const td = todayStr(), items = openDated(st);
-      let seen; try { seen = JSON.parse(localStorage.getItem("wb-notified") || "{}"); } catch (e) { seen = {}; }
+      const now = Date.now(), td = todayStr(), items = openDated(st); let seen; try { seen = JSON.parse(localStorage.getItem("wb-notified") || "{}"); } catch (e) { seen = {}; }
       if (seen.d !== td) seen = { d: td, ids: [] };
-      const fresh = items.filter(i => i.date <= td && !seen.ids.includes(i.id));
-      if (fresh.length) { pushNotify(fresh.length === 1 ? fresh[0].title : `${fresh.length} items need attention`, fresh.length === 1 ? `${fresh[0].sub} · ${fresh[0].date < td ? "overdue" : "due today"}` : fresh.slice(0, 4).map(i => i.title).join(", ")); seen.ids.push(...fresh.map(i => i.id)); try { localStorage.setItem("wb-notified", JSON.stringify(seen)); } catch (e) {} }
+      const keyOf = i => i.id + "@" + i.at + (i.repeat ? ":" + Math.floor((now - i.at) / (i.repeat * 60000)) : "");
+      const fresh = items.filter(i => i.at <= now && !i.skip && !seen.ids.includes(keyOf(i)));
+      if (fresh.length) {
+        const f = fresh[0]; pushNotify(fresh.length === 1 ? f.title : `${fresh.length} items need attention`, fresh.length === 1 ? `${f.sub} · ${f.repeat ? "time to read" : f.time ? "due " + hhmm(f.time) : f.date < td ? "overdue" : "due today"}` : fresh.slice(0, 4).map(i => i.title).join(", "));
+        seen.ids.push(...fresh.map(keyOf)); try { localStorage.setItem("wb-notified", JSON.stringify(seen)); } catch (e) {}
+      }
       try { caches.open("wb-data").then(c => { c.put("due.json", new Response(JSON.stringify({ items }))); c.put("notified.json", new Response(JSON.stringify(seen))); }); } catch (e) {}
     };
-    run(); const t = setInterval(run, 60000); return () => clearInterval(t);
+    run(); const t = setInterval(run, 30000); return () => clearInterval(t);
   }, [st]);
   if (locked) return <div className="dlg-bg" style={{ background: "#fff" }}><div className="dlg" style={{ border: "1px solid #e4e4e7" }}><h3>Workbench is locked</h3><p className="sub">Enter your access key to open your data.</p>
     <input type="password" autoFocus value={keyIn} onChange={e => setKeyIn(e.target.value)} onKeyDown={e => e.key === "Enter" && (localStorage.setItem("wb-key", keyIn), location.reload())} style={{ width: "100%", padding: 10 }} />
     <div className="dlg-act"><button className="ws-btn" onClick={() => { localStorage.setItem("wb-key", keyIn); location.reload(); }}>Unlock</button></div></div></div>;
   if (!st) return <div style={{ padding: 40, color: "#71717a" }}>{err || "Loading…"}</div>;
-  const setWork = fn => setSt(s => ({ ...s, work: fn(s.work) })), setPers = fn => setSt(s => ({ ...s, personal: fn(s.personal) })), setLab = fn => setSt(s => ({ ...s, lab: fn(s.lab) }));
+  const setWork = fn => setSt(s => ({ ...s, work: fn(s.work) })), setPers = fn => setSt(s => ({ ...s, personal: fn(s.personal) })), setLab = fn => setSt(s => ({ ...s, lab: fn(s.lab) })), setFocus = fn => setSt(s => ({ ...s, focus: fn(s.focus) }));
   const go = p => { setPage(p); setBell(false); window.scrollTo(0, 0); };
   const switchSpace = s => { setSpace(s); setPage(s === "work" ? "overview" : "today"); };
   const openPair = id => { setSpace("work"); setPage("lab"); setLabReq({ tab: id ? "testing" : "planning", pairId: id, n: Date.now() }); setBell(false); };
   const goItem = it => { if (it.to.pair) return openPair(it.to.pair); setSpace(it.to.space); setPage(it.to.page); setBell(false); };
+  const goFocus = label => { setFp({ label, n: Date.now() }); go("focus"); };
   const saveProject = f => { if (f.id) setWork(w => ({ ...w, projects: w.projects.map(x => x.id === f.id ? f : x) })); else { const id = uid("pr"); setWork(w => ({ ...w, projects: [...w.projects, { ...f, id }] })); setSpace("work"); setPage("project:" + id); } setDlg(null); };
   const ui = { ask: (msg, fn) => setDlg({ t: "ask", msg, fn }), projectForm: p => setDlg({ t: "project", p: p || null }) };
-  const due = openDated(st).filter(i => i.date <= todayStr());
+  const nowMs = Date.now(), td = todayStr(), due = openDated(st).filter(i => i.date < td || i.at <= nowMs);
   const NI = ({ id, icon, dot, children }) => <button className={`ni ${page === id ? "on" : ""}`} onClick={() => go(id)}>{dot ? <span className="ws-dot" style={{ background: dot }} /> : <Icon name={icon} size={18} />}{children}</button>;
   const Switch = <div className="ws-switch"><button className={space === "work" ? "on" : ""} onClick={() => switchSpace("work")}>Work</button><button className={space === "personal" ? "on" : ""} onClick={() => switchSpace("personal")}>Personal</button></div>;
   const Bell = <button className="ws-ic" title="Reminders" onClick={() => setBell(b => !b)}><Icon name="bell" size={19} />{due.length > 0 && <i>{due.length}</i>}</button>;
-  const view = space === "personal"
-    ? (page === "journal" ? <Journal st={st} setPers={setPers} /> : page === "ptasks" ? <PersonalTasks st={st} setPers={setPers} /> : <PersonalToday st={st} setPers={setPers} go={go} />)
+  const view = page === "focus" ? <FocusPage st={st} setFocus={setFocus} setWork={setWork} setPers={setPers} preset={fp} />
+    : space === "personal"
+    ? (page === "journal" ? <Journal st={st} setPers={setPers} /> : page === "ptasks" ? <PersonalTasks st={st} setPers={setPers} /> : page === "budget" ? <BudgetPage st={st} setPers={setPers} /> : page === "reading" ? <ReadingPage st={st} setPers={setPers} goFocus={goFocus} /> : <PersonalToday st={st} setPers={setPers} go={go} />)
     : page === "lab" ? <LabApp data={st.lab} persist={next => setLab(() => next)} req={labReq} />
     : page === "calendar" ? <CalendarPage st={st} go={go} openPair={openPair} />
     : page === "people" ? <PeoplePage st={st} setWork={setWork} />
     : page.startsWith("project:") ? <ProjectPage key={page} st={st} setWork={setWork} pid={page.slice(8)} go={go} />
     : <WorkOverview st={st} go={go} openPair={openPair} />;
-  const bn = space === "work" ? [["overview", "home", "Home"], ["lab", "gauge", "Lab"], ["calendar", "cal", "Calendar"], ["people", "users", "People"]] : [["today", "home", "Today"], ["journal", "book", "Journal"], ["ptasks", "check", "Tasks"]];
+  const bn = space === "work" ? [["overview", "home", "Home"], ["project:inbox", "inbox", "Inbox"], ["lab", "gauge", "Lab"], ["calendar", "cal", "Calendar"], ["focus", "timer", "Focus"]]
+    : [["today", "home", "Today"], ["ptasks", "check", "Tasks"], ["journal", "book", "Journal"], ["budget", "wallet", "Money"], ["reading", "bookopen", "Reading"], ["focus", "timer", "Focus"]];
   return <UICtx.Provider value={ui}><div className={`ws ${space}`}>
     <aside className="ws-side">
       <div className="ws-brand"><div className="ws-logo"><Icon name="kanban" size={19} /></div><b>Workbench</b>{Bell}</div>
       {Switch}
       <div className="ws-nav">{space === "work" ? <>
-        <NI id="overview" icon="home">Overview</NI>
+        <NI id="overview" icon="home">Overview</NI><NI id="project:inbox" icon="inbox">Inbox</NI>
         <h6>PROJECTS</h6>{st.work.projects.map(p => <NI key={p.id} id={"project:" + p.id} dot={p.color}>{p.name}</NI>)}
         <h6>LAB</h6><NI id="lab" icon="gauge">Charge Verification</NI>
-        <h6>PLAN</h6><NI id="calendar" icon="cal">Calendar</NI><NI id="people" icon="users">People</NI>
-      </> : <><NI id="today" icon="home">Today</NI><NI id="journal" icon="book">Journal</NI><NI id="ptasks" icon="check">My tasks</NI></>}</div>
+        <h6>PLAN</h6><NI id="calendar" icon="cal">Calendar</NI><NI id="people" icon="users">People</NI><NI id="focus" icon="timer">Focus timer</NI>
+      </> : <><NI id="today" icon="home">Today</NI><NI id="ptasks" icon="check">My tasks</NI><NI id="journal" icon="book">Journal</NI>
+        <h6>LIFE</h6><NI id="budget" icon="wallet">Budget</NI><NI id="reading" icon="bookopen">Reading</NI><NI id="focus" icon="timer">Focus timer</NI></>}</div>
       <div className="ws-foot"><button className="ni" onClick={() => setDlg({ t: "backup" })}><Icon name="dl" size={17} />Backup & restore</button>{WS_API ? "Synced to your server" : "Saved in this browser"}</div>
     </aside>
     <div className="ws-col">
@@ -2490,7 +2693,7 @@ function Root() {
       <div className="ws-bnav">{bn.map(([id, ic, l]) => <button key={id} className={page === id ? "on" : ""} onClick={() => go(id)}><Icon name={ic} size={22} /><span>{l}</span></button>)}</div>
     </div>
     {bell && <div className="bell-pop"><h5>Needs attention · {due.length}</h5>
-      {due.length ? due.slice(0, 8).map(i => <div key={i.id} className="ws-row" onClick={() => goItem(i)}><span>{i.title}</span><span className={`d ${i.date < todayStr() ? "late" : ""}`}>{i.date < todayStr() ? "Overdue" : "Today"}</span></div>) : <p className="sub" style={{ margin: 0, fontSize: 13, color: "#71717a" }}>Nothing due. You're all caught up.</p>}
+      {due.length ? due.slice(0, 8).map(i => <div key={i.id} className="ws-row" onClick={() => goItem(i)}><span>{i.title}</span><span className={`d ${i.date < td ? "late" : ""}`}>{i.date < td ? "Overdue" : i.time ? hhmm(i.time) : "Today"}</span></div>) : <p className="sub" style={{ margin: 0, fontSize: 13, color: "#71717a" }}>Nothing due. You're all caught up.</p>}
       <p style={{ fontSize: 11, color: "#a1a1aa", margin: "10px 0 0" }}>{perm === "granted" ? "System notifications are on." : perm === "denied" ? "Notifications are blocked in your browser settings." : perm === "unsupported" ? "This browser can't show system notifications." : "Click anywhere to allow system notifications."}</p></div>}
     {dlg?.t === "ask" && <ConfirmDialog msg={dlg.msg} onYes={() => { dlg.fn(); setDlg(null); }} onClose={() => setDlg(null)} />}
     {dlg?.t === "project" && <ProjectDialog p={dlg.p} onSave={saveProject} onClose={() => setDlg(null)} />}
