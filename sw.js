@@ -1,5 +1,5 @@
 // Workbench service worker: offline shell + reminder notifications
-const V = "wb-v1", SHELL = ["./", "index.html", "manifest.webmanifest", "icon-192.png", "icon-512.png"];
+const V = "wb-v2", SHELL = ["./", "index.html", "manifest.webmanifest", "icon-192.png", "icon-512.png"];
 self.addEventListener("install", e => e.waitUntil(caches.open(V).then(c => c.addAll(SHELL)).then(() => self.skipWaiting())));
 self.addEventListener("activate", e => e.waitUntil(caches.keys().then(ks => Promise.all(ks.filter(k => k !== V && k !== "wb-data").map(k => caches.delete(k)))).then(() => self.clients.claim())));
 self.addEventListener("fetch", e => {
@@ -15,13 +15,15 @@ self.addEventListener("notificationclick", e => {
 // Best-effort background check (installed Chrome/Android app); the page keeps due.json up to date
 async function dueCheck() {
   const dc = await caches.open("wb-data"), r = await dc.match("due.json"); if (!r) return;
-  const { items } = await r.json(), t = new Date();
+  const { items } = await r.json(), now = Date.now(), t = new Date();
   const ds = `${t.getFullYear()}-${String(t.getMonth() + 1).padStart(2, "0")}-${String(t.getDate()).padStart(2, "0")}`;
   const nr = await dc.match("notified.json"); let n = nr ? await nr.json() : { d: "", ids: [] };
   if (n.d !== ds) n = { d: ds, ids: [] };
-  const fresh = items.filter(i => i.date <= ds && !n.ids.includes(i.id)); if (!fresh.length) return;
+  const keyOf = i => i.id + "@" + i.at + (i.repeat ? ":" + Math.floor((now - i.at) / (i.repeat * 60000)) : "");
+  const fresh = items.filter(i => i.at <= now && !(i.created && i.created > i.at && i.date === ds) && !n.ids.includes(keyOf(i)));
+  if (!fresh.length) return;
   await self.registration.showNotification(fresh.length === 1 ? fresh[0].title : `${fresh.length} items need attention`,
     { body: fresh.slice(0, 4).map(i => i.title).join(", "), tag: "wb-due", icon: "icon-192.png", badge: "icon-192.png" });
-  n.ids.push(...fresh.map(i => i.id)); await dc.put("notified.json", new Response(JSON.stringify(n)));
+  n.ids.push(...fresh.map(keyOf)); await dc.put("notified.json", new Response(JSON.stringify(n)));
 }
 self.addEventListener("periodicsync", e => { if (e.tag === "wb-due") e.waitUntil(dueCheck()); });
